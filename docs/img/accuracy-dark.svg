@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="366" viewBox="0 0 780 366" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<title id="t">Accuracy on 50 real CI failures</title><desc id="d">Regex rules (B0): what failed 42.0%, whose problem 30.0%; One AI call (B1): what failed 89.3%, whose problem 74.7%; Agent (B2): what failed 93.3%, whose problem 82.0%; Agent + memory (B3): what failed 91.3%, whose problem 78.7%; Agent on Sonnet 5.5: what failed 91.3%, whose problem 88.0%</desc>
+<text x="16.0" y="22.0" fill="#f0f6fc" font-size="15" text-anchor="start" font-weight="600" dominant-baseline="middle">Accuracy on 50 real CI failures</text>
+<text x="16.0" y="42.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">Mean of 3 runs. Whiskers show run-to-run spread, not statistical uncertainty: with 50 cases, gaps under ~10 points can be noise.</text>
+<text x="178.0" y="115.0" fill="#f0f6fc" font-size="12" text-anchor="end" font-weight="400" dominant-baseline="middle">Regex rules (B0)</text>
+<path d="M190.0,100.0 H400.2 A4.0,4.0 0 0 1 404.2,104.0 V110.0 A4.0,4.0 0 0 1 400.2,114.0 H190.0 Z" fill="#3987e5"/>
+<text x="410.2" y="107.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">42.0%</text>
+<path d="M190.0,116.0 H339.0 A4.0,4.0 0 0 1 343.0,120.0 V126.0 A4.0,4.0 0 0 1 339.0,130.0 H190.0 Z" fill="#d95926"/>
+<text x="349.0" y="123.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">30.0%</text>
+<text x="178.0" y="161.0" fill="#f0f6fc" font-size="12" text-anchor="end" font-weight="400" dominant-baseline="middle">One AI call (B1)</text>
+<path d="M190.0,146.0 H641.6 A4.0,4.0 0 0 1 645.6,150.0 V156.0 A4.0,4.0 0 0 1 641.6,160.0 H190.0 Z" fill="#3987e5"/>
+<line x1="638.8" y1="153.0" x2="649.0" y2="153.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="638.8" y1="149.0" x2="638.8" y2="157.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="649.0" y1="149.0" x2="649.0" y2="157.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<text x="655.0" y="153.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">89.3%</text>
+<path d="M190.0,162.0 H566.8 A4.0,4.0 0 0 1 570.8,166.0 V172.0 A4.0,4.0 0 0 1 566.8,176.0 H190.0 Z" fill="#d95926"/>
+<line x1="567.4" y1="169.0" x2="577.6" y2="169.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="567.4" y1="165.0" x2="567.4" y2="173.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="577.6" y1="165.0" x2="577.6" y2="173.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<text x="583.6" y="169.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">74.7%</text>
+<text x="178.0" y="207.0" fill="#f0f6fc" font-size="12" text-anchor="end" font-weight="600" dominant-baseline="middle">Agent (B2)</text>
+<path d="M190.0,192.0 H662.0 A4.0,4.0 0 0 1 666.0,196.0 V202.0 A4.0,4.0 0 0 1 662.0,206.0 H190.0 Z" fill="#3987e5"/>
+<line x1="659.2" y1="199.0" x2="669.4" y2="199.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="659.2" y1="195.0" x2="659.2" y2="203.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="669.4" y1="195.0" x2="669.4" y2="203.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<text x="675.4" y="199.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">93.3%</text>
+<path d="M190.0,208.0 H604.2 A4.0,4.0 0 0 1 608.2,212.0 V218.0 A4.0,4.0 0 0 1 604.2,222.0 H190.0 Z" fill="#d95926"/>
+<line x1="598.0" y1="215.0" x2="618.4" y2="215.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="598.0" y1="211.0" x2="598.0" y2="219.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="618.4" y1="211.0" x2="618.4" y2="219.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<text x="624.4" y="215.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">82.0%</text>
+<text x="178.0" y="253.0" fill="#f0f6fc" font-size="12" text-anchor="end" font-weight="400" dominant-baseline="middle">Agent + memory (B3)</text>
+<path d="M190.0,238.0 H651.8 A4.0,4.0 0 0 1 655.8,242.0 V248.0 A4.0,4.0 0 0 1 651.8,252.0 H190.0 Z" fill="#3987e5"/>
+<line x1="649.0" y1="245.0" x2="659.2" y2="245.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="649.0" y1="241.0" x2="649.0" y2="249.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="659.2" y1="241.0" x2="659.2" y2="249.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<text x="665.2" y="245.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">91.3%</text>
+<path d="M190.0,254.0 H587.2 A4.0,4.0 0 0 1 591.2,258.0 V264.0 A4.0,4.0 0 0 1 587.2,268.0 H190.0 Z" fill="#d95926"/>
+<line x1="577.6" y1="261.0" x2="608.2" y2="261.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="577.6" y1="257.0" x2="577.6" y2="265.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="608.2" y1="257.0" x2="608.2" y2="265.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<text x="614.2" y="261.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">78.7%</text>
+<text x="178.0" y="299.0" fill="#f0f6fc" font-size="12" text-anchor="end" font-weight="400" dominant-baseline="middle">Agent on Sonnet 5.5</text>
+<path d="M190.0,284.0 H651.8 A4.0,4.0 0 0 1 655.8,288.0 V294.0 A4.0,4.0 0 0 1 651.8,298.0 H190.0 Z" fill="#3987e5"/>
+<line x1="638.8" y1="291.0" x2="669.4" y2="291.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="638.8" y1="287.0" x2="638.8" y2="295.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="669.4" y1="287.0" x2="669.4" y2="295.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<text x="675.4" y="291.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">91.3%</text>
+<path d="M190.0,300.0 H634.8 A4.0,4.0 0 0 1 638.8,304.0 V310.0 A4.0,4.0 0 0 1 634.8,314.0 H190.0 Z" fill="#d95926"/>
+<line x1="628.6" y1="307.0" x2="649.0" y2="307.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="628.6" y1="303.0" x2="628.6" y2="311.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="649.0" y1="303.0" x2="649.0" y2="311.0" stroke="#f0f6fc" stroke-width="1.5" stroke-linecap="round"/>
+<text x="655.0" y="307.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">88.0%</text>
+</svg>

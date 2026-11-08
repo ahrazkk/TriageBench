@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="240" viewBox="0 0 780 240" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<title id="t">How often the answer flips between identical runs</title><desc id="d">One AI call (B1): 24.0%; Agent (B2): 10.0%; Agent + memory (B3): 16.0%; Agent on Sonnet 5.5: 4.0%</desc>
+<text x="16.0" y="22.0" fill="#f0f6fc" font-size="15" text-anchor="start" font-weight="600" dominant-baseline="middle">Same question, same data, different answer?</text>
+<text x="16.0" y="42.0" fill="#9198a1" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">Share of the 50 cases where the “whose problem” answer was right in some of the 3 identical runs and wrong in others.</text>
+<line x1="190.0" y1="58.0" x2="190.0" y2="200.0" stroke="#3d444d" stroke-width="1.0" stroke-linecap="round"/>
+<text x="190.0" y="214.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">0%</text>
+<line x1="360.0" y1="58.0" x2="360.0" y2="200.0" stroke="#3d444d" stroke-width="1.0" stroke-linecap="round"/>
+<text x="360.0" y="214.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">10%</text>
+<line x1="530.0" y1="58.0" x2="530.0" y2="200.0" stroke="#3d444d" stroke-width="1.0" stroke-linecap="round"/>
+<text x="530.0" y="214.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">20%</text>
+<line x1="700.0" y1="58.0" x2="700.0" y2="200.0" stroke="#3d444d" stroke-width="1.0" stroke-linecap="round"/>
+<text x="700.0" y="214.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">30%</text>
+<text x="178.0" y="81.0" fill="#f0f6fc" font-size="12" text-anchor="end" font-weight="400" dominant-baseline="middle">One AI call (B1)</text>
+<path d="M190.0,73.0 H594.0 A4.0,4.0 0 0 1 598.0,77.0 V85.0 A4.0,4.0 0 0 1 594.0,89.0 H190.0 Z" fill="#3987e5"/>
+<text x="604.0" y="81.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">24%</text>
+<text x="178.0" y="115.0" fill="#f0f6fc" font-size="12" text-anchor="end" font-weight="400" dominant-baseline="middle">Agent (B2)</text>
+<path d="M190.0,107.0 H356.0 A4.0,4.0 0 0 1 360.0,111.0 V119.0 A4.0,4.0 0 0 1 356.0,123.0 H190.0 Z" fill="#3987e5"/>
+<text x="366.0" y="115.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">10%</text>
+<text x="178.0" y="149.0" fill="#f0f6fc" font-size="12" text-anchor="end" font-weight="400" dominant-baseline="middle">Agent + memory (B3)</text>
+<path d="M190.0,141.0 H458.0 A4.0,4.0 0 0 1 462.0,145.0 V153.0 A4.0,4.0 0 0 1 458.0,157.0 H190.0 Z" fill="#3987e5"/>
+<text x="468.0" y="149.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">16%</text>
+<text x="178.0" y="183.0" fill="#f0f6fc" font-size="12" text-anchor="end" font-weight="400" dominant-baseline="middle">Agent on Sonnet 5.5</text>
+<path d="M190.0,175.0 H254.0 A4.0,4.0 0 0 1 258.0,179.0 V187.0 A4.0,4.0 0 0 1 254.0,191.0 H190.0 Z" fill="#3987e5"/>
+<text x="264.0" y="183.0" fill="#f0f6fc" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">4%</text>
+</svg>

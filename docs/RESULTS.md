@@ -1,7 +1,7 @@
 # TriageBench results
 
 Every number here comes from a file in `results/`. Conditions are stated with each table.
-**Label status matters:** until Ahraz has reviewed the AI-drafted labels (`triagebench review`),
+**Label status matters:** until the AI-drafted labels are human-reviewed (`triagebench review`),
 every accuracy number below is **preliminary**.
 
 ## Environment
@@ -37,15 +37,16 @@ over MCP vs 28.8 ms direct, so the difference is within noise at this scale. Ser
 Same 50 dev cases, labels 0 human-verified / 50 AI-drafted, prompt v2, effort medium, budgets 8
 turns / 60,000 input tokens. Haiku: `results/20261108-042045-repeats-dev.json` over
 `*-b{1,2,3}-dev-fix-r{0,1,2}.json`. Sonnet: `results/20261108-042057-model-ablation-dev.json`
-over `*-b2-dev-fix-sonnet-r{0,1,2}.json`. Latency is from the earlier live runs (the post-fix
-re-runs mostly replayed from recordings, so their timings mean nothing).
+over `*-b2-dev-fix-sonnet-r{0,1,2}.json`. Costs are means over the runs (with prompt caching);
+latency is the median over every triage whose model calls were all live (post-fix re-runs mostly
+replayed from recordings, so their timings mean nothing).
 
 | System | Model | Axis A: what failed, mean (range) | Axis B: why, mean (range) | Flip rate B | Answers "unknown" | Cost / triage | Latency P50 |
 |---|---|---|---|---|---|---|---|
-| B0 regex rules | — | 42.0% | 30.0% | — | — | $0 | 0.1 s |
-| B1 single call | Haiku 5.5 | 89.3% (88–90%) | 74.7% (74–76%) | 24% | — | $0.0011 | 4.8 s |
-| **B2 agent** | Haiku 5.5 | **93.3%** (92–94%) | 82.0% (80–84%) | 10% | 13% | $0.0021 | 7.2 s |
-| B3 agent + retrieval | Haiku 5.5 | 91.3% (90–92%) | 78.7% (76–82%) | 16% | — | $0.0025 | 8.5 s |
+| B0 regex rules | — | 42.0% | 30.0% | — | — | $0 | 0.14 s |
+| B1 single call | Haiku 5.5 | 89.3% (88–90%) | 74.7% (74–76%) | 24% | — | $0.0010 | 4.7 s |
+| **B2 agent** | Haiku 5.5 | **93.3%** (92–94%) | 82.0% (80–84%) | 10% | 13% | $0.0021 | 7.3 s |
+| B3 agent + retrieval | Haiku 5.5 | 91.3% (90–92%) | 78.7% (76–82%) | 16% | — | $0.0022 | 7.9 s |
 | B2 agent | Sonnet 5.5 | 91.3% (88–94%) | **88.0%** (86–90%) | **4%** | 5% | $0.0214 | 6.5 s |
 
 Paired exact McNemar on each case's mean correctness over its three runs:
@@ -270,15 +271,3 @@ Qwen3-Embedding-0.6B on the GPU and pgvector 0.6.0.
 - Finding: across 18 different repos, past failures rarely repeat within 30 days, so the
   retrieved neighbours agree with the true cause class only ~24–34% of the time. B3 may not beat
   B2 on dataset v0; more cases per repo (M7) is what gives retrieval something to find.
-
-## Resume bullet (draft, from the numbers above)
-
-Finalize only after the labels are reviewed: replace "AI-drafted" wording and re-run if any
-label changes.
-
-> Built an LLM agent that triages failing GitHub Actions jobs with read-only tools over logs,
-> diffs and run history, exposed as an MCP server usable from Claude Code; on 50 labelled real
-> failures from 18 public repos it reached 93% failure-type and 82% root-cause accuracy (mean of
-> 3 runs) vs 42% / 30% for a regex baseline, at ~$0.002 per triage, with every quoted evidence
-> line verified against the log; repeated runs and paired McNemar tests showed a single LLM call
-> captured most of the gain, and that a 10× pricier model's +6 points was not yet significant.

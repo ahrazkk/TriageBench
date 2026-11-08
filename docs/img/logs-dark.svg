@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="320" viewBox="0 0 780 320" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<title id="t">How long real CI logs are</title><desc id="d">&lt;100 lines: 4 logs, 100–300 lines: 9 logs, 300–1K lines: 44 logs, 1K–3K lines: 20 logs, 3K–10K lines: 11 logs, 10K–30K lines: 6 logs, 30K–100K lines: 1 logs, ≥100K lines: 3 logs</desc>
+<text x="16.0" y="22.0" fill="#f0f6fc" font-size="15" text-anchor="start" font-weight="600" dominant-baseline="middle">Real CI logs are long</text>
+<text x="16.0" y="42.0" fill="#9198a1" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">Lines per log across the 98 collected failures. Median 869; 5% are longer than 17,671; the longest has 170,464.</text>
+<line x1="60.0" y1="260.0" x2="760.0" y2="260.0" stroke="#3d444d" stroke-width="1.0" stroke-linecap="round"/>
+<text x="52.0" y="260.0" fill="#9198a1" font-size="11" text-anchor="end" font-weight="400" dominant-baseline="middle">0</text>
+<line x1="60.0" y1="219.6" x2="760.0" y2="219.6" stroke="#3d444d" stroke-width="1.0" stroke-linecap="round"/>
+<text x="52.0" y="219.6" fill="#9198a1" font-size="11" text-anchor="end" font-weight="400" dominant-baseline="middle">10</text>
+<line x1="60.0" y1="179.1" x2="760.0" y2="179.1" stroke="#3d444d" stroke-width="1.0" stroke-linecap="round"/>
+<text x="52.0" y="179.1" fill="#9198a1" font-size="11" text-anchor="end" font-weight="400" dominant-baseline="middle">20</text>
+<line x1="60.0" y1="138.7" x2="760.0" y2="138.7" stroke="#3d444d" stroke-width="1.0" stroke-linecap="round"/>
+<text x="52.0" y="138.7" fill="#9198a1" font-size="11" text-anchor="end" font-weight="400" dominant-baseline="middle">30</text>
+<line x1="60.0" y1="98.2" x2="760.0" y2="98.2" stroke="#3d444d" stroke-width="1.0" stroke-linecap="round"/>
+<text x="52.0" y="98.2" fill="#9198a1" font-size="11" text-anchor="end" font-weight="400" dominant-baseline="middle">40</text>
+<text x="52.0" y="62.0" fill="#9198a1" font-size="11" text-anchor="end" font-weight="400" dominant-baseline="middle">logs</text>
+<path d="M91.8,260.0 V247.8 A4.0,4.0 0 0 1 95.8,243.8 H111.8 A4.0,4.0 0 0 1 115.8,247.8 V260.0 Z" fill="#3987e5"/>
+<text x="103.8" y="276.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">&lt;100</text>
+<path d="M179.2,260.0 V227.6 A4.0,4.0 0 0 1 183.2,223.6 H199.2 A4.0,4.0 0 0 1 203.2,227.6 V260.0 Z" fill="#3987e5"/>
+<text x="191.2" y="276.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">100–300</text>
+<path d="M266.8,260.0 V86.0 A4.0,4.0 0 0 1 270.8,82.0 H286.8 A4.0,4.0 0 0 1 290.8,86.0 V260.0 Z" fill="#3987e5"/>
+<text x="278.8" y="276.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">300–1K</text>
+<path d="M354.2,260.0 V183.1 A4.0,4.0 0 0 1 358.2,179.1 H374.2 A4.0,4.0 0 0 1 378.2,183.1 V260.0 Z" fill="#3987e5"/>
+<text x="366.2" y="276.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">1K–3K</text>
+<path d="M441.8,260.0 V219.5 A4.0,4.0 0 0 1 445.8,215.5 H461.8 A4.0,4.0 0 0 1 465.8,219.5 V260.0 Z" fill="#3987e5"/>
+<text x="453.8" y="276.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">3K–10K</text>
+<path d="M529.2,260.0 V239.7 A4.0,4.0 0 0 1 533.2,235.7 H549.2 A4.0,4.0 0 0 1 553.2,239.7 V260.0 Z" fill="#3987e5"/>
+<text x="541.2" y="276.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">10K–30K</text>
+<path d="M616.8,260.0 V258.0 A2.0222222222222257,2.0222222222222257 0 0 1 618.8,256.0 H638.7 A2.0222222222222257,2.0222222222222257 0 0 1 640.8,258.0 V260.0 Z" fill="#3987e5"/>
+<text x="628.8" y="276.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">30K–100K</text>
+<path d="M704.2,260.0 V251.9 A4.0,4.0 0 0 1 708.2,247.9 H724.2 A4.0,4.0 0 0 1 728.2,251.9 V260.0 Z" fill="#3987e5"/>
+<text x="716.2" y="276.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">≥100K</text>
+<text x="410.0" y="308.0" fill="#9198a1" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">lines in the log</text>
+</svg>

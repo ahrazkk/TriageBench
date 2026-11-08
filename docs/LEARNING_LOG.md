@@ -38,8 +38,9 @@ Two or three lines per milestone: what surprised us, with the number.
 - Retrieval *hurt* a little (−8 points on axis B, p = 0.29): with 18 repos and 30 days of data,
   failures rarely repeat, and once the agent copied the label of a "similar" case. Retrieval
   needs a memory with real repeats, and the prompt must say similar cases are hints, not answers.
-- The 60K input-token budget counts every re-sent turn, so on 100K-line logs an agent that keeps
-  searching runs out (1 of 50 for B2, 3 of 50 for B3, where retrieval output adds tokens).
+- The 60K input-token budget counts every re-sent turn, so on long logs (5,800–10,000 lines in
+  the cases that failed) an agent that keeps searching runs out (1 of 50 for B2, 3 of 50 for B3,
+  where retrieval output adds tokens).
 - Agent v2 (budget-aware loop + "similar cases are hints") turned all 4 budget crashes into
   answers (the docker/compose case now answers `environment`, correctly, at confidence 0.45).
   Replaying v1 with `--replay-only` reproduced every v1 number exactly with zero API calls:

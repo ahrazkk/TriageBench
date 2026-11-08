@@ -27,6 +27,7 @@ htmlcov/
 # ---- Secrets and local config ----
 .env
 .env.*
+.mcp.json
 *.pem
 *.key
 
