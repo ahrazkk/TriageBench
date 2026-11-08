@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "triagebench": {
+      "command": "wsl",
+      "args": [
+        "-d", "Ubuntu-24.04", "-u", "root", "--",
+        "bash", "/mnt/c/path/to/TriageBench/scripts/dev.sh",
+        "triagebench", "mcp"
+      ]
+    }
+  }
+}

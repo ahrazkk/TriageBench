@@ -108,8 +108,9 @@ triagebench triage https://github.com/<owner>/<repo>/actions/runs/<id> --system 
 
 From PowerShell, prefix any command with `.\scripts\wsl.ps1`.
 
-**In Claude Code:** the repo's `.mcp.json` registers the `triagebench` MCP server, so Claude Code
-can call the same seven tools ("triage this failed run: <URL>").
+**In Claude Code:** copy `.mcp.json.example` to `.mcp.json` and set the path to your clone. Claude
+Code then starts the `triagebench` MCP server and can call the same seven read-only tools
+("triage this failed run: <URL>").
 
 ## Tests
 
@@ -124,7 +125,15 @@ calls a paid API.
 
 Verify the labels; grow to 100–150 cases with a frozen test set and Cohen's κ on a blind relabel;
 the live eval gate in CI; OpenTelemetry tracing and a prompt-injection flip rate; an external check
-on the LogDx-CI benchmark. The full plan is [docs/PLAN.md](docs/PLAN.md).
+on the LogDx-CI benchmark. Design decisions and deviations are in
+[docs/design/M0-M6.md](docs/design/M0-M6.md); what surprised me is in
+[docs/LEARNING_LOG.md](docs/LEARNING_LOG.md).
+
+## Data and licences
+
+Code: MIT ([LICENSE](LICENSE)). The dataset is metadata about public GitHub Actions runs plus my
+own labels; raw logs are not redistributed. Sources, their licences and what is and isn't in this
+repository: [data/LICENSES.md](data/LICENSES.md).
 
 Credits: LogDx-CI (log-reduction findings and the failure-type taxonomy), LogChunks, LogSage;
 Anthropic's "Building effective agents" and "Writing effective tools for agents"; Cormack et al.

@@ -77,6 +77,9 @@ def paired(runs: list[tuple[str, dict]]) -> str:  # type: ignore[type-arg]
 
 
 def main() -> None:
+    if not BOOK.exists():  # the textbook is a local study file, not part of the repository
+        print(f"no textbook at {BOOK}; nothing to fill")
+        return
     html = BOOK.read_text(encoding="utf-8")
     runs = {s: latest(s) for s in NAMES}
     body = "\n      ".join(row(NAMES[s], r) for s, r in runs.items())
