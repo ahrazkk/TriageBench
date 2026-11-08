@@ -184,12 +184,24 @@ def accuracy_chart(f: dict[str, Any], theme: str) -> None:
         text(
             16,
             42,
-            "Mean of 3 runs. Whiskers show run-to-run spread, not statistical uncertainty: with 50 cases, gaps under ~10 points can be noise.",
+            "Mean of 3 runs. Whiskers show run-to-run spread, not statistical uncertainty: "
+            "with 50 cases, gaps under ~10 points can be noise.",
             c["text2"],
             11,
-            "middle",
         )
     )
+    # legend: two series, so identity never relies on colour alone
+    p += [
+        swatch(16, 66, c["s1"]),
+        text(32, 66, "What failed", c["text"], 12),
+        swatch(126, 66, c["s2"]),
+        text(142, 66, "Whose problem (why)", c["text"], 12),
+    ]
+    # recessive hairline grid with percentage ticks
+    plot_bottom = top + row_h * len(order)
+    for t in (0, 0.25, 0.5, 0.75, 1.0):
+        p.append(line(x(t), top - 6, x(t), plot_bottom, c["grid"]))
+        p.append(text(x(t), plot_bottom + 14, f"{int(t * 100)}%", c["text2"], 11, "middle"))
     for i, k in enumerate(order):
         s = f["systems"][k]
         y0 = top + i * row_h + (row_h - (2 * bar_h + gap)) / 2

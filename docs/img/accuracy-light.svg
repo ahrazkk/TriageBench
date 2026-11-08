@@ -1,7 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="780" height="366" viewBox="0 0 780 366" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
 <title id="t">Accuracy on 50 real CI failures</title><desc id="d">Regex rules (B0): what failed 42.0%, whose problem 30.0%; One AI call (B1): what failed 89.3%, whose problem 74.7%; Agent (B2): what failed 93.3%, whose problem 82.0%; Agent + memory (B3): what failed 91.3%, whose problem 78.7%; Agent on Sonnet 5.5: what failed 91.3%, whose problem 88.0%</desc>
 <text x="16.0" y="22.0" fill="#1f2328" font-size="15" text-anchor="start" font-weight="600" dominant-baseline="middle">Accuracy on 50 real CI failures</text>
-<text x="16.0" y="42.0" fill="#59636e" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">Mean of 3 runs. Whiskers show run-to-run spread, not statistical uncertainty: with 50 cases, gaps under ~10 points can be noise.</text>
+<text x="16.0" y="42.0" fill="#59636e" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">Mean of 3 runs. Whiskers show run-to-run spread, not statistical uncertainty: with 50 cases, gaps under ~10 points can be noise.</text>
+<rect x="16.0" y="61.0" width="10" height="10" rx="2" fill="#2a78d6"/>
+<text x="32.0" y="66.0" fill="#1f2328" font-size="12" text-anchor="start" font-weight="400" dominant-baseline="middle">What failed</text>
+<rect x="126.0" y="61.0" width="10" height="10" rx="2" fill="#eb6834"/>
+<text x="142.0" y="66.0" fill="#1f2328" font-size="12" text-anchor="start" font-weight="400" dominant-baseline="middle">Whose problem (why)</text>
+<line x1="190.0" y1="86.0" x2="190.0" y2="322.0" stroke="#d1d9e0" stroke-width="1.0" stroke-linecap="round"/>
+<text x="190.0" y="336.0" fill="#59636e" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">0%</text>
+<line x1="317.5" y1="86.0" x2="317.5" y2="322.0" stroke="#d1d9e0" stroke-width="1.0" stroke-linecap="round"/>
+<text x="317.5" y="336.0" fill="#59636e" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">25%</text>
+<line x1="445.0" y1="86.0" x2="445.0" y2="322.0" stroke="#d1d9e0" stroke-width="1.0" stroke-linecap="round"/>
+<text x="445.0" y="336.0" fill="#59636e" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">50%</text>
+<line x1="572.5" y1="86.0" x2="572.5" y2="322.0" stroke="#d1d9e0" stroke-width="1.0" stroke-linecap="round"/>
+<text x="572.5" y="336.0" fill="#59636e" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">75%</text>
+<line x1="700.0" y1="86.0" x2="700.0" y2="322.0" stroke="#d1d9e0" stroke-width="1.0" stroke-linecap="round"/>
+<text x="700.0" y="336.0" fill="#59636e" font-size="11" text-anchor="middle" font-weight="400" dominant-baseline="middle">100%</text>
 <text x="178.0" y="115.0" fill="#1f2328" font-size="12" text-anchor="end" font-weight="400" dominant-baseline="middle">Regex rules (B0)</text>
 <path d="M190.0,100.0 H400.2 A4.0,4.0 0 0 1 404.2,104.0 V110.0 A4.0,4.0 0 0 1 400.2,114.0 H190.0 Z" fill="#2a78d6"/>
 <text x="410.2" y="107.0" fill="#1f2328" font-size="11" text-anchor="start" font-weight="400" dominant-baseline="middle">42.0%</text>
