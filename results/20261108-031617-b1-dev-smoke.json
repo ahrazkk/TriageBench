@@ -1,0 +1,227 @@
+{
+ "run_id": "20261108-031617-b1-dev-smoke",
+ "system": "b1",
+ "system_desc": "single LLM call",
+ "split": "dev",
+ "n_cases": 3,
+ "model": "claude-haiku-5-5",
+ "effort": "medium",
+ "prompt_version": "v1",
+ "prompt_hash": "15ddbbae98b6",
+ "tools_hash": "c9536370476d",
+ "dataset_hash": "af896da81609",
+ "labels": {
+  "verified": 0,
+  "ai_drafted_unverified": 3
+ },
+ "budgets": {
+  "max_steps": 8,
+  "max_input_tokens": 60000,
+  "excerpt_tokens": 4000
+ },
+ "tools_transport": "direct",
+ "commit": "uncommitted",
+ "date": "2026-11-08T03:16:17+00:00",
+ "metrics": {
+  "n": 3,
+  "answered": 3,
+  "coverage_B": 0.6666666666666666,
+  "axis_A": {
+   "n": 3,
+   "correct": 2,
+   "accuracy": 0.6666666666666666,
+   "accuracy_ci95": [
+    0.2076595988078242,
+    0.9385080559790691
+   ],
+   "macro_f1": 0.5,
+   "macro_f1_ci95": [
+    0.0,
+    1.0
+   ],
+   "confident_error_rate": 0.0,
+   "confusion": {
+    "dependency_install": {
+     "ci_infra_or_config": 1
+    },
+    "lint_failure": {
+     "lint_failure": 2
+    }
+   },
+   "per_case_correct": {
+    "aio-libs/aiohttp/jobs/128398488166": false,
+    "aio-libs/aiohttp/jobs/128426954085": true,
+    "aio-libs/aiohttp/jobs/128469232327": true
+   }
+  },
+  "axis_B": {
+   "n": 3,
+   "correct": 2,
+   "accuracy": 0.6666666666666666,
+   "accuracy_ci95": [
+    0.2076595988078242,
+    0.9385080559790691
+   ],
+   "macro_f1": 0.6666666666666666,
+   "macro_f1_ci95": [
+    0.0,
+    1.0
+   ],
+   "confident_error_rate": 0.0,
+   "confusion": {
+    "ci_config": {
+     "unknown": 1
+    },
+    "environment": {
+     "environment": 1
+    },
+    "regression": {
+     "regression": 1
+    }
+   },
+   "per_case_correct": {
+    "aio-libs/aiohttp/jobs/128398488166": true,
+    "aio-libs/aiohttp/jobs/128426954085": true,
+    "aio-libs/aiohttp/jobs/128469232327": false
+   }
+  },
+  "both_correct": 0.3333333333333333,
+  "evidence_validity": 1.0,
+  "evidence_quotes": 8,
+  "repaired": 0,
+  "errors": 0,
+  "cost_usd_mean": 0.001087,
+  "cost_usd_total": 0.003261,
+  "input_tokens_mean": 4682.0,
+  "latency_p50_s": 6.044,
+  "latency_p95_s": 6.175400000000001,
+  "steps_mean": 1.0,
+  "tool_mix": {}
+ },
+ "outcomes": [
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128398488166",
+   "system": "b1",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "environment",
+    "root_cause": "The Android managed-device test task ':app:maxVersionSetup' failed in the 'Build wheels and test' step, so cibuildwheel aborted the cp314 android_x86_64 run. Gradle reports that no aosp_atd system image exists for API 32 on x86_64, a provisioning gap on the runner's Android SDK rather than a change in the PR (a dependabot filelock bump). A retry may not help, since the image gap is outside the repository.",
+    "evidence": [
+     {
+      "job_id": 128398488166,
+      "line": 1352,
+      "text": "System Image for maxVersion does not exist for this architecture."
+     },
+     {
+      "job_id": 128398488166,
+      "line": 1335,
+      "text": "WARNING: system-images;android-32;aosp_atd;x86_64 package is not installed."
+     },
+     {
+      "job_id": 128398488166,
+      "line": 1337,
+      "text": "> Task :app:maxVersionSetup FAILED"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Check whether the android testbed config pins systemImageSource to aosp_atd for x86_64 at API 32 and switch it to 'aosp' or 'google' (or pick an image level that exists), or make the maxVersion managed-device job skip on this runner image; then re-run the job to confirm the image is provisioned.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 1,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 4,
+   "output_tokens": 1127,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 5519,
+   "cost_usd": 0.001254,
+   "latency_s": 6.19,
+   "replayed_calls": 0,
+   "live_calls": 1
+  },
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128426954085",
+   "system": "b1",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The docs spelling step (make doc-spelling, Sphinx with warnings treated as errors) failed on a single nitpicky warning. A towncrier fragment in this PR references aiohttp.AsyncResolver as a py:class target, which the docs build cannot resolve, so the PR's changelog or docs text is what needs fixing.",
+    "evidence": [
+     {
+      "job_id": 128426954085,
+      "line": 542,
+      "text": "WARNING: py:class reference target not found: aiohttp.AsyncResolver [ref.class]"
+     },
+     {
+      "job_id": 128426954085,
+      "line": 544,
+      "text": "build finished with problems, 1 warning (with warnings treated as errors)."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Check the towncrier fragment in this PR that references aiohttp.AsyncResolver, and either change the reference to a documented target or make AsyncResolver resolvable in the API docs, then rerun make doc-spelling locally.",
+    "confidence": 0.7
+   },
+   "errors": [],
+   "steps": 1,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 4,
+   "output_tokens": 846,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 5028,
+   "cost_usd": 0.001052,
+   "latency_s": 4.769,
+   "replayed_calls": 0,
+   "live_calls": 1
+  },
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128469232327",
+   "system": "b1",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "unknown",
+    "root_cause": "The 'Backport label added' job runs a github-script step that fetches the PR and calls process.exit(1) when no label starts with 'backport'. The PR fix/close-connection-on-trace-failure has no backport label, so this policy gate fails. The log contains no test or code error, and the failure is a PR-state gate rather than a code regression.",
+    "evidence": [
+     {
+      "job_id": 128469232327,
+      "line": 58,
+      "text": "if (!pr.data.labels.find(l => l.name.startsWith(\"backport\")))"
+     },
+     {
+      "job_id": 128469232327,
+      "line": 59,
+      "text": "  process.exit(1);"
+     },
+     {
+      "job_id": 128469232327,
+      "line": 50,
+      "text": "##[group]Run actions/github-script@v9"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Add a backport label (for example backport-3.x) to PR #the fix/close-connection-on-trace-failure branch and re-run the job; if no backport is wanted for this PR, confirm the label policy with maintainers before changing the workflow.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 1,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 4,
+   "output_tokens": 1037,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 3487,
+   "cost_usd": 0.000955,
+   "latency_s": 6.044,
+   "replayed_calls": 0,
+   "live_calls": 1
+  }
+ ]
+}

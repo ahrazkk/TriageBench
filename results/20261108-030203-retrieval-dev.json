@@ -1,0 +1,46 @@
+{
+ "date": "2026-11-08T03:01:15+00:00",
+ "embedder": "Qwen/Qwen3-Embedding-0.6B",
+ "n_kb": 48,
+ "n_dev": 50,
+ "keyword": {
+  "top1_same_failure_type": 0.32,
+  "top1_same_failure_type_ci95": [
+   0.20758216186752546,
+   0.4581029741967757
+  ],
+  "top1_same_cause_class": 0.3,
+  "top5_majority_same_failure_type": 0.44,
+  "top5_majority_same_cause_class": 0.28,
+  "recall_at_5_duplicates": 1.0,
+  "duplicate_queries": 1,
+  "latency_ms_p50": 26.484493999987535
+ },
+ "vector": {
+  "top1_same_failure_type": 0.48,
+  "top1_same_failure_type_ci95": [
+   0.3479713519089993,
+   0.6148825520981452
+  ],
+  "top1_same_cause_class": 0.28,
+  "top5_majority_same_failure_type": 0.42,
+  "top5_majority_same_cause_class": 0.32,
+  "recall_at_5_duplicates": 1.0,
+  "duplicate_queries": 1,
+  "latency_ms_p50": 94.90153899992038
+ },
+ "hybrid": {
+  "top1_same_failure_type": 0.34,
+  "top1_same_failure_type_ci95": [
+   0.2243694914541036,
+   0.478461740603053
+  ],
+  "top1_same_cause_class": 0.24,
+  "top5_majority_same_failure_type": 0.52,
+  "top5_majority_same_cause_class": 0.34,
+  "recall_at_5_duplicates": 1.0,
+  "duplicate_queries": 1,
+  "latency_ms_p50": 102.84244649994889
+ },
+ "hnsw_recall_at_5_vs_exact": 1.0
+}

@@ -1,0 +1,249 @@
+{
+ "run_id": "20261108-031627-b2-dev-smoke",
+ "system": "b2",
+ "system_desc": "agent with tools",
+ "split": "dev",
+ "n_cases": 3,
+ "model": "claude-haiku-5-5",
+ "effort": "medium",
+ "prompt_version": "v1",
+ "prompt_hash": "15ddbbae98b6",
+ "tools_hash": "c9536370476d",
+ "dataset_hash": "af896da81609",
+ "labels": {
+  "verified": 0,
+  "ai_drafted_unverified": 3
+ },
+ "budgets": {
+  "max_steps": 8,
+  "max_input_tokens": 60000,
+  "excerpt_tokens": 4000
+ },
+ "tools_transport": "direct",
+ "commit": "uncommitted",
+ "date": "2026-11-08T03:16:27+00:00",
+ "metrics": {
+  "n": 3,
+  "answered": 3,
+  "coverage_B": 0.6666666666666666,
+  "axis_A": {
+   "n": 3,
+   "correct": 2,
+   "accuracy": 0.6666666666666666,
+   "accuracy_ci95": [
+    0.2076595988078242,
+    0.9385080559790691
+   ],
+   "macro_f1": 0.5,
+   "macro_f1_ci95": [
+    0.0,
+    1.0
+   ],
+   "confident_error_rate": 0.0,
+   "confusion": {
+    "dependency_install": {
+     "ci_infra_or_config": 1
+    },
+    "lint_failure": {
+     "lint_failure": 2
+    }
+   },
+   "per_case_correct": {
+    "aio-libs/aiohttp/jobs/128398488166": false,
+    "aio-libs/aiohttp/jobs/128426954085": true,
+    "aio-libs/aiohttp/jobs/128469232327": true
+   }
+  },
+  "axis_B": {
+   "n": 3,
+   "correct": 2,
+   "accuracy": 0.6666666666666666,
+   "accuracy_ci95": [
+    0.2076595988078242,
+    0.9385080559790691
+   ],
+   "macro_f1": 0.6666666666666666,
+   "macro_f1_ci95": [
+    0.0,
+    1.0
+   ],
+   "confident_error_rate": 0.3333333333333333,
+   "confusion": {
+    "ci_config": {
+     "unknown": 1
+    },
+    "environment": {
+     "environment": 1
+    },
+    "regression": {
+     "regression": 1
+    }
+   },
+   "per_case_correct": {
+    "aio-libs/aiohttp/jobs/128398488166": true,
+    "aio-libs/aiohttp/jobs/128426954085": true,
+    "aio-libs/aiohttp/jobs/128469232327": false
+   }
+  },
+  "both_correct": 0.3333333333333333,
+  "evidence_validity": 1.0,
+  "evidence_quotes": 8,
+  "repaired": 0,
+  "errors": 0,
+  "cost_usd_mean": 0.0015803333333333335,
+  "cost_usd_total": 0.004741,
+  "input_tokens_mean": 18029.0,
+  "latency_p50_s": 7.555,
+  "latency_p95_s": 8.9797,
+  "steps_mean": 3.0,
+  "tool_mix": {
+   "get_run_overview": 3,
+   "get_log_excerpt": 3,
+   "get_run_history": 3,
+   "get_change_summary": 3,
+   "search_log": 1
+  }
+ },
+ "outcomes": [
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128398488166",
+   "system": "b2",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "environment",
+    "root_cause": "The Android job failed in Gradle task ':app:maxVersionSetup' during cibuildwheel's managed-device test run, because the AOSP Automated Test Device system image for API 32 does not exist for x86_64 on this runner. The change under test only bumps filelock in requirements files, which has no connection to the Android emulator image setup, and this job has no earlier completed runs to compare against, so the cause is the external image availability rather than the code.",
+    "evidence": [
+     {
+      "job_id": 128398488166,
+      "line": 1352,
+      "text": "System Image for maxVersion does not exist for this architecture. However it is valid for ARM."
+     },
+     {
+      "job_id": 128398488166,
+      "line": 1337,
+      "text": "> Task :app:maxVersionSetup FAILED"
+     },
+     {
+      "job_id": 128398488166,
+      "line": 1369,
+      "text": "cibuildwheel: error: Command ['/tmp/cibw-run-t62ym6s4/cp314-android_x86_64/python/android.py', 'test', '--site-packages'"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Rerun the job to confirm, and if it persists pin the Android test job to a supported managed-device image (e.g. a different systemImageSource or API level in the cibuildwheel/Gradle testbed config) rather than changing the filelock bump; the 'Test (android, cp314, ubuntu-latest)' job has no completed history here, so check whether this image worked on earlier main runs.",
+    "confidence": 0.7
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_run_history",
+    "get_change_summary"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 8,
+   "output_tokens": 966,
+   "cache_read_tokens": 11301,
+   "cache_write_tokens": 8487,
+   "cost_usd": 0.001658,
+   "latency_s": 7.555,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128426954085",
+   "system": "b2",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The docs spelling job (`make doc-spelling`, run with Sphinx nitpicky warnings-as-errors) failed on a single warning: the towncrier fragment added by this PR, CHANGES/14087.bugfix.rst, uses `:class:`~aiohttp.AsyncResolver``, and Sphinx cannot resolve the py:class target `aiohttp.AsyncResolver`. The change under test introduced that reference, so the fix belongs in the changelog text (point it to a documented target or use a literal), not in the resolver code.",
+    "evidence": [
+     {
+      "job_id": 128426954085,
+      "line": 542,
+      "text": "WARNING: py:class reference target not found: aiohttp.AsyncResolver [ref.class]"
+     },
+     {
+      "job_id": 128426954085,
+      "line": 544,
+      "text": "build finished with problems, 1 warning (with warnings treated as errors)."
+     },
+     {
+      "job_id": 128426954085,
+      "line": 548,
+      "text": "##[error]Process completed with exit code 2."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Change the reference in CHANGES/14087.bugfix.rst to a target Sphinx can resolve (check docs/api.rst for how AsyncResolver is documented, e.g. aiohttp.resolver.AsyncResolver, or use plain ``AsyncResolver`` literal), then rerun 'make doc-spelling' locally to confirm the warning is gone.",
+    "confidence": 0.85
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 8,
+   "output_tokens": 1133,
+   "cache_read_tokens": 10810,
+   "cache_write_tokens": 8410,
+   "cost_usd": 0.001727,
+   "latency_s": 7.511,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128469232327",
+   "system": "b2",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "unknown",
+    "root_cause": "The 'Backport label added' job (actions/github-script in the Labels workflow) checks that the PR has a label starting with 'backport' and calls process.exit(1) when none is found, so the job fails as a PR-policy gate in aio-libs/aiohttp on branch fix/close-connection-on-trace-failure. The change under test only parametrizes tests/test_connector.py and does not touch the workflow or the code path, so this is not a test or code regression; the likely cause is that the PR has no backport label yet. The earlier run a3922e8cf2 failed the same job, which is consistent with a missing label rather than a flaky or environmental fault.",
+    "evidence": [
+     {
+      "job_id": 128469232327,
+      "line": 58,
+      "text": "if (!pr.data.labels.find(l => l.name.startsWith(\"backport\")))"
+     },
+     {
+      "job_id": 128469232327,
+      "line": 59,
+      "text": "process.exit(1);"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Add a backport label (for example backport-3.x) to PR c1c9f1be08's pull request, then re-run the 'Labels' workflow; if the PR is not meant to be backported, the workflow's label gate should be reviewed instead.",
+    "confidence": 0.8
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_log"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 8,
+   "output_tokens": 986,
+   "cache_read_tokens": 8870,
+   "cache_write_tokens": 6185,
+   "cost_usd": 0.001356,
+   "latency_s": 9.138,
+   "replayed_calls": 0,
+   "live_calls": 3
+  }
+ ]
+}

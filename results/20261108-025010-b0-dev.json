@@ -1,0 +1,1890 @@
+{
+ "run_id": "20261108-025010-b0-dev",
+ "system": "b0",
+ "system_desc": "regex rules",
+ "split": "dev",
+ "n_cases": 50,
+ "model": null,
+ "effort": null,
+ "prompt_version": "v1",
+ "prompt_hash": "15ddbbae98b6",
+ "tools_hash": "c9536370476d",
+ "dataset_hash": "04af762d0caa",
+ "labels": {
+  "verified": 0,
+  "ai_drafted_unverified": 50
+ },
+ "budgets": {
+  "max_steps": 8,
+  "max_input_tokens": 60000,
+  "excerpt_tokens": 4000
+ },
+ "tools_transport": "direct",
+ "commit": "uncommitted",
+ "date": "2026-11-08T02:50:10+00:00",
+ "metrics": {
+  "n": 50,
+  "answered": 50,
+  "coverage_B": 0.64,
+  "axis_A": {
+   "n": 50,
+   "correct": 21,
+   "accuracy": 0.42,
+   "accuracy_ci95": [
+    0.2937500326623289,
+    0.5576655833662493
+   ],
+   "macro_f1": 0.3767576318223867,
+   "macro_f1_ci95": [
+    0.2272642390289449,
+    0.5049008462801566
+   ],
+   "confident_error_rate": 0.0,
+   "confusion": {
+    "ci_infra_or_config": {
+     "test_assertion": 5,
+     "lint_failure": 1
+    },
+    "compile_error": {
+     "lint_failure": 1,
+     "type_error": 1,
+     "compile_error": 1,
+     "dependency_install": 1
+    },
+    "dependency_install": {
+     "compile_error": 1,
+     "lint_failure": 1,
+     "type_error": 1,
+     "docker_build": 1
+    },
+    "docker_build": {
+     "docker_build": 2
+    },
+    "lint_failure": {
+     "test_assertion": 12,
+     "lint_failure": 3
+    },
+    "test_assertion": {
+     "lint_failure": 2,
+     "timeout_or_oom": 1,
+     "test_assertion": 13,
+     "type_error": 1
+    },
+    "timeout_or_oom": {
+     "timeout_or_oom": 1
+    },
+    "type_error": {
+     "type_error": 1
+    }
+   },
+   "per_case_correct": {
+    "aio-libs/aiohttp/jobs/128398488166": false,
+    "aio-libs/aiohttp/jobs/128426954085": false,
+    "aio-libs/aiohttp/jobs/128469232327": false,
+    "apache/airflow/jobs/128371941742": false,
+    "apache/airflow/jobs/128590021031": false,
+    "apache/airflow/jobs/128596913928": true,
+    "apache/kafka/jobs/127754729796": false,
+    "apache/kafka/jobs/128005530569": true,
+    "apache/kafka/jobs/128599421155": false,
+    "astral-sh/ruff/jobs/127975085701": false,
+    "astral-sh/ruff/jobs/128085671101": false,
+    "astral-sh/ruff/jobs/128162583586": false,
+    "docker/compose/jobs/125945590876": false,
+    "docker/compose/jobs/126137262246": true,
+    "docker/compose/jobs/128050938250": false,
+    "eslint/eslint/jobs/127421663888": false,
+    "gin-gonic/gin/jobs/121502617680": false,
+    "gin-gonic/gin/jobs/126269355882": true,
+    "gin-gonic/gin/jobs/128333494725": false,
+    "golangci/golangci-lint/jobs/121158861766": true,
+    "golangci/golangci-lint/jobs/124829123073": false,
+    "golangci/golangci-lint/jobs/125935600212": false,
+    "home-assistant/core/jobs/128596526314": true,
+    "home-assistant/core/jobs/128597303091": false,
+    "home-assistant/core/jobs/128599505112": true,
+    "pandas-dev/pandas/jobs/127999175786": false,
+    "pandas-dev/pandas/jobs/128128371265": true,
+    "pandas-dev/pandas/jobs/128556896967": true,
+    "prettier/prettier/jobs/127885594046": false,
+    "prettier/prettier/jobs/127886264626": false,
+    "prettier/prettier/jobs/128425464109": true,
+    "prometheus/prometheus/jobs/128520253423": false,
+    "prometheus/prometheus/jobs/128530441379": true,
+    "prometheus/prometheus/jobs/128541760952": true,
+    "pydantic/pydantic/jobs/125138034445": false,
+    "pydantic/pydantic/jobs/128410383632": true,
+    "pydantic/pydantic/jobs/128412937637": true,
+    "pytest-dev/pytest/jobs/128266852295": true,
+    "python/mypy/jobs/125352504651": false,
+    "python/mypy/jobs/126549309559": false,
+    "python/mypy/jobs/128333060491": false,
+    "scikit-learn/scikit-learn/jobs/125106062979": true,
+    "scikit-learn/scikit-learn/jobs/128262995066": false,
+    "scikit-learn/scikit-learn/jobs/128264346573": true,
+    "tokio-rs/tokio/jobs/127580120346": false,
+    "tokio-rs/tokio/jobs/128450812285": true,
+    "tokio-rs/tokio/jobs/128500839848": true,
+    "vitejs/vite/jobs/128282520086": false,
+    "vitejs/vite/jobs/128437640991": true,
+    "vitejs/vite/jobs/128517139145": true
+   }
+  },
+  "axis_B": {
+   "n": 50,
+   "correct": 15,
+   "accuracy": 0.3,
+   "accuracy_ci95": [
+    0.1910355343030571,
+    0.4375035057683886
+   ],
+   "macro_f1": 0.09803921568627451,
+   "macro_f1_ci95": [
+    0.07051282051282051,
+    0.14693877551020407
+   ],
+   "confident_error_rate": 0.0,
+   "confusion": {
+    "ci_config": {
+     "unknown": 4
+    },
+    "environment": {
+     "regression": 7,
+     "unknown": 6
+    },
+    "flaky": {
+     "regression": 4,
+     "environment": 1,
+     "unknown": 2
+    },
+    "regression": {
+     "unknown": 6,
+     "regression": 15,
+     "environment": 1
+    },
+    "test_defect": {
+     "regression": 3
+    },
+    "unknown": {
+     "flaky": 1
+    }
+   },
+   "per_case_correct": {
+    "aio-libs/aiohttp/jobs/128398488166": false,
+    "aio-libs/aiohttp/jobs/128426954085": false,
+    "aio-libs/aiohttp/jobs/128469232327": false,
+    "apache/airflow/jobs/128371941742": false,
+    "apache/airflow/jobs/128590021031": false,
+    "apache/airflow/jobs/128596913928": true,
+    "apache/kafka/jobs/127754729796": false,
+    "apache/kafka/jobs/128005530569": false,
+    "apache/kafka/jobs/128599421155": false,
+    "astral-sh/ruff/jobs/127975085701": false,
+    "astral-sh/ruff/jobs/128085671101": false,
+    "astral-sh/ruff/jobs/128162583586": false,
+    "docker/compose/jobs/125945590876": false,
+    "docker/compose/jobs/126137262246": false,
+    "docker/compose/jobs/128050938250": false,
+    "eslint/eslint/jobs/127421663888": true,
+    "gin-gonic/gin/jobs/121502617680": false,
+    "gin-gonic/gin/jobs/126269355882": true,
+    "gin-gonic/gin/jobs/128333494725": false,
+    "golangci/golangci-lint/jobs/121158861766": true,
+    "golangci/golangci-lint/jobs/124829123073": true,
+    "golangci/golangci-lint/jobs/125935600212": false,
+    "home-assistant/core/jobs/128596526314": true,
+    "home-assistant/core/jobs/128597303091": false,
+    "home-assistant/core/jobs/128599505112": true,
+    "pandas-dev/pandas/jobs/127999175786": false,
+    "pandas-dev/pandas/jobs/128128371265": true,
+    "pandas-dev/pandas/jobs/128556896967": false,
+    "prettier/prettier/jobs/127885594046": false,
+    "prettier/prettier/jobs/127886264626": false,
+    "prettier/prettier/jobs/128425464109": true,
+    "prometheus/prometheus/jobs/128520253423": false,
+    "prometheus/prometheus/jobs/128530441379": false,
+    "prometheus/prometheus/jobs/128541760952": false,
+    "pydantic/pydantic/jobs/125138034445": false,
+    "pydantic/pydantic/jobs/128410383632": true,
+    "pydantic/pydantic/jobs/128412937637": true,
+    "pytest-dev/pytest/jobs/128266852295": false,
+    "python/mypy/jobs/125352504651": true,
+    "python/mypy/jobs/126549309559": true,
+    "python/mypy/jobs/128333060491": false,
+    "scikit-learn/scikit-learn/jobs/125106062979": false,
+    "scikit-learn/scikit-learn/jobs/128262995066": false,
+    "scikit-learn/scikit-learn/jobs/128264346573": true,
+    "tokio-rs/tokio/jobs/127580120346": false,
+    "tokio-rs/tokio/jobs/128450812285": true,
+    "tokio-rs/tokio/jobs/128500839848": false,
+    "vitejs/vite/jobs/128282520086": false,
+    "vitejs/vite/jobs/128437640991": false,
+    "vitejs/vite/jobs/128517139145": false
+   }
+  },
+  "both_correct": 0.22,
+  "evidence_validity": 1.0,
+  "evidence_quotes": 50,
+  "repaired": 0,
+  "errors": 0,
+  "cost_usd_mean": 0.0,
+  "cost_usd_total": 0.0,
+  "input_tokens_mean": 0.0,
+  "latency_p50_s": 0.1422,
+  "latency_p95_s": 1.0220499999999988,
+  "steps_mean": 0.0,
+  "tool_mix": {}
+ },
+ "outcomes": [
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128398488166",
+   "system": "b0",
+   "result": {
+    "failure_type": "compile_error",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 1347.",
+    "evidence": [
+     {
+      "job_id": 128398488166,
+      "line": 1347,
+      "text": "FAILURE: Build failed with an exception."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.0825,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128426954085",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 548.",
+    "evidence": [
+     {
+      "job_id": 128426954085,
+      "line": 548,
+      "text": "##[error]Process completed with exit code 2."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.0521,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128469232327",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 67.",
+    "evidence": [
+     {
+      "job_id": 128469232327,
+      "line": 67,
+      "text": "Cleaning up orphan processes"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.0096,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "apache/airflow/jobs/128371941742",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 43.",
+    "evidence": [
+     {
+      "job_id": 128371941742,
+      "line": 43,
+      "text": "##[error]Dependency review detected vulnerable packages."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.2494,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "apache/airflow/jobs/128590021031",
+   "system": "b0",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 2166.",
+    "evidence": [
+     {
+      "job_id": 128590021031,
+      "line": 2166,
+      "text": "2026-11-08T01:32:05.125816Z TRACE Failed to extract metadata from entry for hook `yamllint`: failed to read from file `/home/runner/.cache/prek/repos/1bcd628e7a453ccb/yamllint`: Is a directory (os error 21)"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 1.4545,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "apache/airflow/jobs/128596913928",
+   "system": "b0",
+   "result": {
+    "failure_type": "docker_build",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 2280.",
+    "evidence": [
+     {
+      "job_id": 128596913928,
+      "line": 2280,
+      "text": "ERROR: failed to build: failed to solve: process \"/bin/bash -o pipefail -o errexit -o nounset -o nolog -c bash /scripts/docker/install_os_dependencies.sh ci\" did not complete successfully: exit code: 1"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.2169,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "apache/kafka/jobs/127754729796",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 158.",
+    "evidence": [
+     {
+      "job_id": 127754729796,
+      "line": 158,
+      "text": "##[error]The action gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 is not allowed in apache/kafka because all actions must be from a repository owned by your enterprise, created by GitHub, or match one of the patterns: 1Password/load-secrets-action/configure@70062d7a876d3eb6334754fa26efd2fbd90c32f2, 1Password/load-secrets-action/configure@e544b780808654ba8ceba5fb2fe2897103d92ff4, 1Password/load-secrets-action@70062d7a876d3eb6334754fa26efd2fbd90c32f2, 1Password/load-secrets-action@e544b780808654ba8ceba5fb2fe2897103d92ff4, AdoptOpenJDK/install-jdk@*, BobAnkh/auto-generate-changelog@*, CodSpeedHQ/action@373d6868929f444bc08d901fd0eb0ad52a8875ea, CodSpeedHQ/action@61efe07e57e55bedeab750c434504de272a56e8c, CodSpeedHQ/action@78102a468f96d8e0ccb92d0ec49425753fc42062, CodSpeedHQ/action@821a40cd6c80e3cfe387caf55668287addd808da, CodSpeedHQ/action@af75f77f17a054769abefaa42fe8dc2975469b5f, CodSpeedHQ/action@c4fd08a3a159bd0cc208da1e0edf32b8c47d75e5, CodSpeedHQ/action@f842b9a3ffe213db..."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1184,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "apache/kafka/jobs/128005530569",
+   "system": "b0",
+   "result": {
+    "failure_type": "timeout_or_oom",
+    "cause_class": "flaky",
+    "root_cause": "Rule match on line 167242.",
+    "evidence": [
+     {
+      "job_id": 128005530569,
+      "line": 167242,
+      "text": "Timed out after 205 minutes. Dumping threads now..."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 7.6309,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "apache/kafka/jobs/128599421155",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 1358.",
+    "evidence": [
+     {
+      "job_id": 128599421155,
+      "line": 1358,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.2581,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "astral-sh/ruff/jobs/127975085701",
+   "system": "b0",
+   "result": {
+    "failure_type": "type_error",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 339.",
+    "evidence": [
+     {
+      "job_id": 127975085701,
+      "line": 339,
+      "text": "grep: mypy-requirements.txt: No such file or directory"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.2705,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "astral-sh/ruff/jobs/128085671101",
+   "system": "b0",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 629.",
+    "evidence": [
+     {
+      "job_id": 128085671101,
+      "line": 629,
+      "text": "/Users/runner/work/ruff/ruff/crates/ty_completion_eval/truth/raise-uses-base-exception/pyproject.toml"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 1.216,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "astral-sh/ruff/jobs/128162583586",
+   "system": "b0",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 255.",
+    "evidence": [
+     {
+      "job_id": 128162583586,
+      "line": 255,
+      "text": "HEAD is now at ff1770d [`flake8-async`] Implement `pytest-raises-exception-group` (`ASYNC401`) (#28772)"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1308,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "docker/compose/jobs/125945590876",
+   "system": "b0",
+   "result": {
+    "failure_type": "docker_build",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 3566.",
+    "evidence": [
+     {
+      "job_id": 125945590876,
+      "line": 3566,
+      "text": "##[debug]inputs: {\"builder\":\"\",\"allow\":[],\"call\":\"\",\"files\":[\"docker-bake.hcl\",\"cwd:///home/runner/work/_temp/docker-actions-toolkit-Kf0DmC/docker-metadata-action-bake-tags.json\",\"cwd:///home/runner/work/_temp/docker-actions-toolkit-Kf0DmC/docker-metadata-action-bake-labels.json\"],\"no-cache\":false,\"pull\":false,\"load\":false,\"provenance\":\"\",\"push\":false,\"sbom\":\"generator=docker/buildkit-syft-scanner:1.12.0\",\"set\":[\"*.output=type=image,\\\"name=docker/compose-bin\\\",oci-artifact=true,push-by-digest=true,name-canonical=true,push=true\",\"*.tags=\",\"*.attest=type=provenance,mode=max,version=v1,builder-id=https://github.com/docker/compose/actions/runs/41644255752/attempts/1\",\"*.platform=linux/riscv64\",\"*.cache-from=type=gha,scope=bin-image-linux-riscv64\",\"*.cache-to=type=gha,ignore-error=true,scope=bin-image-linux-riscv64,mode=min\"],\"source\":{\"remoteRef\":\"https://github.com/docker/compose.git?ref=refs/heads/main&checksum=ac8b2cd44ea3c6a50058e06fcd80b41a1e60b250&fetch-by-commit=true\"},\"targets\":[\"image-cross\"],\"vars\":[\"CI=true\",\"DOCKER_METADATA_OUTPUT_ANNOTATIONS=manifest:org.opencontainers.image.created=2026-11-03T13:26:37.151Z\\nmanifest:org.opencontainers.image.description=Define and run multi-container applications with Docker\\nmanifest:org.opencontainers.image.licenses=Apache-2.0\\nmanifest:org.opencontainers.image.revision=ac8b2cd44ea3c6a50058e06fcd80b41a1e60b250\\nmanifest:org.opencontainers.image.source=https://github.com/docker/compose\\nmanifest:org.opencontainers.image.title=compose\\nmanifest:org.opencontainers.image.url=https://github.com/docker/compose\\nmanifest:org.opencontainers.image.version=edge\",\"DOCKER_METADATA_OUTPUT_BAKE_FILE=/home/runner/work/_temp/docker-actions-toolkit-Kf0DmC/docker-metadata-action-bake.json\",\"DOCKER_METADATA_OUTPUT_BAKE_FILE_ANNOTATIONS=/home/runner/work/_temp/docker-actions-toolkit-Kf0DmC/docker-metadata-action-bake-annotations.json\",\"DOCKER_METADATA_OUTPUT_BAKE_FILE_LABELS=/home/runner/work/_temp/docker-actions-toolkit-Kf0DmC/docker-metadata-action-bake-labels.json\",\"DOCKER_METADATA_OUTPUT_BAKE_FILE_TAGS=/home/runner/work/_temp/docker-actions-toolkit-Kf0DmC/docker-metadata-action-bake-tags.json\",\"DOCKER_METADATA_OUTPUT_JSON={\\\"tags\\\":[\\\"docker/compose-bin:edge\\\"],\\\"tag-names\\\":[\\\"edge\\\"],\\\"labels\\\":{\\\"org.opencontainers.image.created\\\":\\\"2026-11-03T13:26:37.151Z\\\",\\\"org.opencontainers.image.description\\\":\\\"Define and run multi-container applications with Docker\\\",\\\"org.opencontainers.image.licenses\\\":\\\"Apache-2.0\\\",\\\"org.opencontainers.image.revision\\\":\\\"ac8b2cd44ea3c6a50058e06fcd80b41a1e60b250\\\",\\\"org.opencontainers.image.source\\\":\\\"https://github.com/docker/compose\\\",\\\"org.opencontainers.image.title\\\":\\\"compose\\\",\\\"org.opencontainers.image.url\\\":\\\"https://github.com/docker/compose\\\",\\\"org.opencontainers.image.version\\\":\\\"edge\\\"},\\\"annotations\\\":[\\\"manifest:org.opencontainers.image.created=2026-11-03T13:26:37.151Z\\\",\\\"manifest:org.opencontainers.image.description=Define and run multi-container applications with Docker\\\",\\\"manifest:org.opencontainers.image.licenses=Apache-2.0\\\",\\\"manifest:org.opencontainers.image.revision=ac8b2cd44ea3c6a50058e06fcd80b41a1e60b250\\\",\\\"manifest:org.opencontainers.image.source=https://github.com/docker/compose\\\",\\\"manifest:org.opencontainers.image.title=compose\\\",\\\"manifest:org.opencontainers.image.url=https://github.com/docker/compose\\\",\\\"manifest:org.opencontainers.image.version=edge\\\"]}\",\"DOCKER_METADATA_OUTPUT_LABELS=org.opencontainers.image.created=2026-11-03T13:26:37.151Z\\norg.opencontainers.image.description=Define and run multi-container applications with Docker\\norg.opencontainers.image.licenses=Apache-2.0\\norg.opencontainers.image.revision=ac8b2cd44ea3c6a50058e06fcd80b41a1e60b250\\norg.opencontainers.image.source=https://github.com/docker/compose\\norg.opencontainers.image.title=compose\\norg.opencontainers.image.url=https://github.com/docker/compose\\norg.opencontainers.image.version=edge\",\"DOCKER_METADATA_OUTPUT_TAGS=docker/compose-bin:edge\",\"DOCKER_METADATA_OUTPUT_TAG_NAMES=edge\",\"DOCKER_METADATA_OUTPUT_VERSION=edge\",\"GITHUB_ACTION=prepare\",\"GITHUB_ACTIONS=true\",\"GITHUB_ACTION_REF=3a2844b7e9c422d3c10d287c895573f7108da1b3\",\"GITHUB_ACTION_REPOSITORY=actions/github-script\",\"GITHUB_ACTOR=ndeloof\",\"GITHUB_ACTOR_ID=132757\",\"GITHUB_API_URL=https://api.github.com\",\"GITHUB_ARTIFACTS=/home/runner/work/_temp/_runner_file_commands/artifacts_ef40654a-560f-46bc-836d-df57bd46ed1c\",\"GITHUB_ARTIFACTS_LIST=/home/runner/work/_temp/_runner_file_commands/artifacts_list_ef40654a-560f-46bc-836d-df57bd46ed1c\",\"GITHUB_BASE_REF=\",\"GITHUB_ENV=/home/runner/work/_temp/_runner_file_commands/set_env_ef40654a-560f-46bc-836d-df57bd46ed1c\",\"GITHUB_EVENT_NAME=push\",\"GITHUB_EVENT_PATH=/home/runner/work/_temp/_github_workflow/event.json\",\"GITHUB_GRAPHQL_URL=https://api.github.com/graphql\",\"GITHUB_HEAD_REF=\",\"GITHUB_JOB=build\",\"GITHUB_OUTPUT=/home/runner/work/_temp/_runner_file_commands/set_output_ef40654a-560f-46bc-836d-df57bd46ed1c\",\"GITHUB_PATH=/home/runner/work/_temp/_runner_file_commands/add_path_ef40654a-560f-46bc-836d-df57bd46ed1c\",\"GITHUB_REF=refs/heads/main\",\"GITHUB_REF_NAME=main\",\"GITHUB_REF_PROTECTED=true\",\"GITHUB_REF_TYPE=branch\",\"GITHUB_REPOSITORY=docker/compose\",\"GITHUB_REPOSITORY_ID=15045751\",\"GITHUB_REPOSITORY_OWNER=docker\",\"GITHUB_REPOSITORY_OWNER_ID=5429470\",\"GITHUB_RETENTION_DAYS=90\",\"GITHUB_RUN_ATTEMPT=1\",\"GITHUB_RUN_ID=41644255752\",\"GITHUB_RUN_NUMBER=1888\",\"GITHUB_SERVER_URL=https://github.com\",\"GITHUB_SHA=ac8b2cd44ea3c6a50058e06fcd80b41a1e60b250\",\"GITHUB_STATE=/home/runner/work/_temp/_runner_file_commands/save_state_ef40654a-560f-46bc-836d-df57bd46ed1c\",\"GITHUB_STEP_SUMMARY=/home/runner/work/_temp/_runner_file_commands/step_summary_ef40654a-560f-46bc-836d-df57bd46ed1c\",\"GITHUB_TRIGGERING_ACTOR=ndeloof\",\"GITHUB_WORKFLOW=merge\",\"GITHUB_WORKFLOW_REF=docker/compose/.github/workflows/merge.yml@refs/heads/main\",\"GITHUB_WORKFLOW_SHA=ac8b2cd44ea3c6a50058e06fcd80b41a1e60b250\",\"GITHUB_WORKSPACE=/home/runner/work/compose/compose\",\"RUNNER_ARCH=X64\",\"RUNNER_DEBUG=1\",\"RUNNER_ENVIRONMENT=github-hosted\",\"RUNNER_NAME=GitHub Actions 1029844188\",\"RUNNER_OS=Linux\",\"RUNNER_TEMP=/home/runner/work/_temp\",\"RUNNER_TOOL_CACHE=/opt/hostedtoolcache\",\"RUNNER_TRACKING_ID=github_65ba102a-7376-43bd-bfa6-e0b76b0b1a63\",\"RUNNER_WORKSPACE=/home/runner/work/compose\"],\"github-token\":\"***\"}"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.5821,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "docker/compose/jobs/126137262246",
+   "system": "b0",
+   "result": {
+    "failure_type": "docker_build",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 854.",
+    "evidence": [
+     {
+      "job_id": 126137262246,
+      "line": 854,
+      "text": "ERROR: failed to solve: process \"/bin/sh -c hugo --ignoreVendorPaths \\\"github.com/${UPSTREAM_MODULE_NAME}\\\"\" did not complete successfully: exit code: 1"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1212,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "docker/compose/jobs/128050938250",
+   "system": "b0",
+   "result": {
+    "failure_type": "timeout_or_oom",
+    "cause_class": "environment",
+    "root_cause": "Rule match on line 1751.",
+    "evidence": [
+     {
+      "job_id": 128050938250,
+      "line": 1751,
+      "text": "\"body\": \"## What this PR does, in one sentence\\n\\nThe cache of remote resources now has one directory for each kind of resource, `git/` and `oci/`, and a Git checkout is placed in its directory only once it is complete.\\n\\n## Context\\n\\nCompose keeps what it fetches for a remote Compose file in a cache, one directory for each commit or digest. The two loaders do not do it the same way: extracted OCI artifacts sit at the root of the cache, and Git checkouts sit there too, next to them.\\n\\nThe Git loader also checks a commit out directly into its directory, and takes the directory for a valid entry as soon as it exists. A run interrupted during the fetch or the checkout (Ctrl-C, a dropped connection, a killed process) leaves a partial directory, and every later run uses it, with no sign that something is missing.\\n\\n## What the PR brings\\n\\n- A Git checkout is made in a directory of its own and renamed to the one of its commit once complete, so the directory of a commit is never a partial checkout. Runs which check out the same commit together end with one entry, and none of them fails because another was first. This is the same approach the OCI loader already has for its entries.\\n- Checkouts live in `<cache>/git/<sha>` and extracted OCI artifacts in `<cache>/oci/<digest>`, so the cache has the same structure for both.\\n\\nNot changed: how a reference is resolved to a commit or a digest, what is checked out or extracted, the offline behavior, and the files that are loaded.\\n\\nOne consequence: what earlier releases left at the root of the cache is no longer looked for, so a remote resource is fetched again the first time it is used after the upgrade. The old directories are not removed.\\n\\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\\n\","
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.785,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "eslint/eslint/jobs/127421663888",
+   "system": "b0",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 262.",
+    "evidence": [
+     {
+      "job_id": 127421663888,
+      "line": 262,
+      "text": "at Object.error (/home/runner/work/eslint/eslint/node_modules/shelljs/src/common.js:126:15)"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1256,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "gin-gonic/gin/jobs/121502617680",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 188.",
+    "evidence": [
+     {
+      "job_id": 121502617680,
+      "line": 188,
+      "text": "##[error]The process '/opt/homebrew/bin/git' failed with exit code 128"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1063,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "gin-gonic/gin/jobs/126269355882",
+   "system": "b0",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 276.",
+    "evidence": [
+     {
+      "job_id": 126269355882,
+      "line": 276,
+      "text": "Cache not found for input keys: golangci-lint.cache-Linux-2965-33da1ed5d0ea2e3770e0dad3e5f599db3f0ed1b2, golangci-lint.cache-Linux-2965-"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.115,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "gin-gonic/gin/jobs/128333494725",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 815.",
+    "evidence": [
+     {
+      "job_id": 128333494725,
+      "line": 815,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1591,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "golangci/golangci-lint/jobs/121158861766",
+   "system": "b0",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 387.",
+    "evidence": [
+     {
+      "job_id": 121158861766,
+      "line": 387,
+      "text": "go: downloading github.com/Antonboom/testifylint v1.6.4"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1801,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "golangci/golangci-lint/jobs/124829123073",
+   "system": "b0",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 257.",
+    "evidence": [
+     {
+      "job_id": 124829123073,
+      "line": 257,
+      "text": "Cache not found for input keys: golangci-lint.cache-Linux-2965-40499b245d8c2d8eb9e0918c8e9ee195110f4490, golangci-lint.cache-Linux-2965-"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.091,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "golangci/golangci-lint/jobs/125935600212",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 698.",
+    "evidence": [
+     {
+      "job_id": 125935600212,
+      "line": 698,
+      "text": "##[error]Process completed with exit code 2."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1946,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "home-assistant/core/jobs/128596526314",
+   "system": "b0",
+   "result": {
+    "failure_type": "type_error",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 500.",
+    "evidence": [
+     {
+      "job_id": 128596526314,
+      "line": 500,
+      "text": "##[error]homeassistant/components/tplink_omada/config_flow.py:133: error: Method \"async_get_options_flow\" is not using @override but is overriding a method in class \"homeassistant.config_entries.ConfigFlow\"  [explicit-override]"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.114,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "home-assistant/core/jobs/128597303091",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 471.",
+    "evidence": [
+     {
+      "job_id": 128597303091,
+      "line": 471,
+      "text": "##[error]Process completed with exit code 4."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1018,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "home-assistant/core/jobs/128599505112",
+   "system": "b0",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 296.",
+    "evidence": [
+     {
+      "job_id": 128599505112,
+      "line": 296,
+      "text": "prettier.................................................................Failed"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.5577,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "pandas-dev/pandas/jobs/127999175786",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 2744.",
+    "evidence": [
+     {
+      "job_id": 127999175786,
+      "line": 2744,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.5073,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "pandas-dev/pandas/jobs/128128371265",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 1485.",
+    "evidence": [
+     {
+      "job_id": 128128371265,
+      "line": 1485,
+      "text": "FAILED pandas/__init__.py::pandas.Index.any"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.2471,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "pandas-dev/pandas/jobs/128556896967",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 401.",
+    "evidence": [
+     {
+      "job_id": 128556896967,
+      "line": 401,
+      "text": "E   ImportError: pyarrow>=16.0.0 is required for PyArrow backed StringArray."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1013,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "prettier/prettier/jobs/127885594046",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 231.",
+    "evidence": [
+     {
+      "job_id": 127885594046,
+      "line": 231,
+      "text": "##[error]\u2705 Autofix task started."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1076,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "prettier/prettier/jobs/127886264626",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 228.",
+    "evidence": [
+     {
+      "job_id": 127886264626,
+      "line": 228,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.094,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "prettier/prettier/jobs/128425464109",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 2231.",
+    "evidence": [
+     {
+      "job_id": 128425464109,
+      "line": 2231,
+      "text": "Test Suites: 2 failed, 1491 passed, 1493 total"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.201,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "prometheus/prometheus/jobs/128520253423",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 171.",
+    "evidence": [
+     {
+      "job_id": 128520253423,
+      "line": 171,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1113,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "prometheus/prometheus/jobs/128530441379",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 654.",
+    "evidence": [
+     {
+      "job_id": 128530441379,
+      "line": 654,
+      "text": "--- FAIL: TestExprString (0.00s)"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1177,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "prometheus/prometheus/jobs/128541760952",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 1150.",
+    "evidence": [
+     {
+      "job_id": 128541760952,
+      "line": 1150,
+      "text": "##[error]Process completed with exit code 2."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1695,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "pydantic/pydantic/jobs/125138034445",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 1744.",
+    "evidence": [
+     {
+      "job_id": 125138034445,
+      "line": 1744,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1885,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "pydantic/pydantic/jobs/128410383632",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 737.",
+    "evidence": [
+     {
+      "job_id": 128410383632,
+      "line": 737,
+      "text": "tests/pydantic_core/test_garbage_collection.py:325 test_exceptions_and_markers_report_python_references - AssertionError: assert False  + \u2026"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1287,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "pydantic/pydantic/jobs/128412937637",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 796.",
+    "evidence": [
+     {
+      "job_id": 128412937637,
+      "line": 796,
+      "text": "tests/pydantic_core/test_garbage_collection.py:317 test_exceptions_and_markers_report_python_references - AssertionError: assert False  + \u2026"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1379,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "pytest-dev/pytest/jobs/128266852295",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 741.",
+    "evidence": [
+     {
+      "job_id": 128266852295,
+      "line": 741,
+      "text": "raise AssertionError(\"bad parametrization\")"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1629,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "python/mypy/jobs/125352504651",
+   "system": "b0",
+   "result": {
+    "failure_type": "type_error",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 822.",
+    "evidence": [
+     {
+      "job_id": 125352504651,
+      "line": 822,
+      "text": "E   i686-linux-gnu-gcc -shared -L/opt/hostedtoolcache/pyenv_root/2.4.20/x64/versions/3.11.11/lib -Wl,-rpath,/opt/hostedtoolcache/pyenv_root/2.4.20/x64/versions/3.11.11/lib -L/opt/hostedtoolcache/pyenv_root/2.4.20/x64/versions/3.11.11/lib -Wl,-rpath,/opt/hostedtoolcache/pyenv_root/2.4.20/x64/versions/3.11.11/lib build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/bytes_ops.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/dict_ops.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/exc_ops.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/float_ops.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/function_wrapper.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/generic_ops.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/getargs.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/getargsfast.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/init.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/int_ops.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/internal/librt_internal.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/list_ops.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/locks.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/misc_ops.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/pythonsupport.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/set_ops.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/str_ops.o build/temp.linux-x86_64-cpython-311/home/runner/work/mypy/mypy/build/librt-cache/librt-c788ac250ecd3880/tuple_ops.o -L/opt/hostedtoolcache/pyenv_root/2.4.20/x64/versions/3.11.11/lib -o build/lib.linux-x86_64-cpython-311/librt/internal.cpython-311-i386-linux-gnu.so"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.738,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "python/mypy/jobs/126549309559",
+   "system": "b0",
+   "result": {
+    "failure_type": "type_error",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 691.",
+    "evidence": [
+     {
+      "job_id": 126549309559,
+      "line": 691,
+      "text": "Failed: Unexpected type checker output (/home/runner/work/mypy/mypy/test-data/unit/check-typevar-tuple.test, line 3265)"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1493,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "python/mypy/jobs/128333060491",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 375.",
+    "evidence": [
+     {
+      "job_id": 128333060491,
+      "line": 375,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1251,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "scikit-learn/scikit-learn/jobs/125106062979",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 3975.",
+    "evidence": [
+     {
+      "job_id": 125106062979,
+      "line": 3975,
+      "text": "E       TypeError: absolute tolerance for a scalar value must be an int, float or Decimal, got float32"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.6893,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "scikit-learn/scikit-learn/jobs/128262995066",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 523.",
+    "evidence": [
+     {
+      "job_id": 128262995066,
+      "line": 523,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.155,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "scikit-learn/scikit-learn/jobs/128264346573",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 4354.",
+    "evidence": [
+     {
+      "job_id": 128264346573,
+      "line": 4354,
+      "text": "E           IndexError: index 5 is out of bounds for axis 1 with size 5"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.482,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "tokio-rs/tokio/jobs/127580120346",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "Rule match on line 319.",
+    "evidence": [
+     {
+      "job_id": 127580120346,
+      "line": 319,
+      "text": "advisories FAILED, bans ok, licenses ok, sources ok"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1025,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "tokio-rs/tokio/jobs/128450812285",
+   "system": "b0",
+   "result": {
+    "failure_type": "compile_error",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 725.",
+    "evidence": [
+     {
+      "job_id": 128450812285,
+      "line": 725,
+      "text": "error[E0599]: no method named `is_empty` found for struct `Inject` in the current scope"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1127,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "tokio-rs/tokio/jobs/128500839848",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 1328.",
+    "evidence": [
+     {
+      "job_id": 128500839848,
+      "line": 1328,
+      "text": "test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.27s"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1465,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "vitejs/vite/jobs/128282520086",
+   "system": "b0",
+   "result": {
+    "failure_type": "dependency_install",
+    "cause_class": "environment",
+    "root_cause": "Rule match on line 323.",
+    "evidence": [
+     {
+      "job_id": 128282520086,
+      "line": 323,
+      "text": "Error: ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.0611,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "vitejs/vite/jobs/128437640991",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 539.",
+    "evidence": [
+     {
+      "job_id": 128437640991,
+      "line": 539,
+      "text": "AssertionError: expected 'dead-accept-updated' to be 'dead-accept' // Object.is equality"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.0859,
+   "replayed_calls": 0,
+   "live_calls": 0
+  },
+  {
+   "case_id": "vitejs/vite/jobs/128517139145",
+   "system": "b0",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "Rule match on line 598.",
+    "evidence": [
+     {
+      "job_id": 128517139145,
+      "line": 598,
+      "text": "AssertionError: the given combination of arguments (undefined and string) is invalid for this assertion. You can use an array, a map, an object, a set, a string, or a weakset instead of a string"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Read the quoted line.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 0,
+   "tool_calls": [],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cache_read_tokens": 0,
+   "cache_write_tokens": 0,
+   "cost_usd": 0.0,
+   "latency_s": 0.1062,
+   "replayed_calls": 0,
+   "live_calls": 0
+  }
+ ]
+}

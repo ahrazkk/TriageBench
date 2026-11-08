@@ -1,0 +1,62 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+pip-wheel-metadata/
+
+# ---- Virtual environments ----
+.venv/
+venv/
+env/
+.python-version
+
+# ---- Tool caches ----
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+coverage.xml
+htmlcov/
+.ipynb_checkpoints/
+
+# ---- Secrets and local config ----
+.env
+.env.*
+*.pem
+*.key
+
+# ---- Editors and OS ----
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Model weights (they live in /root/models inside WSL, never in the repo) ----
+models/
+*.safetensors
+*.bin
+*.gguf
+*.pt
+*.pth
+
+# ---- Benchmark by-products: keep the result JSONs, not the raw logs or traces ----
+results/logs/
+results/*.trace.json
+*.log
+nohup.out
+
+# ---- TriageBench data: raw logs and caches never go in git ----
+data/raw/
+.cache/
+cassettes/*.tmp
+
+# ---- Local replay cache of model calls (contains prompts + log excerpts) ----
+cassettes/

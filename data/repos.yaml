@@ -1,0 +1,30 @@
+# Public repositories to collect failed GitHub Actions jobs from, chosen for variety of languages,
+# test runners and CI setups. Cap: ~6 cases per repo so no repo dominates (PLAN section 7.3).
+repos:
+  # Python
+  - pydantic/pydantic
+  - python/mypy
+  - pytest-dev/pytest
+  - encode/httpx
+  - pandas-dev/pandas
+  - scikit-learn/scikit-learn
+  - home-assistant/core
+  - apache/airflow
+  - aio-libs/aiohttp
+  # Rust
+  - astral-sh/ruff
+  - astral-sh/uv
+  - tokio-rs/tokio
+  # JavaScript / TypeScript
+  - vitejs/vite
+  - eslint/eslint
+  - prettier/prettier
+  # Go
+  - gin-gonic/gin
+  - prometheus/prometheus
+  - golangci/golangci-lint
+  # Java, Docker
+  - apache/kafka
+  - docker/compose
+  # Mine
+  - ahrazkk/MiniServe
