@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
-      - name: Install (no embedding model: CI uses the deterministic fake embedder)
+      - name: "Install (no embedding model: CI uses the deterministic fake embedder)"
         run: uv sync --python 3.12 --extra dev
       - name: Lint
         run: uv run ruff check src tests && uv run ruff format --check src tests
