@@ -47,13 +47,21 @@ def parse_run_url(url: str) -> tuple[str, int, int | None]:
 
 # ---- snapshots of what was visible at failure time --------------------------------------------
 def change_summary(gh: GitHubClient, repo: str, run: dict[str, Any]) -> dict[str, Any]:
-    """The change under test: the PR's diff against its base, or the pushed commit."""
+    """The change under test: the PR's diff against its base, or the pushed commit.
+
+    The diff always ends at run["head_sha"], the commit that was actually tested. The run's
+    `pull_requests[0].head.sha` is the PR head *when we fetch it*, which can be later: it may
+    include the fix, which would leak the answer to the agent. Compare is three-dot (from the
+    merge base), so a base branch that moved on since doesn't matter.
+    """
     data: dict[str, Any] | None = None
     kind = "commit"
     prs = run.get("pull_requests") or []
+    base = head = None
     if run.get("event") == "pull_request" and prs:
+        base, head = prs[0]["base"]["sha"], run["head_sha"]
         try:
-            data = gh.compare(repo, prs[0]["base"]["sha"], prs[0]["head"]["sha"])
+            data = gh.compare(repo, base, head)
             kind = "pull_request"
         except GitHubError:
             data = None
@@ -81,7 +89,16 @@ def change_summary(gh: GitHubClient, repo: str, run: dict[str, Any]) -> dict[str
                 "patch": patch,
             }
         )
-    return {"kind": kind, "message": msg, "total_files": len(files), "files": out_files}
+    compared = (
+        {"base": base, "head": head} if kind == "pull_request" else {"commit": run["head_sha"]}
+    )
+    return {
+        "kind": kind,
+        "compared": compared,
+        "message": msg,
+        "total_files": len(files),
+        "files": out_files,
+    }
 
 
 def run_history(gh: GitHubClient, repo: str, run: dict[str, Any], job_name: str) -> dict[str, Any]:

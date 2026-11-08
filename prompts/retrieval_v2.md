@@ -1,0 +1,1 @@
+5. Call `search_similar_failures` with the key error message to see whether this failure has happened before. Similar cases come from other runs and often other repositories, so treat them as hints: list one in `similar_cases` only if its error clearly matches this job's error, and never adopt its labels unless this job's own evidence supports them.

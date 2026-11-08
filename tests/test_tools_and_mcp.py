@@ -87,3 +87,32 @@ async def test_mcp_contract(box: Toolbox, monkeypatch: pytest.MonkeyPatch) -> No
             assert text == box.call(name, args), name
         bad = await client.call_tool("get_log_excerpt", {"job_id": 999})
         assert bad.is_error
+
+
+class _RecordingGH:
+    """Stands in for GitHubClient: records which commits change_summary asks to compare."""
+
+    def __init__(self) -> None:
+        self.compared: list[tuple[str, str]] = []
+
+    def compare(self, repo: str, base: str, head: str) -> dict[str, object]:
+        self.compared.append((base, head))
+        return {"files": [], "commits": [{"commit": {"message": "the tested commit"}}]}
+
+    def commit(self, repo: str, sha: str) -> dict[str, object]:
+        return {"files": [], "commit": {"message": "pushed commit"}}
+
+
+def test_pr_diff_stops_at_the_tested_commit_not_the_current_pr_head() -> None:
+    """Regression test for a leak: the PR head at collection time can include the fix."""
+    from triagebench.github.collect import change_summary
+
+    gh = _RecordingGH()
+    run = {
+        "event": "pull_request",
+        "head_sha": "tested000",
+        "pull_requests": [{"base": {"sha": "base000"}, "head": {"sha": "later_fix000"}}],
+    }
+    out = change_summary(gh, "o/r", run)  # type: ignore[arg-type]
+    assert gh.compared == [("base000", "tested000")]
+    assert out["compared"] == {"base": "base000", "head": "tested000"}

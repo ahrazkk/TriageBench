@@ -1,0 +1,133 @@
+{
+ "date": "2026-11-08T04:00:54+00:00",
+ "name": "model-ablation-dev",
+ "groups": {
+  "haiku": {
+   "runs": [
+    "20261108-033400-b2-dev",
+    "20261108-034122-b2-dev-r1",
+    "20261108-034613-b2-dev-r2"
+   ],
+   "model": "claude-haiku-5-5",
+   "prompt_version": "v2",
+   "axis_A": {
+    "accuracy_per_run": [
+     0.92,
+     0.92,
+     0.94
+    ],
+    "mean": 0.9266666666666666,
+    "min": 0.92,
+    "max": 0.94,
+    "flip_rate": 0.08
+   },
+   "axis_B": {
+    "accuracy_per_run": [
+     0.88,
+     0.82,
+     0.82
+    ],
+    "mean": 0.84,
+    "min": 0.82,
+    "max": 0.88,
+    "flip_rate": 0.12
+   },
+   "cost_usd_per_triage": 0.00202152,
+   "latency_p50_s": 7.1625,
+   "model_calls_mean": 3.16,
+   "tool_calls_mean": 4.3,
+   "unknown_rate": 0.11333333333333333,
+   "errors": 0,
+   "confidence_mean": 0.6952666666666667
+  },
+  "sonnet": {
+   "runs": [
+    "20261108-035746-b2-dev-sonnet-r0",
+    "20261108-035914-b2-dev-sonnet-r1",
+    "20261108-040044-b2-dev-sonnet-r2"
+   ],
+   "model": "claude-sonnet-5-5",
+   "prompt_version": "v2",
+   "axis_A": {
+    "accuracy_per_run": [
+     0.88,
+     0.92,
+     0.94
+    ],
+    "mean": 0.9133333333333333,
+    "min": 0.88,
+    "max": 0.94,
+    "flip_rate": 0.08
+   },
+   "axis_B": {
+    "accuracy_per_run": [
+     0.88,
+     0.9,
+     0.86
+    ],
+    "mean": 0.88,
+    "min": 0.86,
+    "max": 0.9,
+    "flip_rate": 0.04
+   },
+   "cost_usd_per_triage": 0.02075804,
+   "latency_p50_s": 6.461,
+   "model_calls_mean": 2.8133333333333335,
+   "tool_calls_mean": 3.26,
+   "unknown_rate": 0.04666666666666667,
+   "errors": 0,
+   "confidence_mean": 0.7276
+  }
+ },
+ "paired": {
+  "sonnet_vs_haiku_axis_A": {
+   "delta_mean_accuracy": -0.013333333333333308,
+   "fixed": [
+    "apache/airflow/jobs/128596913928",
+    "docker/compose/jobs/126137262246",
+    "pandas-dev/pandas/jobs/128556896967"
+   ],
+   "broken": [
+    "apache/airflow/jobs/128590021031",
+    "apache/kafka/jobs/128599421155",
+    "docker/compose/jobs/125945590876",
+    "golangci/golangci-lint/jobs/124829123073",
+    "vitejs/vite/jobs/128282520086"
+   ],
+   "p": 0.7265625
+  },
+  "sonnet_vs_haiku_axis_B": {
+   "delta_mean_accuracy": 0.040000000000000036,
+   "fixed": [
+    "aio-libs/aiohttp/jobs/128469232327",
+    "apache/kafka/jobs/128599421155",
+    "docker/compose/jobs/125945590876",
+    "docker/compose/jobs/128050938250",
+    "golangci/golangci-lint/jobs/124829123073",
+    "prettier/prettier/jobs/127886264626",
+    "prometheus/prometheus/jobs/128530441379"
+   ],
+   "broken": [
+    "pandas-dev/pandas/jobs/127999175786",
+    "pydantic/pydantic/jobs/128410383632"
+   ],
+   "p": 0.1796875
+  }
+ },
+ "disagreement_cases": [
+  "aio-libs/aiohttp/jobs/128469232327",
+  "apache/airflow/jobs/128590021031",
+  "apache/airflow/jobs/128596913928",
+  "apache/kafka/jobs/128599421155",
+  "docker/compose/jobs/125945590876",
+  "docker/compose/jobs/126137262246",
+  "docker/compose/jobs/128050938250",
+  "golangci/golangci-lint/jobs/124829123073",
+  "pandas-dev/pandas/jobs/127999175786",
+  "pandas-dev/pandas/jobs/128556896967",
+  "prettier/prettier/jobs/127886264626",
+  "prometheus/prometheus/jobs/128530441379",
+  "pydantic/pydantic/jobs/128410383632",
+  "vitejs/vite/jobs/128282520086"
+ ]
+}

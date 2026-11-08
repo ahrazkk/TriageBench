@@ -1,0 +1,2741 @@
+{
+ "run_id": "20261108-033615-b3-dev",
+ "system": "b3",
+ "system_desc": "agent + retrieval",
+ "split": "dev",
+ "n_cases": 50,
+ "model": "claude-haiku-5-5",
+ "effort": "medium",
+ "prompt_version": "v2",
+ "prompt_hash": "ebd1f439a229",
+ "tools_hash": "c9536370476d",
+ "dataset_hash": "04af762d0caa",
+ "labels": {
+  "verified": 0,
+  "ai_drafted_unverified": 50
+ },
+ "budgets": {
+  "max_steps": 8,
+  "max_input_tokens": 60000,
+  "excerpt_tokens": 4000
+ },
+ "tools_transport": "direct",
+ "commit": "2b6184f-dirty",
+ "date": "2026-11-08T03:36:15+00:00",
+ "metrics": {
+  "n": 50,
+  "answered": 50,
+  "coverage_B": 0.86,
+  "axis_A": {
+   "n": 50,
+   "correct": 45,
+   "accuracy": 0.9,
+   "accuracy_ci95": [
+    0.7863976845138676,
+    0.956524235343241
+   ],
+   "macro_f1": 0.834062980030722,
+   "macro_f1_ci95": [
+    0.6162979877265592,
+    0.9538461538461539
+   ],
+   "confident_error_rate": 0.02,
+   "confusion": {
+    "ci_infra_or_config": {
+     "ci_infra_or_config": 6
+    },
+    "compile_error": {
+     "lint_failure": 1,
+     "compile_error": 2,
+     "ci_infra_or_config": 1
+    },
+    "dependency_install": {
+     "ci_infra_or_config": 2,
+     "dependency_install": 2
+    },
+    "docker_build": {
+     "dependency_install": 1,
+     "docker_build": 1
+    },
+    "lint_failure": {
+     "lint_failure": 15
+    },
+    "test_assertion": {
+     "test_assertion": 17
+    },
+    "timeout_or_oom": {
+     "timeout_or_oom": 1
+    },
+    "type_error": {
+     "type_error": 1
+    }
+   },
+   "per_case_correct": {
+    "aio-libs/aiohttp/jobs/128398488166": false,
+    "aio-libs/aiohttp/jobs/128426954085": true,
+    "aio-libs/aiohttp/jobs/128469232327": true,
+    "apache/airflow/jobs/128371941742": true,
+    "apache/airflow/jobs/128590021031": false,
+    "apache/airflow/jobs/128596913928": false,
+    "apache/kafka/jobs/127754729796": true,
+    "apache/kafka/jobs/128005530569": true,
+    "apache/kafka/jobs/128599421155": true,
+    "astral-sh/ruff/jobs/127975085701": true,
+    "astral-sh/ruff/jobs/128085671101": true,
+    "astral-sh/ruff/jobs/128162583586": true,
+    "docker/compose/jobs/125945590876": true,
+    "docker/compose/jobs/126137262246": true,
+    "docker/compose/jobs/128050938250": true,
+    "eslint/eslint/jobs/127421663888": true,
+    "gin-gonic/gin/jobs/121502617680": true,
+    "gin-gonic/gin/jobs/126269355882": true,
+    "gin-gonic/gin/jobs/128333494725": true,
+    "golangci/golangci-lint/jobs/121158861766": true,
+    "golangci/golangci-lint/jobs/124829123073": false,
+    "golangci/golangci-lint/jobs/125935600212": true,
+    "home-assistant/core/jobs/128596526314": true,
+    "home-assistant/core/jobs/128597303091": true,
+    "home-assistant/core/jobs/128599505112": true,
+    "pandas-dev/pandas/jobs/127999175786": true,
+    "pandas-dev/pandas/jobs/128128371265": true,
+    "pandas-dev/pandas/jobs/128556896967": true,
+    "prettier/prettier/jobs/127885594046": true,
+    "prettier/prettier/jobs/127886264626": true,
+    "prettier/prettier/jobs/128425464109": true,
+    "prometheus/prometheus/jobs/128520253423": true,
+    "prometheus/prometheus/jobs/128530441379": true,
+    "prometheus/prometheus/jobs/128541760952": true,
+    "pydantic/pydantic/jobs/125138034445": true,
+    "pydantic/pydantic/jobs/128410383632": true,
+    "pydantic/pydantic/jobs/128412937637": true,
+    "pytest-dev/pytest/jobs/128266852295": true,
+    "python/mypy/jobs/125352504651": true,
+    "python/mypy/jobs/126549309559": true,
+    "python/mypy/jobs/128333060491": true,
+    "scikit-learn/scikit-learn/jobs/125106062979": true,
+    "scikit-learn/scikit-learn/jobs/128262995066": true,
+    "scikit-learn/scikit-learn/jobs/128264346573": true,
+    "tokio-rs/tokio/jobs/127580120346": true,
+    "tokio-rs/tokio/jobs/128450812285": true,
+    "tokio-rs/tokio/jobs/128500839848": true,
+    "vitejs/vite/jobs/128282520086": false,
+    "vitejs/vite/jobs/128437640991": true,
+    "vitejs/vite/jobs/128517139145": true
+   }
+  },
+  "axis_B": {
+   "n": 50,
+   "correct": 37,
+   "accuracy": 0.74,
+   "accuracy_ci95": [
+    0.6044684262151608,
+    0.8412847256991044
+   ],
+   "macro_f1": 0.576983285360804,
+   "macro_f1_ci95": [
+    0.4363408521303258,
+    0.8083158955281717
+   ],
+   "confident_error_rate": 0.02,
+   "confusion": {
+    "ci_config": {
+     "unknown": 3,
+     "ci_config": 1
+    },
+    "environment": {
+     "environment": 10,
+     "unknown": 1,
+     "ci_config": 1,
+     "test_defect": 1
+    },
+    "flaky": {
+     "flaky": 6,
+     "ci_config": 1
+    },
+    "regression": {
+     "regression": 18,
+     "unknown": 3,
+     "test_defect": 1
+    },
+    "test_defect": {
+     "test_defect": 2,
+     "regression": 1
+    },
+    "unknown": {
+     "flaky": 1
+    }
+   },
+   "per_case_correct": {
+    "aio-libs/aiohttp/jobs/128398488166": true,
+    "aio-libs/aiohttp/jobs/128426954085": true,
+    "aio-libs/aiohttp/jobs/128469232327": false,
+    "apache/airflow/jobs/128371941742": true,
+    "apache/airflow/jobs/128590021031": true,
+    "apache/airflow/jobs/128596913928": true,
+    "apache/kafka/jobs/127754729796": true,
+    "apache/kafka/jobs/128005530569": false,
+    "apache/kafka/jobs/128599421155": false,
+    "astral-sh/ruff/jobs/127975085701": false,
+    "astral-sh/ruff/jobs/128085671101": true,
+    "astral-sh/ruff/jobs/128162583586": true,
+    "docker/compose/jobs/125945590876": true,
+    "docker/compose/jobs/126137262246": true,
+    "docker/compose/jobs/128050938250": true,
+    "eslint/eslint/jobs/127421663888": true,
+    "gin-gonic/gin/jobs/121502617680": true,
+    "gin-gonic/gin/jobs/126269355882": true,
+    "gin-gonic/gin/jobs/128333494725": true,
+    "golangci/golangci-lint/jobs/121158861766": true,
+    "golangci/golangci-lint/jobs/124829123073": true,
+    "golangci/golangci-lint/jobs/125935600212": false,
+    "home-assistant/core/jobs/128596526314": true,
+    "home-assistant/core/jobs/128597303091": true,
+    "home-assistant/core/jobs/128599505112": true,
+    "pandas-dev/pandas/jobs/127999175786": false,
+    "pandas-dev/pandas/jobs/128128371265": true,
+    "pandas-dev/pandas/jobs/128556896967": true,
+    "prettier/prettier/jobs/127885594046": true,
+    "prettier/prettier/jobs/127886264626": false,
+    "prettier/prettier/jobs/128425464109": true,
+    "prometheus/prometheus/jobs/128520253423": false,
+    "prometheus/prometheus/jobs/128530441379": false,
+    "prometheus/prometheus/jobs/128541760952": true,
+    "pydantic/pydantic/jobs/125138034445": true,
+    "pydantic/pydantic/jobs/128410383632": false,
+    "pydantic/pydantic/jobs/128412937637": true,
+    "pytest-dev/pytest/jobs/128266852295": true,
+    "python/mypy/jobs/125352504651": true,
+    "python/mypy/jobs/126549309559": true,
+    "python/mypy/jobs/128333060491": true,
+    "scikit-learn/scikit-learn/jobs/125106062979": false,
+    "scikit-learn/scikit-learn/jobs/128262995066": true,
+    "scikit-learn/scikit-learn/jobs/128264346573": false,
+    "tokio-rs/tokio/jobs/127580120346": true,
+    "tokio-rs/tokio/jobs/128450812285": true,
+    "tokio-rs/tokio/jobs/128500839848": true,
+    "vitejs/vite/jobs/128282520086": false,
+    "vitejs/vite/jobs/128437640991": true,
+    "vitejs/vite/jobs/128517139145": true
+   }
+  },
+  "both_correct": 0.66,
+  "evidence_validity": 1.0,
+  "evidence_quotes": 157,
+  "repaired": 2,
+  "errors": 0,
+  "cost_usd_mean": 0.00245722,
+  "cost_usd_total": 0.122861,
+  "input_tokens_mean": 28998.9,
+  "latency_p50_s": 7.6835,
+  "latency_p95_s": 12.29755,
+  "steps_mean": 3.4,
+  "tool_mix": {
+   "get_run_overview": 50,
+   "get_log_excerpt": 50,
+   "get_change_summary": 46,
+   "get_run_history": 42,
+   "search_similar_failures": 34,
+   "search_log": 27,
+   "read_log_lines": 6
+  }
+ },
+ "outcomes": [
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128398488166",
+   "system": "b3",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "environment",
+    "root_cause": "The job 'Test (android, cp314, ubuntu-latest)' failed in the Gradle managed-device setup task ':app:maxVersionSetup', before any tests ran. The configured maxVersion Android system image is not available for x86_64, so the emulator setup failed, and the dependabot filelock 4.2.6\u21924.2.8 bump (a constraints/requirements-only change) cannot plausibly cause it. Whether the image disappeared upstream or the workflow's maxVersion/x86_64 choice is stale is not settled by the log.",
+    "evidence": [
+     {
+      "job_id": 128398488166,
+      "line": 1350,
+      "text": "Execution failed for task ':app:maxVersionSetup'."
+     },
+     {
+      "job_id": 128398488166,
+      "line": 1352,
+      "text": "System Image for maxVersion does not exist for this architecture"
+     },
+     {
+      "job_id": 128398488166,
+      "line": 1369,
+      "text": "cibuildwheel: error: Command ['/tmp/cibw-run-t62ym6s4/cp314-android_x86_64/python/android.py', 'test'"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Check whether the Android SDK system-image list for API 32 aosp_atd x86_64 changed recently, and whether the workflow's maxVersion managed-device setting for the android cp314 job should use an ARM image or a different API level. Then re-run the job on main to confirm it fails without the filelock bump.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1499,
+   "cache_read_tokens": 11000,
+   "cache_write_tokens": 8525,
+   "cost_usd": 0.001926,
+   "latency_s": 9.775,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128426954085",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The 'Run docs spelling' step (make doc-spelling) failed because Sphinx warns that the py:class reference aiohttp.AsyncResolver cannot be found, and warnings are treated as errors. The warning comes from the new towncrier fragment CHANGES/14087.bugfix.rst that this PR added, which uses :class:`~aiohttp.AsyncResolver>`, a target the docs do not define. The PR introduced the broken reference, so the fix belongs in the changelog text or the docs, not in the test or CI setup.",
+    "evidence": [
+     {
+      "job_id": 128426954085,
+      "line": 542,
+      "text": "WARNING: py:class reference target not found: aiohttp.AsyncResolver [ref.class]"
+     },
+     {
+      "job_id": 128426954085,
+      "line": 544,
+      "text": "build finished with problems, 1 warning (with warnings treated as errors)."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Change the reference in CHANGES/14087.bugfix.rst from :class:`~aiohttp.AsyncResolver` to a plain literal (``AsyncResolver``), or make sure the class is documented under that name in docs/client_reference.rst, then rerun 'make doc-spelling' locally to confirm the warning is gone.",
+    "confidence": 0.85
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 12,
+   "output_tokens": 1387,
+   "cache_read_tokens": 11549,
+   "cache_write_tokens": 9979,
+   "cost_usd": 0.002058,
+   "latency_s": 8.774,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128469232327",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "unknown",
+    "root_cause": "The 'Backport label added' job failed in its github-script step on PR #... (branch fix/close-connection-on-trace-failure). The script looks up the PR's labels and calls process.exit(1) when none starts with 'backport', so the PR-policy gate failed because the PR has no backport label. Nothing in the log points to the code change, a dependency, or the runner, so this is a PR-metadata gap rather than a code defect.",
+    "evidence": [
+     {
+      "job_id": 128469232327,
+      "line": 58,
+      "text": "if (!pr.data.labels.find(l => l.name.startsWith(\"backport\")))"
+     },
+     {
+      "job_id": 128469232327,
+      "line": 59,
+      "text": "  process.exit(1);"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Add a backport label (for example backport-3.x) to the PR, or confirm the PR does not need a backport and adjust the workflow's label requirement. Then re-run the 'Backport label added' job; the code itself needs no change.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 2,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 8,
+   "output_tokens": 1175,
+   "cache_read_tokens": 4242,
+   "cache_write_tokens": 5766,
+   "cost_usd": 0.001351,
+   "latency_s": 6.004,
+   "replayed_calls": 0,
+   "live_calls": 2
+  },
+  {
+   "case_id": "apache/airflow/jobs/128371941742",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "environment",
+    "root_cause": "The 'Reject vulnerable dependency changes' job (actions/dependency-review-action, fail-on-severity: high) failed because it found two high-severity advisories for jackson-core@2.22.2 in java-sdk/example/settings.gradle (GHSA-p6pp-m3f8-5c89 and GHSA-7hhh-6rmp-j9qf). The commit under test only changes Bluesky URLs in pyproject.toml and release docs, and the same job failed on main on 2026-11-06 before this change, so the failure comes from advisories against an existing dependency, not from this change. Retrying will not fix it: the gate stays red until the dependency is upgraded or the advisory is explicitly allowed.",
+    "evidence": [
+     {
+      "job_id": 128371941742,
+      "line": 43,
+      "text": "##[error]Dependency review detected vulnerable packages."
+     },
+     {
+      "job_id": 128371941742,
+      "line": 39,
+      "text": "jackson-core: ReDoS: quadratic backtracking in NumberInput.PATTERN_FLOAT via looksLikeValidNumber() (high severity)"
+     },
+     {
+      "job_id": 128371941742,
+      "line": 41,
+      "text": "jackson-core: UTF8DataInputJsonParser._reportInvalidToken() missing maxErrorTokenLength limit"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Upgrade jackson-core in java-sdk/example/settings.gradle to a patched version (the action output shows show-patched-versions), or add the advisory IDs to allow-ghsas with a documented reason; this is a dependency-policy fix, not a change to this Bluesky URL commit. Also check the 2026-11-06 failure on main to confirm it has the same advisories.",
+    "confidence": 0.8
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_log"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1701,
+   "cache_read_tokens": 10216,
+   "cache_write_tokens": 9357,
+   "cost_usd": 0.002123,
+   "latency_s": 8.374,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "apache/airflow/jobs/128590021031",
+   "system": "b3",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "environment",
+    "root_cause": "The 'PyPI constraints' step of the 'Generate constraints for 3.11' job in the Update constraints workflow crashed in run_generate_constraints.py while fetching the PyPI JSON API for apache-airflow-providers-apache-iceberg, because pypi.org closed the TLS connection mid-handshake (SSLEOFError UNEXPECTED_EOF_WHILE_READING). This is a transient network or registry failure on the runner, not caused by the Databricks toolset change, which only touches provider code, docs, and uv.lock. History shows this job passing on the prior 13 runs and not failing on earlier runs, and the 3.12 job failing on a different run is a separate event.",
+    "evidence": [
+     {
+      "job_id": 128590021031,
+      "line": 24327,
+      "text": "ssl.SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1018)"
+     },
+     {
+      "job_id": 128590021031,
+      "line": 24351,
+      "text": "urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /pypi/apache-airflow-providers-apache-iceberg/json"
+     },
+     {
+      "job_id": 128590021031,
+      "line": 24430,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Re-run the failed job (gh run rerun --failed for run 42433523466) since the failure is a transient pypi.org TLS error; if it recurs, add retry/backoff around the find_newest_version_in_pypi requests.get call in run_generate_constraints.py.",
+    "confidence": 0.8
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1040,
+   "cache_read_tokens": 19801,
+   "cache_write_tokens": 17392,
+   "cost_usd": 0.002893,
+   "latency_s": 6.374,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "apache/airflow/jobs/128596913928",
+   "system": "b3",
+   "result": {
+    "failure_type": "dependency_install",
+    "cause_class": "regression",
+    "root_cause": "The 'Build CI linux/amd64 image 3.12' job failed inside the docker build at the os-deps step: running install_os_dependencies.sh with libgeos-dev from the pgdg repo pulled in libpython3.13 via gdb, and Breeze's guard then aborted with 'System python is installed by one of the previous steps'. This PR changes the base image digests, the pinned OS-deps digests and the os-deps setup, and main built the same image before this change, so the change under test most likely triggered it. The exact package-resolution trigger is not fully confirmed by the log.",
+    "evidence": [
+     {
+      "job_id": 128596913928,
+      "line": 2260,
+      "text": "ERROR! System python is installed by one of the previous steps"
+     },
+     {
+      "job_id": 128596913928,
+      "line": 2277,
+      "text": "gdb Depends libpython3.13 (>= 3.13.0~rc3)"
+     },
+     {
+      "job_id": 128596913928,
+      "line": 2280,
+      "text": "ERROR: failed to build: failed to solve: process \"/bin/bash -o pipefail -o errexit -o nounset -o nolog -c bash /scripts/docker/install_os_dependencies.sh ci\" did not complete successfully: exit code: 1"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Reproduce locally with the breeze ci-image build command from the log, then check whether the pinned ci-3.12.16 os-deps image (digest in hardened_os_deps_image_digests.json) and the libgeos-dev/gdb packages from the pgdg repo pull in libpython3.13. Fix by pinning or excluding those packages, or by reverting the os-deps digest change, and re-run the job.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 2068,
+   "cache_read_tokens": 13953,
+   "cache_write_tokens": 16531,
+   "cost_usd": 0.003241,
+   "latency_s": 16.737,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "apache/kafka/jobs/127754729796",
+   "system": "b3",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "ci_config",
+    "root_cause": "The 'Setup Gradle' step in the 'build / API Checker Java 25' job failed before any build or test ran, because GitHub rejected the action gradle/actions/setup-gradle at commit 3f131e8634966bd73d06cc69884922b02e6faf92: apache/kafka's enterprise action allow-list does not permit it. The PR only changes BytesTest.java (+3 assertions for Bytes.toString boundaries), so the code change did not cause this; the fix is in the workflow's action policy or the action reference, not the source.",
+    "evidence": [
+     {
+      "job_id": 127754729796,
+      "line": 158,
+      "text": "The action gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 is not allowed in apache/kafka because all actions must be from a repository owned by your enterprise"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Check the repo's Actions permissions (allowed actions list) and either add gradle/actions/setup-gradle to the allow-list or switch the workflow to a permitted Gradle setup, then re-run the job. The other failed jobs in the run were not inspected and may share this cause.",
+    "confidence": 0.85
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 1,
+   "evidence_valid": 1,
+   "input_tokens": 12,
+   "output_tokens": 868,
+   "cache_read_tokens": 9961,
+   "cache_write_tokens": 7431,
+   "cost_usd": 0.001464,
+   "latency_s": 9.309,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "apache/kafka/jobs/128005530569",
+   "system": "b3",
+   "result": {
+    "failure_type": "timeout_or_oom",
+    "cause_class": "flaky",
+    "root_cause": "The 'build / JUnit tests Java 17' job hit the 210-minute test-step timeout while the Gradle test run was still going. The parser reported 0 FAILED tests among the 37680 that completed, so no assertion failed; the last test started before the thread dump, shouldAllowPatternSubscriptionWithMultipleNamedTopologies in :streams:integration-tests, has no PASSED line, which points to a hang in that test. The change under test is a 300-file trunk merge that touches many integration tests, so a regression cannot be ruled out, and this run alone does not show whether the hang reproduces. Previous Java 17 runs on this branch did not fail in this job.",
+    "evidence": [
+     {
+      "job_id": 128005530569,
+      "line": 167242,
+      "text": "Timed out after 205 minutes. Dumping threads now..."
+     },
+     {
+      "job_id": 128005530569,
+      "line": 170430,
+      "text": "Gradle task had a timeout. Failing this script. These are partial results!"
+     },
+     {
+      "job_id": 128005530569,
+      "line": 170434,
+      "text": "37680 PASSED \u2705, 0 FAILED \u274c, 0 FLAKY \u26a0\ufe0f , 2 SKIPPED \ud83d\ude48, 0 QUARANTINED \ud83d\ude37, and 0 errors."
+     },
+     {
+      "job_id": 128005530569,
+      "line": 170435,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Open the thread-dump artifact (artifacts/13535548567) and find the stack for the NamedTopologyIntegrationTest.shouldAllowPatternSubscriptionWithMultipleNamedTopologies executor thread to see where it blocks. Then rerun the job; if the hang recurs, quarantine or fix that test. If the hang is not reproducible, check whether the 300-file merge lengthened the streams integration suite past the 210-minute budget.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_run_history",
+    "get_change_summary",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 12,
+   "output_tokens": 2009,
+   "cache_read_tokens": 16688,
+   "cache_write_tokens": 18829,
+   "cost_usd": 0.003526,
+   "latency_s": 18.213,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "apache/kafka/jobs/128599421155",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "unknown",
+    "root_cause": "The job failed at the 'Fail if Draft' step in the CI workflow, which deliberately echoes 'Cannot merge a draft PR' and exits 1 because PR 24131 (branch share-unclean-election-repro) is still a draft. This is an intentional PR-policy gate, not a code, test or dependency failure, so the commit under test is not the cause. The other three jobs in the run passed.",
+    "evidence": [
+     {
+      "job_id": 128599421155,
+      "line": 1357,
+      "text": "Cannot merge a draft PR"
+     },
+     {
+      "job_id": 128599421155,
+      "line": 1358,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Mark the PR as ready for review (or convert it out of draft) and re-run the 'build / CI checks completed' job; no code or workflow change is needed.",
+    "confidence": 0.8
+   },
+   "errors": [],
+   "steps": 2,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 8,
+   "output_tokens": 909,
+   "cache_read_tokens": 4232,
+   "cache_write_tokens": 6843,
+   "cost_usd": 0.001353,
+   "latency_s": 5.302,
+   "replayed_calls": 0,
+   "live_calls": 2
+  },
+  {
+   "case_id": "astral-sh/ruff/jobs/127975085701",
+   "system": "b3",
+   "result": {
+    "failure_type": "dependency_install",
+    "cause_class": "unknown",
+    "root_cause": "The ruff 'ty ecosystem-analyzer' shard 3 job crashed while the analyzer installed dependencies for a third-party project it was checking (scrapy/schema_salad). The install command runs `uv pip install ... -r requirements.txt` and the target repo has no requirements.txt, so uv exits 2, and the analyzer's unhandled CalledProcessError ends the step. The failure is in the ecosystem harness's handling of third-party project layouts, not in ty's overload-rule code, so the PR's source changes are unlikely to be the direct cause, though the job also failed on the three previous commits of this branch and I did not confirm the exact project whose install raised the final exception.",
+    "evidence": [
+     {
+      "job_id": 127975085701,
+      "line": 835,
+      "text": "error: File not found: requirements.txt"
+     },
+     {
+      "job_id": 127975085701,
+      "line": 837,
+      "text": "ERROR - Failed to install project schema_salad: Command 'uv pip install --python /tmp/tmpo4yjrvav/.venv/bin/python --exclude-newer 2026-11-06T15:18:42Z"
+     },
+     {
+      "job_id": 127975085701,
+      "line": 1221,
+      "text": "subprocess.CalledProcessError: Command 'uv pip install --python /tmp/tmpo4yjrvav/.venv/bin/python --exclude-newer 2026-11-06T15:18:42Z"
+     },
+     {
+      "job_id": 127975085701,
+      "line": 1222,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Make the ecosystem analyzer catch per-project install failures (or skip projects whose requirements.txt is missing) so one bad third-party project does not abort the shard, then rerun shard 3; separately confirm which project raised the final CalledProcessError and whether the same job passed on the 2026-11-03 commits.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "search_log",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 16,
+   "output_tokens": 2147,
+   "cache_read_tokens": 24793,
+   "cache_write_tokens": 15036,
+   "cost_usd": 0.003203,
+   "latency_s": 11.955,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "astral-sh/ruff/jobs/128085671101",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "flaky",
+    "root_cause": "The single failing test is ty::file_watching shared_script_search_paths_remain_watched_until_unused in crates/ty/tests/file_watching.rs:1713, which expected no file-watch events (right: Err([])) but received Created/Changed events for second.py on macOS. The commit under test only changes type-alias caching and an inference test in ty_python_semantic, not file watching, and this job had passed on all 15 earlier main runs, so the failure looks like timing-dependent macOS filesystem-event noise rather than a regression; the rest of the 9666 tests passed.",
+    "evidence": [
+     {
+      "job_id": 128085671101,
+      "line": 10794,
+      "text": "FAIL [   0.376s] (6534/9666) ty::file_watching shared_script_search_paths_remain_watched_until_unused"
+     },
+     {
+      "job_id": 128085671101,
+      "line": 10809,
+      "text": "thread 'shared_script_search_paths_remain_watched_until_unused' (80915) panicked at crates/ty/tests/file_watching.rs:1713:5:"
+     },
+     {
+      "job_id": 128085671101,
+      "line": 10811,
+      "text": "left: Err([Created { path: \"/private/var/folders/1m/wsmgmjkx6k59p3sx1z3wpn9w0000gn/T/.tmprXup0k/project/second.py\", kind: File }"
+     },
+     {
+      "job_id": 128085671101,
+      "line": 10699,
+      "text": "Summary [  91.772s] 9666 tests run: 9665 passed (94 slow), 1 failed, 45 skipped"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Re-run the job once to confirm it passes; if it recurs, make the test wait for or tolerate the extra Created/Changed events from the macOS file watcher (or quarantine it on macOS) and open an issue for the file_watching test's flakiness, since the failing test is unrelated to the alias-caching change.",
+    "confidence": 0.65
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 16,
+   "output_tokens": 1304,
+   "cache_read_tokens": 21149,
+   "cache_write_tokens": 13628,
+   "cost_usd": 0.002569,
+   "latency_s": 8.057,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "astral-sh/ruff/jobs/128162583586",
+   "system": "b3",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "environment",
+    "root_cause": "The 'Run memory report' workflow's publish-report job failed in the final 'Publish the report' step, where scripts/publish_pr_report.py posts the PR comment via the GitHub REST API. The API returned HTTP 500 Internal Server Error (urllib HTTPError raised from api() at line 89), so the script exited 1. The change under test (ty rule rename) did not touch this script, and the same job passed on every one of the 15 earlier runs.",
+    "evidence": [
+     {
+      "job_id": 128162583586,
+      "line": 446,
+      "text": "urllib.error.HTTPError: HTTP Error 500: Internal Server Error"
+     },
+     {
+      "job_id": 128162583586,
+      "line": 429,
+      "text": "with urlopen(request, timeout=30) as response:"
+     },
+     {
+      "job_id": 128162583586,
+      "line": 447,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Re-run the failed job (attempt 2). If the 500 recurs, check the GitHub status page for API incidents, and consider adding a retry with backoff around the POST in scripts/publish_pr_report.py's api() helper.",
+    "confidence": 0.8
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1071,
+   "cache_read_tokens": 10528,
+   "cache_write_tokens": 7759,
+   "cost_usd": 0.001612,
+   "latency_s": 5.879,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "docker/compose/jobs/125945590876",
+   "system": "b3",
+   "result": {
+    "failure_type": "dependency_install",
+    "cause_class": "environment",
+    "root_cause": "The bin-image build for linux/riscv64 failed in the Dockerfile's build-base stage at `go mod download`, which could not fetch google.golang.org/grpc@v1.84.0 from proxy.golang.org because the connection was reset with an HTTP/2 INTERNAL_ERROR from the peer. The one-file commit under test only changes internal/inspect/events_test.go (context.Background() to t.Context()), so it cannot affect module downloads, and the same job passed in the 11 earlier successful runs. The failure is a transient network or registry problem, not a regression.",
+    "evidence": [
+     {
+      "job_id": 125945590876,
+      "line": 4342,
+      "text": "stream error: stream ID 645; INTERNAL_ERROR; received from peer"
+     },
+     {
+      "job_id": 125945590876,
+      "line": 4343,
+      "text": "did not complete successfully: exit code: 1"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Re-run the failed job (bin-image / build (7, linux/riscv64, ubuntu-26.04)) to confirm it passes; if the proxy.golang.org stream error recurs, consider adding a retry around `go mod download` in the build-base stage or a module cache mirror.",
+    "confidence": 0.85
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "search_log",
+    "get_change_summary",
+    "get_run_history"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 12,
+   "output_tokens": 1322,
+   "cache_read_tokens": 17283,
+   "cache_write_tokens": 24185,
+   "cost_usd": 0.003858,
+   "latency_s": 7.09,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "docker/compose/jobs/126137262246",
+   "system": "b3",
+   "result": {
+    "failure_type": "docker_build",
+    "cause_class": "environment",
+    "root_cause": "The docs-upstream job's docker bake step runs Hugo over the upstream docs module, which fails with REF_NOT_FOUND errors for pages under ai/sandboxes/governance, so the site build exits 1 and the job fails. The change under test only modifies Go files in internal/containerops (exec nil-pointer check), so it cannot have caused broken docs refs, and the same branch passed on earlier commits. The likely cause is an upstream docs content change or a missing page in the fetched module, not this PR.",
+    "evidence": [
+     {
+      "job_id": 126137262246,
+      "line": 826,
+      "text": "ERROR [en] REF_NOT_FOUND: Ref \"../../../ai/sandboxes/governance/_index.md\" from page \"/manuals/accounts/organization/manage/manage-products\": page not found"
+     },
+     {
+      "job_id": 126137262246,
+      "line": 831,
+      "text": "ERROR error building site: logged 4 error(s)"
+     },
+     {
+      "job_id": 126137262246,
+      "line": 861,
+      "text": "##[error]buildx bake failed with: ERROR: failed to solve: process \"/bin/sh -c hugo --ignoreVendorPaths"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Check the upstream docs module (UPSTREAM_MODULE_NAME) for recently removed or moved ai/sandboxes/governance pages, and either restore them or fix the dangling refs in manage-products. Then re-run the job; if it passes on a retry without changes to this PR, the failure is confirmed as external.",
+    "confidence": 0.7
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1457,
+   "cache_read_tokens": 12115,
+   "cache_write_tokens": 10943,
+   "cost_usd": 0.002219,
+   "latency_s": 7.166,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "docker/compose/jobs/128050938250",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "flaky",
+    "root_cause": "The job failed in the standalone e2e suite on TestUpAttachedTerminatesOnExternalStop (pkg/e2e up_test.go:216), which asserted RestartCount 2 != 1 because the container restarted again before the external stop landed in its backoff window. The test's own message says 'rerun', and the change under test only touches the OCI remote-cache path (pkg/remote/oci.go and its cache-entry test), not restart or up behaviour, so the failure looks timing-dependent rather than caused by the commit.",
+    "evidence": [
+     {
+      "job_id": 128050938250,
+      "line": 8169,
+      "text": "assertion failed: 2 (string) != 1 (restartCount string): container restarted again before the external stop could land in its backoff window; rerun"
+     },
+     {
+      "job_id": 128050938250,
+      "line": 8161,
+      "text": "=== FAIL: pkg/e2e TestUpAttachedTerminatesOnExternalStop (2.38s)"
+     },
+     {
+      "job_id": 128050938250,
+      "line": 8183,
+      "text": "DONE 336 tests, 3 skipped, 1 failure in 404.889s"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Rerun the failed job (e2e standalone, stable, containerd). If it fails again, make TestUpAttachedTerminatesOnExternalStop deterministic, for example by waiting for a stable RestartCount before issuing the external stop, and file it as a flaky-test issue. Do not change the OCI cache code for this failure.",
+    "confidence": 0.75
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "search_log",
+    "get_change_summary",
+    "get_run_history",
+    "read_log_lines",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 16,
+   "output_tokens": 1332,
+   "cache_read_tokens": 41419,
+   "cache_write_tokens": 27199,
+   "cost_usd": 0.004482,
+   "latency_s": 7.567,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "eslint/eslint/jobs/127421663888",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "The Test (ubuntu-latest, 26.x) job failed in the unit test run: tests/_utils/index.js:55 calls addFile, which is not a function, during createCustomTeardown in tests/lib/eslint/eslint.js. The only change under test is the renovate bump of fs-teardown from ^0.1.3 to ^0.3.0 in package.json, so the new major-version API most likely dropped or changed addFile. I did not inspect the installed fs-teardown 0.3.0 source, so the API change is inferred from the error.",
+    "evidence": [
+     {
+      "job_id": 127421663888,
+      "line": 193,
+      "text": "TypeError: addFile is not a function"
+     },
+     {
+      "job_id": 127421663888,
+      "line": 196,
+      "text": "at createCustomTeardown (/home/runner/work/eslint/eslint/tests/_utils/index.js:54:25)"
+     },
+     {
+      "job_id": 127421663888,
+      "line": 276,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Check the fs-teardown 0.3.0 changelog or type definitions for the replacement of addFile, then either update tests/_utils/index.js to the new API or pin fs-teardown back to ^0.1.x. Also check whether the earlier failed run on this branch (job Test (ubuntu-latest, 20.19.0), run a241688108) shows the same addFile error.",
+    "confidence": 0.7
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_log",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 16,
+   "output_tokens": 1531,
+   "cache_read_tokens": 18804,
+   "cache_write_tokens": 9428,
+   "cost_usd": 0.002134,
+   "latency_s": 7.8,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "gin-gonic/gin/jobs/121502617680",
+   "system": "b3",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "environment",
+    "root_cause": "The 'Checkout Code' step failed on the macos-latest @ Go 1.26 -tags nomsgpack job because git could not fetch refs/pull/4911/merge from origin, so the job never reached the build or tests. The other 16 jobs in the same run passed, and the failing job's retries all hit the same missing ref, which points to the PR merge ref being unavailable for this run rather than to the code change (the auth.go and auth_test.go edits never ran).",
+    "evidence": [
+     {
+      "job_id": 121502617680,
+      "line": 179,
+      "text": "##[error]fatal: couldn't find remote ref refs/pull/4911/merge"
+     },
+     {
+      "job_id": 121502617680,
+      "line": 180,
+      "text": "The process '/opt/homebrew/bin/git' failed with exit code 128"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Re-run the failed job. If it fails again, run 'git ls-remote origin refs/pull/4911/merge' and confirm PR #4911 is still open and mergeable; if the ref is missing, the workflow checkout settings or the PR state need fixing, not the code.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_run_history",
+    "get_change_summary",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 12,
+   "output_tokens": 1290,
+   "cache_read_tokens": 10304,
+   "cache_write_tokens": 8616,
+   "cost_usd": 0.001826,
+   "latency_s": 6.454,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "gin-gonic/gin/jobs/126269355882",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The golangci-lint job failed on testifylint in binding/form_mapping_test.go:201, which is inside the new TestMappingEmptyValueLeavesPointerFieldsNil test added by this commit. The test uses assert.Equal(t, \"\", *s.Name) where testifylint requires assert.Empty, so the PR's own test code breaks the lint gate. The lint job also failed on main in January, so the rule may have been enforced or changed recently, but the flagged line is new code from this change.",
+    "evidence": [
+     {
+      "job_id": 126269355882,
+      "line": 291,
+      "text": "##[error]binding/form_mapping_test.go:201:2: empty: use assert.Empty (testifylint)"
+     },
+     {
+      "job_id": 126269355882,
+      "line": 324,
+      "text": "##[error]issues found"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Change assert.Equal(t, \"\", *s.Name) at binding/form_mapping_test.go:201 to assert.Empty(t, *s.Name), then rerun golangci-lint locally (golangci-lint run ./binding/...) to confirm no other testifylint findings remain in the new test.",
+    "confidence": 0.85
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 12,
+   "output_tokens": 1237,
+   "cache_read_tokens": 10363,
+   "cache_write_tokens": 7750,
+   "cost_usd": 0.001692,
+   "latency_s": 6.95,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "gin-gonic/gin/jobs/128333494725",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "environment",
+    "root_cause": "The Trivy Security Scan job failed at 'Run Trivy scanner' because the gomod scan reported 7 vulnerabilities at the CRITICAL,HIGH,MEDIUM severities, including HIGH CVE-2026-78661 in golang.org/x/net v0.57.0 with a fixed version of 0.62.0. The commit under test only changes logger.go and logger_test.go and does not touch go.mod, so the failure comes from a dependency advisory that is outside this change. The history shows the job passing on main in January, which fits a newly published advisory, but I did not confirm that main fails today.",
+    "evidence": [
+     {
+      "job_id": 128333494725,
+      "line": 772,
+      "text": "Total: 7 (MEDIUM: 5, HIGH: 2, CRITICAL: 0)"
+     },
+     {
+      "job_id": 128333494725,
+      "line": 777,
+      "text": "golang.org/x/net \u2502 CVE-2026-78661 \u2502 HIGH     \u2502 fixed  \u2502 v0.57.0"
+     },
+     {
+      "job_id": 128333494725,
+      "line": 815,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Bump golang.org/x/net to v0.62.0 or later in go.mod (go get golang.org/x/net@v0.62.0 and go mod tidy) on this branch, or confirm the same scan fails on main and handle the advisory there. Re-run the Trivy job afterwards.",
+    "confidence": 0.75
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "search_log",
+    "get_change_summary",
+    "get_run_history"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1478,
+   "cache_read_tokens": 11213,
+   "cache_write_tokens": 12135,
+   "cost_usd": 0.002369,
+   "latency_s": 7.156,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "golangci/golangci-lint/jobs/121158861766",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The job failed in the 'Run tests' step (make test), where golangci-lint's self-lint reported 2 gosec G306 issues (WriteFile permissions) in pkg/result/processors/fixer.go at lines 202 and 221. The Dependabot bump of gosec from v2.29.0 to v2.30.0 in this PR is the new source of these findings, and this is the PR's own change, not an environment problem. The PR already adds a .golangci.yml exclusion for fixer.go, yet the issues are still reported, so the exclusion is not taking effect in this run and needs checking.",
+    "evidence": [
+     {
+      "job_id": 121158861766,
+      "line": 470,
+      "text": "##[error]pkg/result/processors/fixer.go:202:13: G306: Expect WriteFile permissions to be 0600 or less (gosec)"
+     },
+     {
+      "job_id": 121158861766,
+      "line": 511,
+      "text": "##[error]pkg/result/processors/fixer.go:221:14: G306: Expect WriteFile permissions to be 0600 or less (gosec)"
+     },
+     {
+      "job_id": 121158861766,
+      "line": 514,
+      "text": "2 issues:"
+     },
+     {
+      "job_id": 121158861766,
+      "line": 516,
+      "text": "make: *** [Makefile:33: test] Error 1"
+     }
+    ],
+    "similar_cases": [
+     "golangci/golangci-lint/jobs/121150737613"
+    ],
+    "next_step": "Confirm why the existing .golangci.yml exclusion for pkg/result/processors/fixer.go (G306) is not suppressing the findings, e.g. by checking whether the self-lint run uses a different config or the path/text pattern does not match, then fix the exclusion or set the file permissions to 0600 or less in fixer.go and rerun the tests job.",
+    "confidence": 0.85
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures",
+    "search_log"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 16,
+   "output_tokens": 1945,
+   "cache_read_tokens": 22735,
+   "cache_write_tokens": 14920,
+   "cost_usd": 0.003066,
+   "latency_s": 9.428,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "golangci/golangci-lint/jobs/124829123073",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The golangci-lint run (v2.15.0) failed with a typecheck error while importing github.com/ghostiam/protogetter: its source calls glob.Glob, which is undefined, so the linter reports 'could not import' on pkg/golinters/protogetter/protogetter.go. The PR bumps depguard to v2.3.0 and protogetter to a newer pseudo-version to fix a gobwas/glob incompatibility, but the error path still shows protogetter@v1.0.1, so the resolved dependency graph may not match the PR's go.mod. History is green on main and the failing dependency is one this PR changes, so the PR's dependency graph is the most likely cause, though the version mismatch is unexplained.",
+    "evidence": [
+     {
+      "job_id": 124829123073,
+      "line": 272,
+      "text": "##[error]pkg/golinters/protogetter/protogetter.go:4:2: could not import github.com/ghostiam/protogetter"
+     },
+     {
+      "job_id": 124829123073,
+      "line": 273,
+      "text": "##[error]../../../go/pkg/mod/github.com/ghostiam/protogetter@v1.0.1/protogetter.go:76:39: undefined: glob.Glob"
+     },
+     {
+      "job_id": 124829123073,
+      "line": 274,
+      "text": "##[error]../../../go/pkg/mod/github.com/ghostiam/protogetter@v1.0.1/protogetter.go:221:55: undefined: glob.Glob) (typecheck)"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Check the module graph on the PR head (go mod graph / go list -m github.com/ghostiam/protogetter github.com/gobwas/glob) to confirm which protogetter and glob versions are resolved, then re-run lint; if the pseudo-version is not used, fix the go.mod/go.sum pin, or pin gobwas/glob to a version that still provides glob.Glob.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures",
+    "search_log"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 16,
+   "output_tokens": 2560,
+   "cache_read_tokens": 19959,
+   "cache_write_tokens": 10519,
+   "cost_usd": 0.002796,
+   "latency_s": 11.812,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "golangci/golangci-lint/jobs/125935600212",
+   "system": "b3",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "ci_config",
+    "root_cause": "The 'Build Documentation' job failed at the website_copy_jsonschema make target, where scripts/website/copy_jsonschema fails with 'parse version: malformed version:'. The checkout step is configured with fetch-tags: false and fetch-depth: 1, so the git tags the script needs to derive the version are likely absent; this is inferred from the config and the error, not confirmed by a log line showing the empty version. The change under test only edits .golangci.next.reference.yml, so it does not touch this code path, and the same workflow passed on 9 earlier main runs.",
+    "evidence": [
+     {
+      "job_id": 125935600212,
+      "line": 43,
+      "text": "fetch-tags: false"
+     },
+     {
+      "job_id": 125935600212,
+      "line": 695,
+      "text": "2026/11/03 13:07:12 copy files: parse version: malformed version:"
+     },
+     {
+      "job_id": 125935600212,
+      "line": 697,
+      "text": "make: *** [Makefile:120: website_copy_jsonschema] Error 1"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Check scripts/website/copy_jsonschema to see how it derives the version. If it uses git describe or tags, set fetch-tags: true (or fetch-depth: 0) on the checkout step in the Check Documentation workflow, or pass the version explicitly, then re-run the job.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "search_log",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 16,
+   "output_tokens": 1389,
+   "cache_read_tokens": 18163,
+   "cache_write_tokens": 9723,
+   "cost_usd": 0.002093,
+   "latency_s": 7.381,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "home-assistant/core/jobs/128596526314",
+   "system": "b3",
+   "result": {
+    "failure_type": "type_error",
+    "cause_class": "regression",
+    "root_cause": "The mypy job failed on homeassistant/components/tplink_omada/config_flow.py:133, where async_get_options_flow overrides ConfigFlow.async_get_options_flow without the @override decorator, which mypy's explicit-override check requires. This commit adds the options flow to config_flow.py (the change summary shows the +46/-4 edit in that file), so the PR introduced the type error. The search returned no similar case with a matching error, so it is not a known recurring issue.",
+    "evidence": [
+     {
+      "job_id": 128596526314,
+      "line": 500,
+      "text": "homeassistant/components/tplink_omada/config_flow.py:133: error: Method \"async_get_options_flow\" is not using @override but is overriding a method in class \"homeassistant.config_entries.ConfigFlow\"  [explicit-override]"
+     },
+     {
+      "job_id": 128596526314,
+      "line": 501,
+      "text": "Found 1 error in 1 file (checked 13 source files)"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Add the @override decorator (from typing, or typing_extensions if the repo uses it) to async_get_options_flow in homeassistant/components/tplink_omada/config_flow.py, import it, and rerun mypy for the tplink_omada integration.",
+    "confidence": 0.93
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 12,
+   "output_tokens": 882,
+   "cache_read_tokens": 10321,
+   "cache_write_tokens": 9089,
+   "cost_usd": 0.001682,
+   "latency_s": 4.175,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "home-assistant/core/jobs/128597303091",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The 'Run pylint (fully)' step in the 'Check pylint' job exited with code 4 (pylint warning-level messages) because the PR added TODO/fixme comments that pylint's W0511 check reports as warnings, e.g. in homeassistant/components/voice_support/app.py and config_flow.py. No error-level (E/F) or other warning messages appear in the log, so the blocking cause is the unresolved TODO markers introduced by this change, and the same job failed on earlier commits of this branch.",
+    "evidence": [
+     {
+      "job_id": 128597303091,
+      "line": 468,
+      "text": "homeassistant/components/voice_support/app.py:12:1: W0511: TODO: fill in the real slug before merging"
+     },
+     {
+      "job_id": 128597303091,
+      "line": 470,
+      "text": "homeassistant/components/voice_support/config_flow.py:26:1: W0511: TODO: fill in the app's real port before merging"
+     },
+     {
+      "job_id": 128597303091,
+      "line": 471,
+      "text": "##[error]Process completed with exit code 4."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Resolve the TODO/fixme comments in voice_support/app.py and voice_support/config_flow.py (fill in the real slug and port, or convert them to non-TODO notes) before re-running pylint; check the earlier branch runs for the same W0511 warnings to confirm they are the only messages.",
+    "confidence": 0.8
+   },
+   "errors": [],
+   "steps": 5,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "search_log",
+    "get_change_summary",
+    "search_log",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 20,
+   "output_tokens": 1399,
+   "cache_read_tokens": 31467,
+   "cache_write_tokens": 11934,
+   "cost_usd": 0.002508,
+   "latency_s": 8.077,
+   "replayed_calls": 0,
+   "live_calls": 5
+  },
+  {
+   "case_id": "home-assistant/core/jobs/128599505112",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The prettier pre-commit hook failed on the PR commit because it rewrote homeassistant/components/tplink_omada/strings.json, which the commit edited by moving the \"options\" block below \"config\" without prettier-compliant formatting. The hook exits 1 whenever it modifies a file, so the prek run fails. Separately, the change summary shows config_flow.py using `probatio.Schema`/`probatio.Required` instead of `vol`, which looks like a typo that will fail once the code runs (not the cause of this job's failure).",
+    "evidence": [
+     {
+      "job_id": 128599505112,
+      "line": 297,
+      "text": "- hook id: prettier"
+     },
+     {
+      "job_id": 128599505112,
+      "line": 298,
+      "text": "- files were modified by this hook"
+     },
+     {
+      "job_id": 128599505112,
+      "line": 3488,
+      "text": "homeassistant/components/tplink_omada/strings.json 4ms"
+     },
+     {
+      "job_id": 128599505112,
+      "line": 7878,
+      "text": "##[error]prek exited with code 1"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Run prek locally (or `prettier --write homeassistant/components/tplink_omada/strings.json`) on the PR branch, commit the reformatted strings.json, and fix the `probatio` typo in tplink_omada/config_flow.py back to `vol`.",
+    "confidence": 0.8
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "read_log_lines",
+    "search_log",
+    "search_log"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 16,
+   "output_tokens": 1834,
+   "cache_read_tokens": 34152,
+   "cache_write_tokens": 20067,
+   "cost_usd": 0.003768,
+   "latency_s": 9.566,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "pandas-dev/pandas/jobs/127999175786",
+   "system": "b3",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "ci_config",
+    "root_cause": "The failing step is 'Commit and push to pandas-dev.github.io', which publishes the built docs to a separate website repo, not the code under test. The push was rejected as non-fast-forward because the site's main branch had new commits from another run, and the automatic rebase then hit a content conflict in the generated file pandas-docs/dev/user_guide/timeseries.html. The change under test (a Styler docstring and notebook edit) did not touch any of this, and the docs build itself succeeded.",
+    "evidence": [
+     {
+      "job_id": 127999175786,
+      "line": 2695,
+      "text": "! [rejected]          main -> main (fetch first)"
+     },
+     {
+      "job_id": 127999175786,
+      "line": 2696,
+      "text": "error: failed to push some refs to 'github.com:pandas-dev/pandas-dev.github.io.git'"
+     },
+     {
+      "job_id": 127999175786,
+      "line": 2735,
+      "text": "CONFLICT (content): Merge conflict in pandas-docs/dev/user_guide/timeseries.html"
+     },
+     {
+      "job_id": 127999175786,
+      "line": 2744,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Re-run the job, since the site repo may be quiet now. To prevent recurrence, add a workflow concurrency group so doc publish runs are serialized, or have the publish step fetch and regenerate from a clean checkout instead of rebasing generated HTML onto a moved main.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 12,
+   "output_tokens": 1725,
+   "cache_read_tokens": 11413,
+   "cache_write_tokens": 10013,
+   "cost_usd": 0.002229,
+   "latency_s": 8.326,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "pandas-dev/pandas/jobs/128128371265",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "The Doctests job failed on pandas.Index.any, whose docstring example was edited in pandas/core/indexes/base.py by this commit: the line `>>> bool(index.any()` is missing its closing parenthesis, so doctest raises a SyntaxError when it compiles the example. The change under test introduced the broken example, and the rest of the doctest suite passed (1731 passed, 1 failed).",
+    "evidence": [
+     {
+      "job_id": 128128371265,
+      "line": 1441,
+      "text": "UNEXPECTED EXCEPTION: SyntaxError(\"'(' was never closed\", ('<doctest pandas.Index.any[3]>', 1, 5, 'bool(index.any()\\n', 1, 0))"
+     },
+     {
+      "job_id": 128128371265,
+      "line": 1486,
+      "text": "================= 1 failed, 1731 passed, 38 skipped in 11.15s ================="
+     },
+     {
+      "job_id": 128128371265,
+      "line": 1487,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "In pandas/core/indexes/base.py, change the docstring example `>>> bool(index.any()` to `>>> bool(index.any())` (the second example, for [0, 0, 0]), then rerun the doctests for pandas.Index.any.",
+    "confidence": 0.95
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 16,
+   "output_tokens": 1038,
+   "cache_read_tokens": 22746,
+   "cache_write_tokens": 10845,
+   "cost_usd": 0.002104,
+   "latency_s": 5.848,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "pandas-dev/pandas/jobs/128556896967",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "test_defect",
+    "root_cause": "The Linux-Musl job runs without pyarrow installed, but pandas/tests/groupby/test_sorted_data_cache.py builds pd.StringDtype(\"pyarrow\", ...) in a module-level parametrize list, so pytest fails at collection and interrupts the whole run. The test file was modified by this PR (GH#51077), and the failure is in the test code's import-time dependency rather than in the ops.py change. The 'Without PyArrow' job also failed in this run, which is consistent with the same cause, and this job's history has no earlier Linux-Musl failures.",
+    "evidence": [
+     {
+      "job_id": 128556896967,
+      "line": 396,
+      "text": "pandas/tests/groupby/test_sorted_data_cache.py:92: in <module>"
+     },
+     {
+      "job_id": 128556896967,
+      "line": 401,
+      "text": "E   ImportError: pyarrow>=16.0.0 is required for PyArrow backed StringArray."
+     },
+     {
+      "job_id": 128556896967,
+      "line": 386,
+      "text": "collected 222385 items / 1 error / 6009 deselected / 57 skipped / 216376 selected"
+     },
+     {
+      "job_id": 128556896967,
+      "line": 404,
+      "text": "!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "In pandas/tests/groupby/test_sorted_data_cache.py, stop building the pyarrow StringDtype at module import: skip the pyarrow parametrization when pyarrow is missing (for example pytest.importorskip(\"pyarrow\") inside a fixture, or build the param list lazily), then re-run the Linux-Musl and Without PyArrow jobs.",
+    "confidence": 0.8
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 12,
+   "output_tokens": 1502,
+   "cache_read_tokens": 10075,
+   "cache_write_tokens": 7882,
+   "cost_usd": 0.001838,
+   "latency_s": 6.82,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "prettier/prettier/jobs/127885594046",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The autofix.ci job failed because the PR's formatting check found that tests/format/js/binary-expression/long-chain/format.test.js was not in Prettier's own formatted style. The autofix action then committed a 4-insertion/4-deletion formatting fix to a detached commit and reported it as an error. The file was changed by this commit, so the PR introduced the unformatted code.",
+    "evidence": [
+     {
+      "job_id": 127885594046,
+      "line": 198,
+      "text": "Need to update 1 files."
+     },
+     {
+      "job_id": 127885594046,
+      "line": 203,
+      "text": " 1 file changed, 4 insertions(+), 4 deletions(-)"
+     },
+     {
+      "job_id": 127885594046,
+      "line": 231,
+      "text": "##[error]\u2705 Autofix task started."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Check out the PR branch, run the repo's formatter (for example `yarn fix` or `prettier --write tests/format/js/binary-expression/long-chain/format.test.js`), and push the resulting formatting change. Then rerun the autofix.ci check.",
+    "confidence": 0.8
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "read_log_lines",
+    "get_change_summary"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1057,
+   "cache_read_tokens": 9964,
+   "cache_write_tokens": 7827,
+   "cost_usd": 0.001608,
+   "latency_s": 5.373,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "prettier/prettier/jobs/127886264626",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "unknown",
+    "root_cause": "The Lint job's Spellcheck step (CSpell) failed on one unknown word, 'CBOR', at tests/format/js/binary-expression/long-chain/format.test.js line 14, column 67, in a comment. The commit under test only reflowed a runFormatTest call (+4/-4) and did not add that comment, so the word was probably already present, and an earlier run on this branch passed. The cause is therefore more likely a change in the spellcheck setup or the file's checked status than the edit itself, but the logs do not show which.",
+    "evidence": [
+     {
+      "job_id": 127886264626,
+      "line": 226,
+      "text": "tests/format/js/binary-expression/long-chain/format.test.js:14:67 - Unknown word (CBOR)"
+     },
+     {
+      "job_id": 127886264626,
+      "line": 227,
+      "text": "CSpell: Files checked: 2930, Issues found: 1 in 1 file."
+     },
+     {
+      "job_id": 127886264626,
+      "line": 228,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Compare the CSpell config and dictionaries (cspell.json or similar) between the last passing commit 72a832a22d and HEAD 8fb5ee4237 to see what changed. Then either add CBOR to the project word list or reword the comment in format.test.js line 14, and re-run the Lint job.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1575,
+   "cache_read_tokens": 9812,
+   "cache_write_tokens": 8105,
+   "cost_usd": 0.0019,
+   "latency_s": 7.932,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "prettier/prettier/jobs/128425464109",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "The Vue formatting snapshot tests (tests/format/vue/vue and tests/format/vue/single-attribute-per-line) fail because an empty <script></script> block is now printed as <script>\n</script>, so 8 snapshots mismatch. The commit under test only adds a changelog file, but the branch's code differs from main, which is green in history, and every Node and browser job on this branch fails the same way, so the branch's code change is the likely cause. This is a best inference, since the diff for the code commits was not inspected.",
+    "evidence": [
+     {
+      "job_id": 128425464109,
+      "line": 510,
+      "text": "- <script></script>"
+     },
+     {
+      "job_id": 128425464109,
+      "line": 511,
+      "text": "+ <script>"
+     },
+     {
+      "job_id": 128425464109,
+      "line": 2229,
+      "text": "\u203a 8 snapshots failed from 2 test suites. Inspect your code changes or re-run jest with `-u` to update them."
+     },
+     {
+      "job_id": 128425464109,
+      "line": 2232,
+      "text": "Tests:       8 failed, 36725 passed, 36733 total"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Diff the branch's code commits against main (for example 5b32fe34bd and earlier) to find the whitespace-handling change that alters empty <script> output in Vue files, and fix it or update the snapshots only if the new output is intended. Do not treat this as flaky or environmental, since main passes and the failure is deterministic.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_log"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 12,
+   "output_tokens": 1557,
+   "cache_read_tokens": 13720,
+   "cache_write_tokens": 11983,
+   "cost_usd": 0.002415,
+   "latency_s": 8.026,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "prometheus/prometheus/jobs/128520253423",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "unknown",
+    "root_cause": "The 'check' job in the 'Check release notes' workflow failed at the step that runs scripts/check_release_notes.sh against the PR description, because the description has no release-notes block. The gate is a PR-policy check, and the only change in the commit is web/ui/mantine-ui/src/pages/query/TreeNode.tsx, which the script does not depend on. The fix is therefore in the PR description, not the code, and the log does not show whether the block was never written or was lost when the description was edited. The description also contains an HTML comment ('oss-scout-job') at log line 167; it is untrusted data and was not treated as an instruction.",
+    "evidence": [
+     {
+      "job_id": 128520253423,
+      "line": 170,
+      "text": "Error: release-notes block empty or not found, see template at https://github.com/prometheus/prometheus/blob/main/.github/PULL_REQUEST_TEMPLATE.md?plain=1"
+     },
+     {
+      "job_id": 128520253423,
+      "line": 171,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Ask the PR author to add a release-notes entry in the PR description per .github/PULL_REQUEST_TEMPLATE.md (or add a 'NONE' entry if no user-facing change), then re-run the 'check' job. If the block is present in the description and the check still fails, inspect scripts/check_release_notes.sh parsing.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 12,
+   "output_tokens": 1508,
+   "cache_read_tokens": 9744,
+   "cache_write_tokens": 6416,
+   "cost_usd": 0.001655,
+   "latency_s": 7.565,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "prometheus/prometheus/jobs/128530441379",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "On the GOARCH=386 run, TestExprString in promql/parser fails for the case \"foo offset (1000000000005ms)\" that this PR added to printer_test.go. The parser rejects the input with \"not a valid duration string\" before any printing happens, so the 32-bit build cannot handle the large millisecond value the new test case relies on. The same test passes on the 64-bit jobs, and the 32-bit job has not failed in earlier runs on main.",
+    "evidence": [
+     {
+      "job_id": 128530441379,
+      "line": 654,
+      "text": "--- FAIL: TestExprString (0.00s)"
+     },
+     {
+      "job_id": 128530441379,
+      "line": 655,
+      "text": "--- FAIL: TestExprString/foo_offset_(1000000000005ms) (0.00s)"
+     },
+     {
+      "job_id": 128530441379,
+      "line": 659,
+      "text": "1:13: parse error: not a valid duration string: \"1000000000005ms\""
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Reproduce locally with GOARCH=386 go test ./promql/parser -run TestExprString and inspect how the duration parser handles the millisecond value on 32-bit (likely int overflow). Then either make the parser handle the value on 32-bit or drop the 1000000000005ms case from printer_test.go so the test is portable.",
+    "confidence": 0.7
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_log"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1409,
+   "cache_read_tokens": 11010,
+   "cache_write_tokens": 8720,
+   "cost_usd": 0.001906,
+   "latency_s": 7.02,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "prometheus/prometheus/jobs/128541760952",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "flaky",
+    "root_cause": "The promql package test binary crashed with a fatal SIGSEGV (\"fatal error: fault\") while running TestQueryConcurrency, which made the package and the make test target fail. The change under test only touches cmd/promtool (tsdb.go, tsdb_test.go, and a testdata file), not the promql package, and this job has no failures in the prior CI history, so the crash does not appear to come from the change; a concurrency-test runtime fault with no reproducible cause points to non-determinism. The crash is not confirmed as reproducible, so the cause is not fully established.",
+    "evidence": [
+     {
+      "job_id": 128541760952,
+      "line": 868,
+      "text": "fatal error: fault"
+     },
+     {
+      "job_id": 128541760952,
+      "line": 869,
+      "text": "[signal SIGSEGV: segmentation violation code=0x1 addr=0x78b5c448d328 pc=0x4990c6]"
+     },
+     {
+      "job_id": 128541760952,
+      "line": 1028,
+      "text": "github.com/prometheus/prometheus/promql_test.TestQueryConcurrency(0x3d9b285fcb48)"
+     },
+     {
+      "job_id": 128541760952,
+      "line": 1149,
+      "text": "make: *** [Makefile.common:182: common-test] Error 1"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Re-run the failed job to see whether the SIGSEGV in promql_test.TestQueryConcurrency reproduces; if it recurs, run that test alone with -race and inspect its concurrent query code for unsafe shared state.",
+    "confidence": 0.45
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_log",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 16,
+   "output_tokens": 1777,
+   "cache_read_tokens": 22056,
+   "cache_write_tokens": 11982,
+   "cost_usd": 0.002608,
+   "latency_s": 8.774,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "pydantic/pydantic/jobs/125138034445",
+   "system": "b3",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "environment",
+    "root_cause": "The CodSpeed benchmark step itself succeeded: the single selected benchmark passed (\"Results (144.24s):\" then \"1 passed\"), and the earlier corpus run showed 165 passed. The job then failed in the 'Uploading results' step, where the CodSpeed action's upload request to its service failed after 3 retries, which exits the step with code 1. This is an outside service or network failure during result upload, not a code regression, and this job has been green in all 23 earlier codspeed runs.",
+    "evidence": [
+     {
+      "job_id": 125138034445,
+      "line": 1737,
+      "text": "Results (144.24s):"
+     },
+     {
+      "job_id": 125138034445,
+      "line": 1743,
+      "text": "##[error]Request failed after 3 retries"
+     },
+     {
+      "job_id": 125138034445,
+      "line": 1744,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Re-run the failed job to see whether the CodSpeed upload succeeds; if it fails again, check CodSpeed service status and the upload endpoint, and consider making the upload non-blocking or retrying it separately.",
+    "confidence": 0.8
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_run_history",
+    "search_log",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1380,
+   "cache_read_tokens": 12788,
+   "cache_write_tokens": 12192,
+   "cost_usd": 0.002343,
+   "latency_s": 6.714,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "pydantic/pydantic/jobs/128410383632",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "test_defect",
+    "root_cause": "Two GC-tracking tests in tests/pydantic_core/test_garbage_collection.py fail on the GraalPy 3.12 job: test_validation_error_traverses_inner_exception expects weakrefs to be cleared after gc.collect(), and test_exceptions_and_markers_report_python_references expects gc.is_tracked(custom_error) to be True. The test file's own skip marker says GC cannot be reliably triggered on GraalPy, but the GraalVM skipif did not apply to this run, so the tests ran and failed. The change under test added these tests and the Rust __traverse__ methods, and the failure is confined to GraalPy, while the other jobs' failures are not this error.",
+    "evidence": [
+     {
+      "job_id": 128410383632,
+      "line": 675,
+      "text": "platform linux -- Python 3.12.8, pytest-9.1.1, pluggy-1.5.0"
+     },
+     {
+      "job_id": 128410383632,
+      "line": 865,
+      "text": "assert all(marker() is None for marker in markers)"
+     },
+     {
+      "job_id": 128410383632,
+      "line": 877,
+      "text": "assert gc.is_tracked(custom_error)"
+     },
+     {
+      "job_id": 128410383632,
+      "line": 891,
+      "text": "2 failed"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Confirm whether platform.python_implementation() returns 'GraalVM' on GraalPy so the pytestmark skipif actually applies; if not, fix the skip condition in the test file (or skip these two tests on GraalPy). Then check whether the Rust __traverse__ changes are exercised on GraalPy at all before deciding whether the code also needs a fix.",
+    "confidence": 0.45
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures",
+    "search_log"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 16,
+   "output_tokens": 2430,
+   "cache_read_tokens": 26568,
+   "cache_write_tokens": 15898,
+   "cost_usd": 0.00347,
+   "latency_s": 11.748,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "pydantic/pydantic/jobs/128412937637",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "The pytest step ('Run uv run pytest tests/pydantic_core') failed with 1 failed, 6074 passed, in tests/pydantic_core/test_garbage_collection.py::test_exceptions_and_markers_report_python_references. The assertion gc.is_tracked(args_kwargs) on an ArgsKwargs object returns False, and this PR is the one adding __traverse__ to ArgsKwargs in pydantic-core/src/argument_markers.rs, so the GC-tracking fix in the change under test appears not to take effect for this type. The MSRV job's cargo metadata/rust-cache error near line 504 is post-step noise and is not the cause of the test failure. Other jobs on this PR also failed, and the same branch's earlier run also failed this MSRV job, which fits a deterministic regression rather than flakiness; I did not confirm the failing test in the other jobs.",
+    "evidence": [
+     {
+      "job_id": 128412937637,
+      "line": 796,
+      "text": "tests/pydantic_core/test_garbage_collection.py:317 test_exceptions_and_markers_report_python_references - AssertionError: assert False"
+     },
+     {
+      "job_id": 128412937637,
+      "line": 912,
+      "text": "assert gc.is_tracked(args_kwargs)"
+     },
+     {
+      "job_id": 128412937637,
+      "line": 913,
+      "text": "AssertionError: assert False"
+     },
+     {
+      "job_id": 128412937637,
+      "line": 925,
+      "text": "1 failed"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Reproduce locally on the PR commit by running pytest tests/pydantic_core/test_garbage_collection.py -k test_exceptions_and_markers_report_python_references after rebuilding pydantic-core, and check whether ArgsKwargs is GC-tracked (the pyclass with freelist=100 may need an explicit GC-enabled tp_traverse path or the test expectation needs confirming); fix in the Rust source rather than the test unless the test assertion is shown to be wrong.",
+    "confidence": 0.75
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 12,
+   "output_tokens": 1893,
+   "cache_read_tokens": 12521,
+   "cache_write_tokens": 13166,
+   "cost_usd": 0.002719,
+   "latency_s": 8.657,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "pytest-dev/pytest/jobs/128266852295",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "flaky",
+    "root_cause": "The single failing test is testing/python/raises.py::TestRaises::test_raises_cyclic_reference[with_group] on the PyPy xdist job, which asserts a gc.get_referrers() reference count (assert 2 == 3). That count depends on PyPy's garbage collector timing rather than on the code. The change under test only touches src/_pytest/capture.py and testing/test_capture.py, so it does not plausibly cause this failure, and the job's earlier runs on this branch were green.",
+    "evidence": [
+     {
+      "job_id": 128266852295,
+      "line": 746,
+      "text": "assert refcount == len(gc.get_referrers(t))"
+     },
+     {
+      "job_id": 128266852295,
+      "line": 747,
+      "text": "AssertionError: assert 2 == 3"
+     },
+     {
+      "job_id": 128266852295,
+      "line": 766,
+      "text": "FAILED testing/python/raises.py::TestRaises::test_raises_cyclic_reference[with_group] - AssertionError: assert 2 == 3"
+     },
+     {
+      "job_id": 128266852295,
+      "line": 771,
+      "text": "= 1 failed, 4682 passed, 103 skipped, 12 xfailed, 1 xpassed, 2 warnings in 238.49s (0:03:58) ="
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Re-run the job to confirm the failure is non-deterministic. If it recurs, mark test_raises_cyclic_reference as skipped or xfail on PyPy (for example with a platform_python_implementation check) or rewrite it to avoid gc.get_referrers, and file a separate issue. Do not change the capture code for this.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 12,
+   "output_tokens": 1259,
+   "cache_read_tokens": 11349,
+   "cache_write_tokens": 10258,
+   "cost_usd": 0.002026,
+   "latency_s": 6.287,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "python/mypy/jobs/125352504651",
+   "system": "b3",
+   "result": {
+    "failure_type": "compile_error",
+    "cause_class": "regression",
+    "root_cause": "The commit under test (93587231f3) changed mypyc/lib-rt/vecs/librt_vecs.c in extract_optional_item to call PyObject_GetOptionalAttrString, an API that only exists in CPython 3.13+. The 32-bit job builds librt against Python 3.11.11, so i686-linux-gnu-gcc fails with an implicit declaration, librt_cache raises 'librt build failed', and 33 mypyc run tests fail as fallout. No earlier runs of this workflow exist to compare against, but the failing line is in code the change touched.",
+    "evidence": [
+     {
+      "job_id": 125352504651,
+      "line": 4608,
+      "text": "implicit declaration of function \u2018PyObject_GetOptionalAttrString\u2019; did you mean \u2018PyObject_GetAttrString\u2019?"
+     },
+     {
+      "job_id": 125352504651,
+      "line": 801,
+      "text": "RuntimeError: librt build failed:"
+     },
+     {
+      "job_id": 125352504651,
+      "line": 4651,
+      "text": "33 failed, 2096 passed, 2 skipped, 1 xfailed in 751.64s"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "In mypyc/lib-rt/vecs/librt_vecs.c, replace PyObject_GetOptionalAttrString with PyObject_GetAttrString plus a PyErr_ExceptionMatches(PyExc_AttributeError) check (or guard the 3.13+ call with a PY_VERSION_HEX >= 0x030D0000 check and provide a fallback), then rerun the 32-bit mypyc job to confirm the librt build and the new vec optional-lookup tests pass.",
+    "confidence": 0.85
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": true,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 16,
+   "output_tokens": 2887,
+   "cache_read_tokens": 33172,
+   "cache_write_tokens": 17260,
+   "cost_usd": 0.003934,
+   "latency_s": 12.165,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "python/mypy/jobs/126549309559",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "regression",
+    "root_cause": "One unit test, testTypeVarTupleApplyResultsFromUnionWithAnyNoCrash in test-data/unit/check-typevar-tuple.test (line 3265), failed in the mypyc-compiled py314 job: the expected reveal for main:15 was builtins.tuple[Any, ...] but the checker now infers builtins.tuple[builtins.int, ...]. The PR under test is a 300-file merge that rewrites type-inference code (checkexpr.py, constraints.py, expandtype.py, build.py), so an inference change in that code is the likely cause, though I did not confirm which hunk causes it. The other 14713 tests passed, and the history shows this job failing on earlier branch runs too, so the cause is not confirmed.",
+    "evidence": [
+     {
+      "job_id": 126549309559,
+      "line": 688,
+      "text": "testTypeVarTupleApplyResultsFromUnionWithAnyNoCrash ______________"
+     },
+     {
+      "job_id": 126549309559,
+      "line": 691,
+      "text": "Failed: Unexpected type checker output (/home/runner/work/mypy/mypy/test-data/unit/check-typevar-tuple.test, line 3265)"
+     },
+     {
+      "job_id": 126549309559,
+      "line": 698,
+      "text": "main:15: note: Revealed type is \"builtins.tuple[builtins.int, ...]\" (diff)"
+     },
+     {
+      "job_id": 126549309559,
+      "line": 706,
+      "text": "FAILED mypy/test/testcheck.py::TypeCheckSuite::check-typevar-tuple.test::testTypeVarTupleApplyResultsFromUnionWithAnyNoCrash"
+     },
+     {
+      "job_id": 126549309559,
+      "line": 707,
+      "text": "===== 1 failed, 14713 passed, 364 skipped, 11 xfailed in 605.15s (0:10:05) ====="
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Reproduce locally with pytest -n0 -k testTypeVarTupleApplyResultsFromUnionWithAnyNoCrash on the PR commit, then bisect the inference changes in checkexpr.py, constraints.py and expandtype.py against the main branch. If the new inferred type is correct, update the expected output in check-typevar-tuple.test; otherwise fix the regression in source. Also check whether the interpreted parallel job failed on the same test.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 5,
+   "evidence_valid": 5,
+   "input_tokens": 12,
+   "output_tokens": 2178,
+   "cache_read_tokens": 10995,
+   "cache_write_tokens": 12986,
+   "cost_usd": 0.002823,
+   "latency_s": 9.549,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "python/mypy/jobs/128333060491",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The docs job runs sphinx-build with -W, so the single warning fails the build. The warning is at docs/source/error_code_list.rst:1392, where the new 'Checks skipped for performance reasons [performance-limit]' section has a title underline one character shorter than its title, and this commit added that section.",
+    "evidence": [
+     {
+      "job_id": 128333060491,
+      "line": 312,
+      "text": "/home/runner/work/mypy/mypy/docs/source/error_code_list.rst:1392: WARNING: Title underline too short."
+     },
+     {
+      "job_id": 128333060491,
+      "line": 371,
+      "text": "build finished with problems, 1 warning (with warnings treated as errors)."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Lengthen the underline under 'Checks skipped for performance reasons [performance-limit]' in docs/source/error_code_list.rst to at least the title's length (58 characters), then rerun the docs tox env locally with sphinx-build -W to confirm no warnings remain.",
+    "confidence": 0.95
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "search_log",
+    "get_change_summary"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 12,
+   "output_tokens": 1020,
+   "cache_read_tokens": 9854,
+   "cache_write_tokens": 8915,
+   "cost_usd": 0.001724,
+   "latency_s": 5.053,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "scikit-learn/scikit-learn/jobs/125106062979",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "test_defect",
+    "root_cause": "16 array-API scorer compliance tests in sklearn/metrics/tests/test_score_objects.py failed in the CUDA job. The helper _atol_for_type returns a numpy float32 scalar that is passed as abs= to pytest.approx, and the installed pytest 9.2.0 rejects it with a TypeError. The only change is a lock-file update (libopentelemetry-cpp-headers 1.27.0 to 1.30.0), which does not touch the test code, so the cause is most likely the test helper being incompatible with the newer pytest in the refreshed lock file, but I did not verify whether pytest itself changed in this commit.",
+    "evidence": [
+     {
+      "job_id": 125106062979,
+      "line": 5583,
+      "text": "E       TypeError: absolute tolerance for a scalar value must be an int, float or Decimal, got float32"
+     },
+     {
+      "job_id": 125106062979,
+      "line": 1486,
+      "text": "platform linux -- Python 3.14.10, pytest-9.2.0, pluggy-1.7.0"
+     },
+     {
+      "job_id": 125106062979,
+      "line": 5578,
+      "text": "assert score_np == pytest.approx("
+     },
+     {
+      "job_id": 125106062979,
+      "line": 6619,
+      "text": "= 16 failed, 2358 passed, 19 skipped"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Check whether pytest changed between the previous lock file and this one. Then fix the test helper so _atol_for_type returns a Python float (for example float(np.finfo(dtype).eps) based) rather than a numpy float32 scalar, and rerun the CUDA array-API job.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures",
+    "search_log"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 16,
+   "output_tokens": 1999,
+   "cache_read_tokens": 31582,
+   "cache_write_tokens": 18644,
+   "cost_usd": 0.003647,
+   "latency_s": 9.746,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "scikit-learn/scikit-learn/jobs/128262995066",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The 'Check Changelog' job failed at the scientific-python/action-towncrier-changelog step because the PR's changelog fragment is named after the superseded PR #31324 (doc/whats_new/upcoming_changes/sklearn.preprocessing/31324.enhancement.rst) rather than this PR number 35340. The commit under test added that fragment, so the mismatch comes from the change itself. The failure is a PR-policy gate, not a code or test failure, and the earlier 2026-10-28 and 2026-10-23 failures on main show this job also fails intermittently for other reasons.",
+    "evidence": [
+     {
+      "job_id": 128262995066,
+      "line": 501,
+      "text": "Not all changelog file number(s) match this pull request number (35340):"
+     },
+     {
+      "job_id": 128262995066,
+      "line": 502,
+      "text": "doc/whats_new/upcoming_changes/sklearn.preprocessing/31324.enhancement.rst"
+     },
+     {
+      "job_id": 128262995066,
+      "line": 514,
+      "text": "exit 1"
+     },
+     {
+      "job_id": 128262995066,
+      "line": 523,
+      "text": "##[error]Process completed with exit code 1."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Rename the changelog fragment to doc/whats_new/upcoming_changes/sklearn.preprocessing/35340.enhancement.rst (or add the 'whatsnew-needed' label if a maintainer decides no entry is needed), then push and rerun the Check Changelog workflow.",
+    "confidence": 0.85
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "read_log_lines",
+    "get_change_summary",
+    "get_run_history"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 12,
+   "output_tokens": 1284,
+   "cache_read_tokens": 11184,
+   "cache_write_tokens": 11203,
+   "cost_usd": 0.002155,
+   "latency_s": 6.288,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "scikit-learn/scikit-learn/jobs/128264346573",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "unknown",
+    "root_cause": "The single failing test is tests/test_common.py::test_estimators[CategoricalNB()-check_sample_weight_equivalence_on_dense_data]. CategoricalNB.predict_log_proba in sklearn/naive_bayes.py:1546 indexes feature_log_prob_ with a test input value of 5 when that feature only has 5 categories (valid indices 0-4), raising IndexError. The commit under test only renames a changelog file, so it cannot have changed this code, and the job failed on this branch alone, not in every run; the root cause is therefore likely in the shared estimator or check code, but the log does not show which side is wrong.",
+    "evidence": [
+     {
+      "job_id": 128264346573,
+      "line": 4354,
+      "text": "IndexError: index 5 is out of bounds for axis 1 with size 5"
+     },
+     {
+      "job_id": 128264346573,
+      "line": 4352,
+      "text": "jll += self.feature_log_prob_[i][:, indices].T"
+     },
+     {
+      "job_id": 128264346573,
+      "line": 4394,
+      "text": "FAILED tests/test_common.py::test_estimators[CategoricalNB()-check_sample_weight_equivalence_on_dense_data] - IndexError: index 5 is out of bounds for axis 1 with size 5"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Reproduce locally with pytest 'sklearn/tests/test_common.py -k \"CategoricalNB and check_sample_weight_equivalence_on_dense_data\"' on this branch and on main. Then check whether the test data's category range exceeds n_categories seen at fit time, and whether CategoricalNB should handle unseen categories in predict. Also check whether the other failing jobs in this run share this error.",
+    "confidence": 0.4
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_log"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 2005,
+   "cache_read_tokens": 13854,
+   "cache_write_tokens": 13112,
+   "cost_usd": 0.002781,
+   "latency_s": 10.229,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "tokio-rs/tokio/jobs/127580120346",
+   "system": "b3",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "environment",
+    "root_cause": "The cargo-deny job in the Pull Request Security Audit workflow failed its advisories check on RUSTSEC-2026-0441, an unmaintained advisory for pin-utils 0.1.1 (Cargo.lock:103), which reaches tokio only as a dev-dependency through loom. The parking_lot bump does not touch pin-utils, and the advisory is new (upstream archived October 1, 2026), while this job passed on the same branch up to 2026-11-04 and has failed since 2026-11-05. The failure comes from the advisory database and dependency tree rather than the code change.",
+    "evidence": [
+     {
+      "job_id": 127580120346,
+      "line": 263,
+      "text": "error[unmaintained]: `pin-utils` is unmaintained"
+     },
+     {
+      "job_id": 127580120346,
+      "line": 269,
+      "text": "\u251c ID: RUSTSEC-2026-0441"
+     },
+     {
+      "job_id": 127580120346,
+      "line": 319,
+      "text": "advisories FAILED, bans ok, licenses ok, sources ok"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Confirm the advisory is new upstream, then either add an audited ignore for RUSTSEC-2026-0441 in deny.toml with a tracking note, or replace or drop the loom dev-dependency that pulls in pin-utils; re-run the job afterwards to confirm it passes.",
+    "confidence": 0.8
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "search_log",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 16,
+   "output_tokens": 1307,
+   "cache_read_tokens": 20997,
+   "cache_write_tokens": 12293,
+   "cost_usd": 0.002402,
+   "latency_s": 7.39,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "tokio-rs/tokio/jobs/128450812285",
+   "system": "b3",
+   "result": {
+    "failure_type": "compile_error",
+    "cause_class": "regression",
+    "root_cause": "The minrust job fails at `cargo check` because `tokio/src/runtime/scheduler/current_thread/mod.rs:488` calls `self.handle.shared.inject.is_empty()`, but `Inject` in `tokio/src/runtime/scheduler/inject.rs` has no `is_empty` method for this toolchain (1.85). The PR under test adds that new `is_empty` check in the current_thread scheduler, so the change broke the build. The other failing job (wasm32-wasip2 tests) is separate and was not examined.",
+    "evidence": [
+     {
+      "job_id": 128450812285,
+      "line": 725,
+      "text": "error[E0599]: no method named `is_empty` found for struct `Inject` in the current scope"
+     },
+     {
+      "job_id": 128450812285,
+      "line": 726,
+      "text": "--> tokio/src/runtime/scheduler/current_thread/mod.rs:488:43"
+     },
+     {
+      "job_id": 128450812285,
+      "line": 741,
+      "text": "error: could not compile `tokio` (lib) due to 1 previous error"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Add an `is_empty` method to `Inject` in tokio/src/runtime/scheduler/inject.rs (or use an existing emptiness check such as `Inject::is_closed`/len-based helper that exists on 1.85), then rerun the minrust cargo check and the wasm job on commit 0a473e3897.",
+    "confidence": 0.85
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1234,
+   "cache_read_tokens": 12643,
+   "cache_write_tokens": 11955,
+   "cost_usd": 0.002239,
+   "latency_s": 6.077,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "tokio-rs/tokio/jobs/128500839848",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "test_defect",
+    "root_cause": "The new test read_line_panic_in_consume in tokio/tests/io_read_line.rs, added by this PR, fails in the panic=abort job (RUSTFLAGS -C panic=abort -Zpanic-abort-tests). It depends on catching a panic raised from consume() via catch_unwind, which does not work when panics abort, so the test itself is incompatible with this build profile. The source fix in read_line.rs and read_until.rs is not shown to be at fault; the test needs to be gated to unwind builds or rewritten.",
+    "evidence": [
+     {
+      "job_id": 128500839848,
+      "line": 650,
+      "text": "+ RUSTFLAGS='-Dwarnings -C panic=abort -Zpanic-abort-tests'"
+     },
+     {
+      "job_id": 128500839848,
+      "line": 1313,
+      "text": "FAIL [   0.279s] ( 397/2049) tokio::io_read_line read_line_panic_in_consume"
+     },
+     {
+      "job_id": 128500839848,
+      "line": 1332,
+      "text": "thread 'main' (11086) panicked at tokio/tests/io_read_line.rs:181:17:"
+     },
+     {
+      "job_id": 128500839848,
+      "line": 1374,
+      "text": "Summary [   2.972s] 400/2049 tests run: 399 passed, 1 failed, 12 skipped"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Gate the read_line_panic_in_consume test in tokio/tests/io_read_line.rs with #[cfg(panic = \"unwind\")] (or skip it when panic=abort), or rewrite it without catch_unwind, then rerun the panic=abort job; the source change itself can stay as is.",
+    "confidence": 0.7
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "read_log_lines",
+    "get_change_summary",
+    "get_run_history",
+    "search_log"
+   ],
+   "repaired": false,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 16,
+   "output_tokens": 2071,
+   "cache_read_tokens": 21847,
+   "cache_write_tokens": 12588,
+   "cost_usd": 0.002829,
+   "latency_s": 9.644,
+   "replayed_calls": 0,
+   "live_calls": 4
+  },
+  {
+   "case_id": "vitejs/vite/jobs/128282520086",
+   "system": "b3",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "unknown",
+    "root_cause": "The 'Build' step failed in packages/vite during the type-declaration build (pnpm build-types-roll && pnpm build-types-check). The log shows the rolldown dts bundle finishing, a patch-types warning about the confusing identifier 'ESTree$1', and then ELIFECYCLE exit code 1 with no explicit error message before pnpm reported ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL. The change under test adds an ESTree type import from 'rolldown/utils' in plugin.ts, which may be related, but the actual error from build-types-check was not captured, so the cause is unconfirmed.",
+    "evidence": [
+     {
+      "job_id": 128282520086,
+      "line": 311,
+      "text": "(patch-types plugin) index.d.ts contains confusing identifier names"
+     },
+     {
+      "job_id": 128282520086,
+      "line": 312,
+      "text": "packages/vite build: - ESTree$1"
+     },
+     {
+      "job_id": 128282520086,
+      "line": 319,
+      "text": "packages/vite build: [ELIFECYCLE] Command failed with exit code 1."
+     },
+     {
+      "job_id": 128282520086,
+      "line": 323,
+      "text": "Error: ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Re-run the Build step locally with 'pnpm --filter vite build-types-roll && pnpm --filter vite build-types-check' to capture the real type error; if it points at the new ESTree import in packages/vite/src/node/plugin.ts, fix that type import.",
+    "confidence": 0.3
+   },
+   "errors": [],
+   "steps": 7,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "search_log",
+    "get_change_summary",
+    "search_log",
+    "get_run_history",
+    "read_log_lines",
+    "search_log",
+    "search_similar_failures"
+   ],
+   "repaired": true,
+   "evidence_total": 4,
+   "evidence_valid": 4,
+   "input_tokens": 28,
+   "output_tokens": 2590,
+   "cache_read_tokens": 49398,
+   "cache_write_tokens": 12994,
+   "cost_usd": 0.003416,
+   "latency_s": 12.406,
+   "replayed_calls": 0,
+   "live_calls": 7
+  },
+  {
+   "case_id": "vitejs/vite/jobs/128437640991",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "flaky",
+    "root_cause": "The failing test is playground/hmr-full-bundle-mode 'never-executed accept falls back to a full reload', which timed out in expect.poll ('Matcher did not succeed in time') while expecting 'dead-accept' and receiving 'dead-accept-updated'. The only changed file, packages/vite/src/node/utils.ts, touches Windows-only realpath logic, and this job runs on ubuntu-latest where the code path is unchanged, so the change is unlikely to be the cause. This looks like timing-dependent HMR polling, similar to a previously seen flaky HMR case, but the run history does not show this job failing before, so the evidence is not conclusive.",
+    "evidence": [
+     {
+      "job_id": 128437640991,
+      "line": 538,
+      "text": "FAIL  playground/hmr-full-bundle-mode/__tests__/hmr-full-bundle-mode.spec.ts > never-executed accept falls back to a full reload"
+     },
+     {
+      "job_id": 128437640991,
+      "line": 539,
+      "text": "AssertionError: expected 'dead-accept-updated' to be 'dead-accept' // Object.is equality"
+     },
+     {
+      "job_id": 128437640991,
+      "line": 552,
+      "text": "Caused by: Error: Matcher did not succeed in time."
+     }
+    ],
+    "similar_cases": [
+     "vitejs/vite/jobs/127363289516"
+    ],
+    "next_step": "Re-run the failed job once to check whether it passes on retry; if it fails again, inspect hmr-full-bundle-mode.spec.ts around line 402 for the expect.poll timeout and the dead-accept fixture's update ordering, and confirm the utils.ts change is not reached on Linux.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 1267,
+   "cache_read_tokens": 10719,
+   "cache_write_tokens": 8960,
+   "cost_usd": 0.001862,
+   "latency_s": 6.108,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "vitejs/vite/jobs/128517139145",
+   "system": "b3",
+   "result": {
+    "failure_type": "test_assertion",
+    "cause_class": "flaky",
+    "root_cause": "In the 'Test build' step, the watch test playground/legacy/__tests__/watch/legacy-styles-only-entry-watch.spec.ts ('rebuilds styles only entry on change') failed at line 41 because the re-rendered legacy CSS file was undefined when the test expected '#ffb6c1'. The PR only changes playground/wasm files, which this test does not import, and the same watch test failed on unrelated commits in earlier runs with the same kind of error, so the failure points to timing-dependent watch rebuilds rather than this change; the other 967 tests passed.",
+    "evidence": [
+     {
+      "job_id": 128517139145,
+      "line": 597,
+      "text": "FAIL  playground/legacy/__tests__/watch/legacy-styles-only-entry-watch.spec.ts > rebuilds styles only entry on change"
+     },
+     {
+      "job_id": 128517139145,
+      "line": 598,
+      "text": "AssertionError: the given combination of arguments (undefined and string) is invalid for this assertion."
+     },
+     {
+      "job_id": 128517139145,
+      "line": 610,
+      "text": "Test Files  1 failed | 93 passed | 17 skipped (111)"
+     }
+    ],
+    "similar_cases": [
+     "vitejs/vite/jobs/123930085760",
+     "vitejs/vite/jobs/123948624654"
+    ],
+    "next_step": "Re-run the failed job once to confirm the failure is intermittent; if it recurs, add a wait for the watch rebuild before reading the CSS output in legacy-styles-only-entry-watch.spec.ts and quarantine the test if it stays flaky.",
+    "confidence": 0.7
+   },
+   "errors": [],
+   "steps": 4,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary",
+    "get_run_history",
+    "search_log",
+    "search_similar_failures"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 16,
+   "output_tokens": 1451,
+   "cache_read_tokens": 21252,
+   "cache_write_tokens": 11811,
+   "cost_usd": 0.002416,
+   "latency_s": 6.985,
+   "replayed_calls": 0,
+   "live_calls": 4
+  }
+ ]
+}

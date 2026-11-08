@@ -36,6 +36,10 @@ class Settings(BaseSettings):
     # --- agent budgets (same for every agent system, see PLAN section 10.2) ---
     max_steps: int = 8
     max_input_tokens: int = 60_000
+    # v1: the first measured agent (fails hard when the token budget runs out).
+    # v2: tells the model its remaining budget after each tool round, and forces a tool-free final
+    #     answer before the budget runs out; similar past cases are framed as hints.
+    prompt_version: str = "v2"
     excerpt_tokens: int = 4_000
 
     # --- paths ---

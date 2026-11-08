@@ -1,0 +1,239 @@
+{
+ "run_id": "20261108-035610-b2-dev-sonnet-smoke",
+ "system": "b2",
+ "system_desc": "agent with tools",
+ "split": "dev",
+ "n_cases": 3,
+ "model": "claude-sonnet-5-5",
+ "effort": "medium",
+ "prompt_version": "v2",
+ "prompt_hash": "ebd1f439a229",
+ "tools_hash": "c9536370476d",
+ "dataset_hash": "af896da81609",
+ "labels": {
+  "verified": 0,
+  "ai_drafted_unverified": 3
+ },
+ "budgets": {
+  "max_steps": 8,
+  "max_input_tokens": 60000,
+  "excerpt_tokens": 4000
+ },
+ "tools_transport": "direct",
+ "repeat": 0,
+ "commit": "2b6184f-dirty",
+ "date": "2026-11-08T03:56:10+00:00",
+ "metrics": {
+  "n": 3,
+  "answered": 3,
+  "coverage_B": 0.6666666666666666,
+  "axis_A": {
+   "n": 3,
+   "correct": 2,
+   "accuracy": 0.6666666666666666,
+   "accuracy_ci95": [
+    0.2076595988078242,
+    0.9385080559790691
+   ],
+   "macro_f1": 0.5,
+   "macro_f1_ci95": [
+    0.0,
+    1.0
+   ],
+   "confident_error_rate": 0.0,
+   "confusion": {
+    "dependency_install": {
+     "ci_infra_or_config": 1
+    },
+    "lint_failure": {
+     "lint_failure": 2
+    }
+   },
+   "per_case_correct": {
+    "aio-libs/aiohttp/jobs/128398488166": false,
+    "aio-libs/aiohttp/jobs/128426954085": true,
+    "aio-libs/aiohttp/jobs/128469232327": true
+   }
+  },
+  "axis_B": {
+   "n": 3,
+   "correct": 2,
+   "accuracy": 0.6666666666666666,
+   "accuracy_ci95": [
+    0.2076595988078242,
+    0.9385080559790691
+   ],
+   "macro_f1": 0.6666666666666666,
+   "macro_f1_ci95": [
+    0.0,
+    1.0
+   ],
+   "confident_error_rate": 0.0,
+   "confusion": {
+    "ci_config": {
+     "unknown": 1
+    },
+    "environment": {
+     "environment": 1
+    },
+    "regression": {
+     "regression": 1
+    }
+   },
+   "per_case_correct": {
+    "aio-libs/aiohttp/jobs/128398488166": true,
+    "aio-libs/aiohttp/jobs/128426954085": true,
+    "aio-libs/aiohttp/jobs/128469232327": false
+   }
+  },
+  "both_correct": 0.3333333333333333,
+  "evidence_validity": 1.0,
+  "evidence_quotes": 7,
+  "repaired": 0,
+  "errors": 0,
+  "cost_usd_mean": 0.025665666666666666,
+  "cost_usd_total": 0.076997,
+  "input_tokens_mean": 15927.333333333334,
+  "latency_p50_s": 5.984,
+  "latency_p95_s": 6.6437,
+  "steps_mean": 2.6666666666666665,
+  "tool_mix": {
+   "get_run_overview": 3,
+   "get_log_excerpt": 3,
+   "get_run_history": 1,
+   "get_change_summary": 1
+  }
+ },
+ "outcomes": [
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128398488166",
+   "system": "b2",
+   "result": {
+    "failure_type": "ci_infra_or_config",
+    "cause_class": "environment",
+    "root_cause": "The Android managed-device test setup (Gradle task :app:maxVersionSetup) failed in cibuildwheel. The AOSP ATD x86_64 system image for API 32 was reported as not installed, and Gradle said the 'maxVersion' image does not exist for this architecture. The PR only bumps filelock, so it is unrelated. The cause is the Android SDK/emulator image or Gradle toolchain on the runner, not a test or the code.",
+    "evidence": [
+     {
+      "job_id": 128398488166,
+      "line": 1335,
+      "text": "WARNING: system-images;android-32;aosp_atd;x86_64 package is not installed."
+     },
+     {
+      "job_id": 128398488166,
+      "line": 1337,
+      "text": "> Task :app:maxVersionSetup FAILED"
+     },
+     {
+      "job_id": 128398488166,
+      "line": 1352,
+      "text": "   > System Image for maxVersion does not exist for this architecture. However it is valid for ARM. This may be intended, but maxVersion cannot be used on this device."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Re-run the job. If it fails again, check whether cibuildwheel 3.4.1 or the Android Gradle plugin changed how the maxVersion managed device is configured. Then pin or adjust the system image source, for example by setting systemImageSource to aosp.",
+    "confidence": 0.6
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_run_history"
+   ],
+   "repaired": false,
+   "evidence_total": 3,
+   "evidence_valid": 3,
+   "input_tokens": 12,
+   "output_tokens": 629,
+   "cache_read_tokens": 11414,
+   "cache_write_tokens": 7725,
+   "cost_usd": 0.027909,
+   "latency_s": 6.717,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128426954085",
+   "system": "b2",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "regression",
+    "root_cause": "The 'Run docs spelling' step failed because Sphinx treats warnings as errors. The new changelog fragment CHANGES/14087.bugfix.rst uses :class:`~aiohttp.AsyncResolver`, and Sphinx can't find that reference target, so it warns. The PR added the fragment.",
+    "evidence": [
+     {
+      "job_id": 128426954085,
+      "line": 542,
+      "text": "/home/runner/work/aiohttp/aiohttp/docs/[towncrier-fragments]:398: WARNING: py:class reference target not found: aiohttp.AsyncResolver [ref.class]"
+     },
+     {
+      "job_id": 128426954085,
+      "line": 544,
+      "text": "build finished with problems, 1 warning (with warnings treated as errors)."
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Fix the reference in CHANGES/14087.bugfix.rst. Either use a target that exists in the docs, such as :class:`aiohttp.resolver.AsyncResolver`, or document AsyncResolver in the docs. Alternatively, add a nitpick_ignore entry for it, then rerun the docs spelling job.",
+    "confidence": 0.85
+   },
+   "errors": [],
+   "steps": 3,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt",
+    "get_change_summary"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 12,
+   "output_tokens": 572,
+   "cache_read_tokens": 10923,
+   "cache_write_tokens": 8306,
+   "cost_usd": 0.028694,
+   "latency_s": 5.984,
+   "replayed_calls": 0,
+   "live_calls": 3
+  },
+  {
+   "case_id": "aio-libs/aiohttp/jobs/128469232327",
+   "system": "b2",
+   "result": {
+    "failure_type": "lint_failure",
+    "cause_class": "unknown",
+    "root_cause": "The 'Backport label added' job is a PR-policy gate. Its github-script step calls process.exit(1) when the PR has no label starting with 'backport'. The log shows no API or runner error, so the PR most likely just lacks a backport label. I did not check the PR's labels or the run history.",
+    "evidence": [
+     {
+      "job_id": 128469232327,
+      "line": 58,
+      "text": "if (!pr.data.labels.find(l => l.name.startsWith(\"backport\")))"
+     },
+     {
+      "job_id": 128469232327,
+      "line": 59,
+      "text": "  process.exit(1);"
+     }
+    ],
+    "similar_cases": [],
+    "next_step": "Add the appropriate backport label to the PR (or the project's no-backport label, if one exists), then re-run the job.",
+    "confidence": 0.5
+   },
+   "errors": [],
+   "steps": 2,
+   "tool_calls": [
+    "get_run_overview",
+    "get_log_excerpt"
+   ],
+   "repaired": false,
+   "evidence_total": 2,
+   "evidence_valid": 2,
+   "input_tokens": 8,
+   "output_tokens": 599,
+   "cache_read_tokens": 3942,
+   "cache_write_tokens": 5440,
+   "cost_usd": 0.020394,
+   "latency_s": 5.325,
+   "replayed_calls": 0,
+   "live_calls": 2
+  }
+ ]
+}

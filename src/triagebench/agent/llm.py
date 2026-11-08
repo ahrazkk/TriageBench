@@ -108,6 +108,7 @@ class LLMClient(Protocol):
         tools: list[dict[str, Any]],
         max_tokens: int | None = None,
         json_schema: dict[str, Any] | None = None,
+        tool_choice: dict[str, Any] | None = None,
     ) -> LLMReply: ...
 
 
@@ -134,6 +135,7 @@ class AnthropicLLM:
         tools: list[dict[str, Any]],
         max_tokens: int | None = None,
         json_schema: dict[str, Any] | None = None,
+        tool_choice: dict[str, Any] | None = None,
     ) -> LLMReply:
         output_config: dict[str, Any] = {"effort": self.effort}
         if json_schema is not None:
@@ -150,6 +152,9 @@ class AnthropicLLM:
         }
         if tools:
             kwargs["tools"] = tools
+        if tool_choice is not None:
+            # {"type": "none"} = the model must answer in text; used for the agent's final turn
+            kwargs["tool_choice"] = tool_choice
         resp = self._client.messages.create(**kwargs)
         if resp.stop_reason == "refusal":
             raise LLMError("the model declined this request (stop_reason=refusal)")
@@ -181,8 +186,15 @@ class FakeLLM:
         tools: list[dict[str, Any]],
         max_tokens: int | None = None,
         json_schema: dict[str, Any] | None = None,
+        tool_choice: dict[str, Any] | None = None,
     ) -> LLMReply:
-        self.calls.append({"system": system, "messages": json.loads(json.dumps(messages))})
+        self.calls.append(
+            {
+                "system": system,
+                "messages": json.loads(json.dumps(messages)),
+                "tool_choice": tool_choice,
+            }
+        )
         if not self.script:
             raise LLMError("FakeLLM script exhausted")
         item = self.script.pop(0)
@@ -211,8 +223,17 @@ class CassetteLLM:
 
     _lock = threading.Lock()
 
-    def __init__(self, inner: LLMClient | None, cassette_dir: Path, replay_only: bool = False):
+    def __init__(
+        self,
+        inner: LLMClient | None,
+        cassette_dir: Path,
+        replay_only: bool = False,
+        repeat: int = 0,
+    ):
         self.inner = inner
+        # Hosted models aren't deterministic, so measuring run-to-run variation needs fresh calls:
+        # repeat k > 0 is part of the request key, giving each repeat its own recordings.
+        self.repeat = repeat
         self.model = inner.model if inner else settings().model
         self.effort = getattr(inner, "effort", settings().effort)
         self.dir = cassette_dir
@@ -230,6 +251,7 @@ class CassetteLLM:
         tools: list[dict[str, Any]],
         max_tokens: int | None = None,
         json_schema: dict[str, Any] | None = None,
+        tool_choice: dict[str, Any] | None = None,
     ) -> LLMReply:
         payload = {
             "system": system,
@@ -238,6 +260,11 @@ class CassetteLLM:
             "max_tokens": max_tokens,
             "json_schema": json_schema,
         }
+        if tool_choice is not None:
+            # Only part of the key when set, so recordings made before it existed still replay.
+            payload["tool_choice"] = tool_choice
+        if self.repeat:
+            payload["repeat"] = self.repeat
         key = request_key(self.model, self.effort, payload)
         path = self._path(key)
         if path.exists():
@@ -246,7 +273,7 @@ class CassetteLLM:
         self.misses += 1
         if self.replay_only or self.inner is None:
             raise CassetteMiss(f"no recording for request {key[:12]} (live eval needed)")
-        reply = self.inner.generate(system, messages, tools, max_tokens, json_schema)
+        reply = self.inner.generate(system, messages, tools, max_tokens, json_schema, tool_choice)
         with self._lock:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(json.dumps(reply.to_json()), encoding="utf-8")

@@ -262,6 +262,7 @@ def eval_cmd(
     tools: Annotated[
         str, typer.Option(help="direct | mcp (agents call tools over MCP)")
     ] = "direct",
+    repeat: Annotated[int, typer.Option(help="repeat index: k > 0 makes fresh model calls")] = 0,
 ) -> None:
     """Run systems on a split and save results/<run_id>.json."""
     from triagebench.evals.run import run_eval
@@ -275,6 +276,7 @@ def eval_cmd(
             tag=tag,
             replay_only=replay_only,
             tools=tools,
+            repeat=repeat,
             echo=typer.echo,
         )
         typer.echo(f"saved {path.relative_to(REPO_ROOT)}")

@@ -40,3 +40,26 @@ Two or three lines per milestone: what surprised us, with the number.
   needs a memory with real repeats, and the prompt must say similar cases are hints, not answers.
 - The 60K input-token budget counts every re-sent turn, so on 100K-line logs an agent that keeps
   searching runs out (1 of 50 for B2, 3 of 50 for B3, where retrieval output adds tokens).
+- Agent v2 (budget-aware loop + "similar cases are hints") turned all 4 budget crashes into
+  answers (the docker/compose case now answers `environment`, correctly, at confidence 0.45).
+  Replaying v1 with `--replay-only` reproduced every v1 number exactly with zero API calls:
+  record/replay makes old results checkable after the code moves on.
+- **The big surprise: noise.** Three identical runs disagree on whether the "why" answer is
+  right for 12–22% of cases. On one run, retrieval looked significantly harmful (0 fixed / 7
+  broken, p = 0.016); over three runs it was 3 / 9, p = 0.146. McNemar assumes each case's
+  outcome is fixed; a non-deterministic model breaks that, so one run understates the noise.
+  Averaged, B2 is best (93% / 84%) but its edge over one call (+8 on axis B) is still p = 0.18.
+- Prompt caching made repeat 2 about half the price of repeat 1 for the same work (B1 $0.0006 vs
+  $0.0013 per triage): the prefix was still cached from minutes earlier. Outputs are still fresh,
+  so repeats remain independent samples.
+- **Model ablation (Sonnet 5.5 vs Haiku 5.5, same agent, 3 runs each):** Sonnet +6 points on axis
+  B (7 fixed / 1 broken, p = 0.07) at ~10× the cost per triage, and far steadier (4% vs 10% of
+  cases flip between runs; 5% vs 13% "unknown"). Bigger models buy consistency before accuracy.
+- **A leak in my own plumbing.** An AI judge reviewing a disagreement noticed the saved PR diff
+  contained a commit made *after* the failure (the fix). The collector compared the PR base with
+  the PR head *at collection time*. 9 of 98 cases; it inflated Haiku's axis B by 2 points (two
+  cases it only got right by peeking). Leakage isn't just a train/test-split problem: any field
+  fetched "now" about a past event can leak. Fixed, pinned with a regression test, re-measured
+  for $0.18 thanks to record/replay.
+- **Label noise ≈ model gaps.** The review flagged 2 of 14 disputed drafts as likely wrong;
+  correcting just those moves scores by up to 2 points. Human label review before more tuning.

@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Any
 
 from triagebench.agent.llm import AnthropicLLM, CassetteLLM, LLMClient
-from triagebench.agent.loop import PROMPT_VERSION, Outcome, load_prompt, prompt_hash, run_agent
+from triagebench.agent.loop import Outcome, load_prompt, prompt_hash, prompt_version, run_agent
 from triagebench.baselines.regex import run_regex
 from triagebench.baselines.single_call import run_single_call
 from triagebench.config import REPO_ROOT, settings
@@ -35,10 +35,10 @@ SYSTEMS = {
 }
 
 
-def make_llm(replay_only: bool = False) -> LLMClient:
+def make_llm(replay_only: bool = False, repeat: int = 0) -> LLMClient:
     s = settings()
     inner = None if replay_only else AnthropicLLM()
-    return CassetteLLM(inner, s.cassette_dir, replay_only=replay_only)
+    return CassetteLLM(inner, s.cassette_dir, replay_only=replay_only, repeat=repeat)
 
 
 def make_system(
@@ -47,10 +47,11 @@ def make_system(
     llm: LLMClient | None = None,
     replay_only: bool = False,
     tools: str = "direct",
+    repeat: int = 0,
 ) -> SystemFn:
     if name == "b0":
         return lambda c: run_regex(c, box)
-    llm = llm or make_llm(replay_only)
+    llm = llm or make_llm(replay_only, repeat)
     if name == "b1":
         return lambda c: run_single_call(c, llm, box)
     if name == "b1-tail":
@@ -118,6 +119,7 @@ def run_eval(
     tag: str = "",
     replay_only: bool = False,
     tools: str = "direct",
+    repeat: int = 0,
     echo: Callable[[str], None] = print,
 ) -> Path:
     s = settings()
@@ -135,7 +137,7 @@ def run_eval(
 
         retriever = Retriever()
     box = Toolbox(CaseStore(all_cases), retriever=retriever, allow_live=False)
-    fn = make_system(system, box, replay_only=replay_only, tools=tools)
+    fn = make_system(system, box, replay_only=replay_only, tools=tools, repeat=repeat)
     if tools == "mcp":
         concurrency = 1  # one MCP session, used sequentially
     echo(f"{system} ({SYSTEMS.get(system)}) on {len(cases)} {split} cases ...")
@@ -152,7 +154,7 @@ def run_eval(
     agent_prompt = load_prompt("agent", RETRIEVAL_STEP="", MAX_STEPS=s.max_steps)
     used = [labels[c.id] for c in cases]
     now = datetime.now(UTC)
-    tag = tag or ("mcp" if tools == "mcp" else "")
+    tag = tag or ("mcp" if tools == "mcp" else "") or (f"r{repeat}" if repeat else "")
     run_id = f"{now:%Y%m%d-%H%M%S}-{system}-{split}" + (f"-{tag}" if tag else "")
     record = {
         "run_id": run_id,
@@ -162,7 +164,7 @@ def run_eval(
         "n_cases": len(cases),
         "model": None if system == "b0" else s.model,
         "effort": None if system == "b0" else s.effort,
-        "prompt_version": PROMPT_VERSION,
+        "prompt_version": prompt_version(),
         "prompt_hash": prompt_hash(agent_prompt, load_prompt("single_call")),
         "tools_hash": prompt_hash(json.dumps(TOOL_SPECS, sort_keys=True)),
         "dataset_hash": dataset_hash(cases, labels),
@@ -176,6 +178,7 @@ def run_eval(
             "excerpt_tokens": s.excerpt_tokens,
         },
         "tools_transport": tools,
+        "repeat": repeat,
         "commit": git_commit(),
         "date": now.isoformat(timespec="seconds"),
         "metrics": metrics,

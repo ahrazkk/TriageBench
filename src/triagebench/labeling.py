@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from datetime import UTC, datetime
+from pathlib import Path
 
 from triagebench.agent.schema import CauseClass, FailureType
 from triagebench.config import settings
@@ -71,6 +72,25 @@ def _draft_rank(notes: str) -> int:
     return 2
 
 
+FLAG_RANK = {"draft_likely_wrong": 0, "ambiguous": 1}
+
+
+def load_flags(path: Path | None = None) -> dict[str, str]:
+    """case_id -> flag from independent AI reviews (data/label_flags.jsonl). Flags only decide
+    the review order and trigger a neutral warning; they never change a label."""
+    rows = read_jsonl(path or settings().labels_file.parent / "label_flags.jsonl")
+    return {r["case_id"]: r["flag"] for r in rows}
+
+
+def review_order(cases: list[Case], labels: dict[str, Label], flags: dict[str, str]) -> list[Case]:
+    """Disputed drafts first, then low- and medium-confidence drafts, then the rest."""
+    todo = [c for c in cases if c.id in labels and not labels[c.id].verified]
+    return sorted(
+        todo,
+        key=lambda c: (FLAG_RANK.get(flags.get(c.id, ""), 2), _draft_rank(labels[c.id].notes)),
+    )
+
+
 def review(
     cases: list[Case],
     store: CaseStore,
@@ -80,13 +100,15 @@ def review(
 ) -> int:
     """Accept/correct unverified labels one by one. Returns how many were verified."""
     labels = load_labels()
-    todo = [c for c in cases if c.id in labels and not labels[c.id].verified]
-    # Hardest first: drafts whose notes say "low" confidence, then "medium", then the rest.
-    todo.sort(key=lambda c: _draft_rank(labels[c.id].notes))
+    flags = load_flags()
+    todo = review_order(cases, labels, flags)
     done = 0
     for i, c in enumerate(todo, 1):
         lab = labels[c.id]
         show(render_pack(c, store))
+        if flags.get(c.id) in FLAG_RANK:
+            # Deliberately neutral: don't say which label the reviewers preferred (no anchoring).
+            show("\n!!! Independent AI reviewers questioned this draft label. Check it carefully.")
         show(
             f"\n--- draft label ({i}/{len(todo)}, by {lab.labeller}) ---\n"
             f"failure_type: {lab.failure_type}\ncause_class:  {lab.cause_class}\n"

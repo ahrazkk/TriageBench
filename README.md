@@ -47,30 +47,41 @@ Design choices worth knowing (details and reasons in [docs/design/M0-M6.md](docs
 
 ## Results so far (preliminary)
 
-50 dev failures from 18 public repos; Claude Haiku 5.5; labels AI-drafted and not yet
-human-verified (2026-11-08):
+50 dev failures from 18 public repos; prompt v2; each LLM system run 3 times (fresh model calls);
+labels AI-drafted and not yet human-verified (2026-11-08):
 
-| System | Axis A: what failed [95% CI] | Axis B: why [95% CI] | Evidence verified | Cost / triage | Latency P50 |
+| System | Model | What failed, mean (range) | Why, mean (range) | "Why" flips between runs | Cost / triage |
 |---|---|---|---|---|---|
-| B0 regex rules | 42.0% [29.4–55.8%] | 30.0% [19.1–43.8%] | 100% | $0 | 0.1 s |
-| B1 single LLM call | 88.0% [76.2–94.4%] | 76.0% [62.6–85.7%] | 100% | $0.0013 | 4.8 s |
-| B2 agent with tools | **92.0%** [81.2–96.8%] | **80.0%** [67.0–88.8%] | 100% | $0.0023 | 7.3 s |
-| B3 agent + retrieval | 88.0% [76.2–94.4%] | 72.0% [58.3–82.5%] | 100% | $0.0025 | 8.5 s |
+| B0 regex rules | — | 42.0% | 30.0% | — | $0 |
+| B1 single LLM call | Haiku 5.5 | 89.3% (88–90%) | 74.7% (74–76%) | 24% of cases | $0.0011 |
+| **B2 agent with tools** | Haiku 5.5 | **93.3%** (92–94%) | 82.0% (80–84%) | 10% | $0.0021 |
+| B3 agent + retrieval | Haiku 5.5 | 91.3% (90–92%) | 78.7% (76–82%) | 16% | $0.0025 |
+| B2 agent with tools | Sonnet 5.5 | 91.3% (88–94%) | **88.0%** (86–90%) | **4%** | $0.0214 |
 
-What it shows, with paired McNemar tests on the same cases:
+What it shows (paired McNemar tests on each case's average over its 3 runs):
 
-- **The LLM is the big win:** B1 beats the rules by 46 points on both axes (p < 0.001).
-- **The agent's +4 points over one call is not significant at N = 50** (p = 0.63 and 0.75). The
-  6 cases it fixed are exactly the ones where the deciding line was cut from the excerpt or the
-  diff was needed; it also broke 4.
-- **Retrieval didn't help yet** (−8 points on axis B, p = 0.29). Across 18 repos, past failures
-  rarely repeat within a month: the nearest past case shares the true cause only ~24–34% of the
-  time, and once it steered the agent to a wrong label.
+- **The LLM is the big win:** one call beats the rules by ~45 points on both axes (p < 0.001).
+- **The agent is best on "what failed", but its edge over one call isn't proven at N = 50**
+  (+7.3 points on "why", 11 cases fixed / 5 broken, p = 0.21). The cases it fixes are the ones
+  where the deciding log line was cut from the excerpt or the diff was needed.
+- **A bigger model helps a little and is much steadier, for 10× the price:** Sonnet 5.5 +6 points
+  on "why" (7 fixed / 1 broken, p = 0.07), and only 4% of its answers flip between runs.
+- **Retrieval didn't help** (−3.3 points vs the agent, p = 0.51): across 18 repos, past failures
+  rarely repeat within a month.
+- **One run can lie.** On a single run retrieval once looked *significantly* harmful (p = 0.016);
+  over three runs it wasn't.
+- **A leak, found and fixed.** An AI reviewer noticed that for some pull-request runs the saved
+  diff included commits pushed *after* the failure (sometimes the fix). Fixed in the collector
+  with a regression test, 9 cases re-snapshotted, everything re-measured: it had inflated the
+  agent's "why" score by 2 points.
+- **Labels matter as much as models:** correcting just 2 likely-wrong draft labels moves scores by
+  up to 2 points, as much as the model gaps. Label review comes next.
 - Not one hallucinated quote: every evidence line in every answer matched the log verbatim.
 
 Retrieval alone: HNSW matched exact search on all 50 queries. The MCP server returns
-byte-identical results to direct calls (stdio, ~22 ms per call). The full dev run of B1–B3
-(150 triages) cost $0.30.
+byte-identical results to direct calls (stdio, ~22 ms per call). Everything so far, including
+three runs of every system, the Sonnet comparison and the post-fix re-runs, cost **$4.33** in
+API calls.
 
 ## Dataset
 
@@ -102,7 +113,7 @@ can call the same seven tools ("triage this failed run: <URL>").
 
 ## Tests
 
-`python -m pytest -q`: 36 tests. They cover reducer properties (Hypothesis), the evidence verifier,
+`python -m pytest -q`: 41 tests. They cover reducer properties (Hypothesis), the evidence verifier,
 statistics against known values, the agent loop driven by a scripted fake model (tool errors,
 budgets, repair), the GitHub client against mocked HTTP, the MCP contract (every tool over MCP ==
 direct call), and pgvector leakage (no dev case or same-run case is ever retrievable). CI runs
